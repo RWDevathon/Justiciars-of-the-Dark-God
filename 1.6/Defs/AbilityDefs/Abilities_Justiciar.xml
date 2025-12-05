@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <AbilityDef>
+        <defName>ABF_Ability_Justiciar_Shadestep</defName>
+        <label>shadestep</label>
+        <description>Step from one shadow to another within view.</description>
+        <iconPath>UI/Abilities/ShadeStep</iconPath>
+        <cooldownTicksRange>600</cooldownTicksRange>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <label>shadestep</label>
+            <violent>false</violent>
+            <warmupTime>0.5</warmupTime>
+            <range>27.9</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_EffectWithDest">
+                <compClass>ArtificialBeings.CompAbilityEffect_Shadestep</compClass>
+                <destination>Selected</destination>
+                <requiresLineOfSight>True</requiresLineOfSight>
+                <range>27.9</range>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>10</clamorRadius>
+                <destClamorType>Ability</destClamorType>
+                <destClamorRadius>10</destClamorRadius>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>ABF_Ability_Justiciar_ConjureDarkness</defName>
+        <label>conjure darkness</label>
+        <description>Conjure a cloud of darkness at a position within view.</description>
+        <iconPath>UI/Abilities/Darkness</iconPath>
+        <cooldownTicksRange>600</cooldownTicksRange>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <label>conjure darkness</label>
+            <violent>false</violent>
+            <warmupTime>0.5</warmupTime>
+            <range>27.9</range>
+            <requireLineOfSight>true</requireLineOfSight>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+                <canTargetPawns>false</canTargetPawns>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_EffectWithDest">
+                <compClass>ArtificialBeings.CompAbilityEffect_ConjureDarkness</compClass>
+                <destination>Selected</destination>
+                <requiresLineOfSight>True</requiresLineOfSight>
+                <range>27.9</range>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>10</clamorRadius>
+                <destClamorType>Ability</destClamorType>
+                <destClamorRadius>10</destClamorRadius>
+            </li>
+        </comps>
+    </AbilityDef>
+
+</Defs>

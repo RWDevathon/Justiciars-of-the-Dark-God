@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <HeadTypeDef>
+        <defName>ABF_HeadType_Justiciar_Barbute</defName>
+        <graphicPath>Things/Pawns/Humanlikes/Justiciar/head/Barbute</graphicPath>
+        <gender>None</gender>
+    </HeadTypeDef>
+
+    <HeadTypeDef>
+        <defName>ABF_HeadType_Justiciar_Kettle</defName>
+        <graphicPath>Things/Pawns/Humanlikes/Justiciar/head/Kettle</graphicPath>
+        <gender>None</gender>
+    </HeadTypeDef>
+
+</Defs>

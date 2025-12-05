@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <RecipeDef>
+        <defName>ABF_Recipe_MakeJusticiar_Temp</defName>
+        <label>Dev: Make Justiciar</label>
+        <description>Not for long</description>
+        <workerClass>ArtificialBeings.RecipeWorker_MakeJusticiar</workerClass>
+        <jobString>Raising Justiciar.</jobString>
+        <workAmount>50</workAmount>
+        <effectWorking>CutStone</effectWorking>
+        <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+        <recipeUsers>
+            <li>TableStonecutter</li>
+        </recipeUsers>
+    </RecipeDef>
+
+</Defs>

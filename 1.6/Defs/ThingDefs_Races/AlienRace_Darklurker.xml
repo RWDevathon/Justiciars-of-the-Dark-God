@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<AlienRace.ThingDef_AlienRace ParentName="ABF_Thing_Justiciar_BasePawn">
+		<defName>ABF_Thing_Justiciar_DarkLurker</defName>
+		<label>justiciar dark lurker</label>
+		<description>This is naught but a yawning black nothingness within an empty suit of armor that acts on behalf of an unknowable force, and yet it retains a sense of self. It has neither mind nor body, and yet it thinks, and feels, and acts. It is an echo of a once-living person. It is the servant of the Dark God. It will serve whether it wants to or not: Pain and suffering are fuel, and it matters not to the Dark God whether it is at the expense of this shell or at the expense of this shell's victims that pain is extracted.\n\nThis justiciar earned its status as a dark lurker. Dark lurkers are better suited to melee combat and utilizing abilities to sow chaos and terror among the foes of the Dark God.</description>
+		<alienRace>
+            <generalSettings>
+                <abilities>
+                    <li>ABF_Ability_Justiciar_ConjureDarkness</li>
+                </abilities>
+                <alienPartGenerator>
+					<headTypes Inherit="False">
+                        <li>ABF_HeadType_Justiciar_Barbute</li>
+                    </headTypes>
+                    <bodyTypes Inherit="False">
+                        <li>ABF_BodyType_Justiciar_ElegantPlate</li>
+                    </bodyTypes>
+                </alienPartGenerator>
+            </generalSettings>
+		</alienRace>
+		<statBases>
+            <MeleeHitChance>4</MeleeHitChance>
+            <MeleeDodgeChance>8</MeleeDodgeChance>
+            <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+		</statBases>
+        <tools>
+            <li>
+                <label>left gauntlet</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9.6</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <li>
+                <label>right gauntlet</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9.6</power>
+                <cooldownTime>2</cooldownTime>
+                <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>14</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+        </tools>
+		<modExtensions>
+            <li Class="ArtificialBeings.ABF_ArtificialPawnExtension">
+                <canBeDrone>false</canBeDrone>
+                <canBeReprogrammable>false</canBeReprogrammable>
+                <blacklistedNeeds>
+                    <li>DrugDesire</li>
+                    <li MayRequire="Dubwise.DubsBadHygiene">Hygiene</li>
+                    <li MayRequire="Dubwise.DubsBadHygiene">Bladder</li>
+                    <li MayRequire="Dubwise.DubsBadHygiene">DBHThirst</li>
+                    <li>Comfort</li>
+                </blacklistedNeeds>
+                <onlyUseRaceRestrictedMedicine>true</onlyUseRaceRestrictedMedicine>
+            </li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+
+</Defs>

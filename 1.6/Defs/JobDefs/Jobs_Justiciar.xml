@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_Raise</defName>
+        <driverClass>ArtificialBeings.JobDriver_RaiseJusticiar</driverClass>
+        <reportString>Raising justiciar.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>

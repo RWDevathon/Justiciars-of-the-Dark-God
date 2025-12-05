@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef>
+        <defName>ABF_Thing_BlackVeil</defName>
+        <label>black veil</label>
+        <thingClass>ArtificialBeings.BlackVeil</thingClass>
+        <category>Ethereal</category>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <texPath>Things/Mote/Transparent</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+    </ThingDef>
+
+</Defs>

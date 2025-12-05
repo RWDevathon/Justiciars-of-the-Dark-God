@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Surgery to paint a justiciar -->
+	<RecipeDef>
+		<defName>ABF_Recipe_Justiciar_Paint</defName>
+		<label>paint justiciar</label>
+		<description>Repaints the justiciar's armor.</description>
+		<workerClass>ArtificialBeings.Recipe_PaintUnit</workerClass>
+        <targetsBodyPart>false</targetsBodyPart>
+		<jobString>Painting justiciar.</jobString>
+        <effectWorking>Repair</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <workSpeedStat>ABF_Stat_Artificial_OperationSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+        <workSkillLearnFactor>0</workSkillLearnFactor>
+        <anesthetize>false</anesthetize>
+        <recipeUsers>
+            <li>ABF_Thing_Justiciar_DarkLurker</li>
+            <li>ABF_Thing_Justiciar_SoulHunter</li>
+        </recipeUsers>
+		<workAmount>200</workAmount>
+	</RecipeDef>
+
+</Defs>

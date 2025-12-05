@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- This trait currently does little, but will be responsible for more in later updates. -->
+    <TraitDef>
+        <defName>ABF_Trait_Justiciar_Adherent</defName>
+        <commonality>0.0</commonality>
+        <degreeDatas>
+            <li>
+                <label>justiciar</label>
+                <description>{PAWN_nameDef} has pledged eternal loyalty to the Dark God and has been seen as worthy of recognition.</description>
+                <allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+                </statFactors>
+            </li>
+        </degreeDatas>
+    </TraitDef>
+
+</Defs>
