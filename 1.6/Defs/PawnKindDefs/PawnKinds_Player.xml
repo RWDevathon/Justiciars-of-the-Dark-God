@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
-    <PawnKindDef Name="ABF_PawnKind_Justiciar_Base" Abstract="True">
+    <!--
+    These PawnKindDefs serve as templates to be used for the Dark Lurker and Soul Hunter paths.
+    Currently, only forced traits, starting hediffs, and fixed childhood/adulthood backtories are used, and this is not extensible. That may change in the future.
+    -->
+
+    <PawnKindDef Name="ABF_PawnKind_Justiciar_Base" ParentName="BasePlayerPawnKind" Abstract="True">
         <defaultFactionDef>PlayerColony</defaultFactionDef>
-        <combatPower>30</combatPower>
-        <isFighter>false</isFighter>
-        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
-        <forceNormalGearQuality>true</forceNormalGearQuality>
-        <initialWillRange>0~0</initialWillRange>
+        <fixedChildBackstories>
+            <li>ABF_Backstory_Justiciar_Childhood_Risen</li>
+        </fixedChildBackstories>
+        <fixedAdultBackstories>
+            <li>ABF_Backstory_Justiciar_Adulthood_Risen</li>
+        </fixedAdultBackstories>
         <initialResistanceRange>13~21</initialResistanceRange>
-        <forcedTraits>
-            <ABF_Trait_Justiciar_Adherent />
-        </forcedTraits>
-        <modExtensions>
-            <li Class="ArtificialBeings.ABF_ArtificialPawnKindExtension">
-                <pawnState>Sapient</pawnState>
-            </li>
-        </modExtensions>
     </PawnKindDef>
 
     <PawnKindDef ParentName="ABF_PawnKind_Justiciar_Base">
         <defName>ABF_PawnKind_Justiciar_Player_DarkLurker</defName>
         <label>dark lurker</label>
-        <race>ABF_Thing_Justiciar_DarkLurker</race>
-		<backstoryFiltersOverride>
-            <li>
-                <categories>
-                    <li>ABF_SpawnCategory_Justiciar_Risen</li>
-                </categories>
-            </li>
-		</backstoryFiltersOverride>
+        <forcedTraits>
+            <ABF_Trait_Justiciar_Adherent>1</ABF_Trait_Justiciar_Adherent>
+        </forcedTraits>
         <startingHediffs>
             <li>
                 <def>ABF_Hediff_Justiciar_DarkLurker</def>
@@ -41,14 +33,9 @@
     <PawnKindDef ParentName="ABF_PawnKind_Justiciar_Base">
         <defName>ABF_PawnKind_Justiciar_Player_SoulHunter</defName>
         <label>soul hunter</label>
-        <race>ABF_Thing_Justiciar_SoulHunter</race>
-		<backstoryFiltersOverride>
-            <li>
-                <categories>
-                    <li>ABF_SpawnCategory_Justiciar_Risen</li>
-                </categories>
-            </li>
-		</backstoryFiltersOverride>
+        <forcedTraits>
+            <ABF_Trait_Justiciar_Adherent>2</ABF_Trait_Justiciar_Adherent>
+        </forcedTraits>
         <startingHediffs>
             <li>
                 <def>ABF_Hediff_Justiciar_SoulHunter</def>

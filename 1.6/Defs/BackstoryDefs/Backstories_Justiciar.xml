@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<BackstoryDef>
+		<defName>ABF_Backstory_Justiciar_Childhood_Risen</defName>
+		<title>acolyte</title>
+		<titleShort>acolyte</titleShort>
+		<baseDesc>{PAWN_nameDef} had a childhood, but no longer lets it define {PAWN_objective}. It no longer matters. {PAWN_nameDef} became a justiciar - that is all that matters.</baseDesc>
+		<slot>Childhood</slot>
+        <shuffleable>false</shuffleable>
+	</BackstoryDef>
+
+    <BackstoryDef>
+		<defName>ABF_Backstory_Justiciar_Adulthood_Risen</defName>
+		<title>dark justiciar</title>
+		<titleShort>justiciar</titleShort>
+		<baseDesc>{PAWN_nameDef} is a dark justiciar. The Dark God blessed {PAWN_objective} with power and demands unflinching loyalty in return. Nothing is beneath {PAWN_nameDef} if the Dark God commands it.</baseDesc>
+		<slot>Adulthood</slot>
+        <bodyTypeMale>Male</bodyTypeMale>
+		<bodyTypeFemale>Female</bodyTypeFemale>
+        <shuffleable>false</shuffleable>
+	</BackstoryDef>
+
+</Defs>

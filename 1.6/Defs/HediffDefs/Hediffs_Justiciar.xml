@@ -5,12 +5,14 @@
         <defName>ABF_Hediff_Justiciar_DarkLurker</defName>
         <hediffClass>ArtificialBeings.Hediff_Justiciar</hediffClass>
         <label>shadesoul</label>
-        <description>Sensitivity to the current level of light that this dark lurker is exposed to.</description>
+        <description>Justiciars are naturally sensitive to the level of light they are exposed to. In darkness, they feel invigorated and close to the Dark God and its power - encouraging them to do everything better even if it is not actually aiding them. In bright light, however, they feel uncomfortable and disoriented, which leads to costly mistakes and vulnerability.\n\nDark lurkers are naturally inclined toward melee combat, and this inclination manifests regardless of light exposure.</description>
         <isBad>false</isBad>
         <stages>
             <li>
                 <label>invigorated</label>
+                <overrideTooltip>Weakened by brightness</overrideTooltip>
                 <statFactors>
+                    <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
                     <MoveSpeed>1.25</MoveSpeed>
                     <WorkSpeedGlobal>1.25</WorkSpeedGlobal>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
@@ -18,21 +20,39 @@
                     <MeleeDodgeChance>2</MeleeDodgeChance>
                     <StaggerDurationFactor>0.5</StaggerDurationFactor>
                 </statFactors>
+                <statOffsets>
+                    <MeleeHitChance>4</MeleeHitChance>
+                    <MeleeDodgeChance>8</MeleeDodgeChance>
+                </statOffsets>
             </li>
             <li>
                 <label>normal</label>
+                <overrideTooltip>Comfortable conditions</overrideTooltip>
                 <minSeverity>0.3</minSeverity>
+                <statFactors>
+                    <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
+                </statFactors>
+                <statOffsets>
+                    <MeleeHitChance>4</MeleeHitChance>
+                    <MeleeDodgeChance>8</MeleeDodgeChance>
+                </statOffsets>
             </li>
             <li>
                 <label>debilitated</label>
+                <overrideTooltip>Weakened by brightness</overrideTooltip>
                 <minSeverity>0.71</minSeverity>
                 <statFactors>
+                    <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
                     <MoveSpeed>0.8</MoveSpeed>
                     <WorkSpeedGlobal>0.8</WorkSpeedGlobal>
                     <IncomingDamageFactor>1.5</IncomingDamageFactor>
                     <MeleeDodgeChance>0.5</MeleeDodgeChance>
                     <StaggerDurationFactor>1.5</StaggerDurationFactor>
                 </statFactors>
+                <statOffsets>
+                    <MeleeHitChance>4</MeleeHitChance>
+                    <MeleeDodgeChance>8</MeleeDodgeChance>
+                </statOffsets>
             </li>
         </stages>
     </HediffDef>
@@ -41,33 +61,53 @@
         <defName>ABF_Hediff_Justiciar_SoulHunter</defName>
         <hediffClass>ArtificialBeings.Hediff_Justiciar</hediffClass>
         <label>shadesoul</label>
-        <description>Sensitivity to the current level of light that this soul hunter is exposed to.</description>
+        <description>Justiciars are naturally sensitive to the level of light they are exposed to. In darkness, they feel invigorated and close to the Dark God and its power - encouraging them to do everything better even if it is not actually aiding them. In bright light, however, they feel uncomfortable and disoriented, which leads to costly mistakes and vulnerability.\n\nSoul hunters are naturally inclined toward ranged combat, and this inclination manifests regardless of light exposure.</description>
         <isBad>false</isBad>
         <stages>
             <li>
                 <label>invigorated</label>
+                <overrideTooltip>Empowered by darkness</overrideTooltip>
                 <statFactors>
+                    <RangedCooldownFactor>0.8</RangedCooldownFactor>
+                    <AimingDelayFactor>0.8</AimingDelayFactor>
                     <MoveSpeed>1.25</MoveSpeed>
                     <WorkSpeedGlobal>1.25</WorkSpeedGlobal>
                     <IncomingDamageFactor>0.5</IncomingDamageFactor>
                     <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
                     <StaggerDurationFactor>0.5</StaggerDurationFactor>
                 </statFactors>
+                <statOffsets>
+                    <ShootingAccuracyPawn>6</ShootingAccuracyPawn>
+                </statOffsets>
             </li>
             <li>
                 <label>normal</label>
+                <overrideTooltip>Comfortable conditions</overrideTooltip>
                 <minSeverity>0.3</minSeverity>
+                <statFactors>
+                    <RangedCooldownFactor>0.8</RangedCooldownFactor>
+                    <AimingDelayFactor>0.8</AimingDelayFactor>
+                </statFactors>
+                <statOffsets>
+                    <ShootingAccuracyPawn>6</ShootingAccuracyPawn>
+                </statOffsets>
             </li>
             <li>
                 <label>debilitated</label>
+                <overrideTooltip>Weakened by brightness</overrideTooltip>
                 <minSeverity>0.71</minSeverity>
                 <statFactors>
+                    <RangedCooldownFactor>0.8</RangedCooldownFactor>
+                    <AimingDelayFactor>0.8</AimingDelayFactor>
                     <MoveSpeed>0.8</MoveSpeed>
                     <WorkSpeedGlobal>0.8</WorkSpeedGlobal>
                     <IncomingDamageFactor>1.5</IncomingDamageFactor>
                     <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
                     <StaggerDurationFactor>1.5</StaggerDurationFactor>
                 </statFactors>
+                <statOffsets>
+                    <ShootingAccuracyPawn>6</ShootingAccuracyPawn>
+                </statOffsets>
             </li>
         </stages>
     </HediffDef>

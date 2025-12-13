@@ -15,7 +15,7 @@ namespace ArtificialBeings
         private readonly int[] angles = new int[4];
         private readonly int[] rotationRates = new int[4];
 
-        public int ticksLeft = 1000;
+        public int ticksLeft = 2400;
 
         public float Radius
         {

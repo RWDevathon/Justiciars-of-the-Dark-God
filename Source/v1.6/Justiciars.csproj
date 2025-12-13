@@ -32,14 +32,6 @@
       <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="AlienRace">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\839005762\1.5\Assemblies\AlienRace.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Artificial Beings Framework">
-      <HintPath>..\..\..\Artificial Beings Framework\1.6\Assemblies\Artificial Beings Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -180,6 +172,7 @@
     <Compile Include="Components\AbilityEffects\CompAbilityEffect_ConjureDarkness.cs" />
     <Compile Include="Components\AbilityEffects\CompAbilityEffect_Shadestep.cs" />
     <Compile Include="Components\MapComponents\MapComponent_DarknessGrid.cs" />
+    <Compile Include="DefOfs\JDG_BackstoryDefOf.cs" />
     <Compile Include="DefOfs\JDG_TraitDefOf.cs" />
     <Compile Include="DefOfs\JDG_JobDefOf.cs" />
     <Compile Include="DefOfs\JDG_ThingDefOf.cs" />

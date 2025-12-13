@@ -6,13 +6,41 @@
         <defName>ABF_Trait_Justiciar_Adherent</defName>
         <commonality>0.0</commonality>
         <degreeDatas>
+            <!-- Catch-all case and for unspecialized. -->
             <li>
                 <label>justiciar</label>
                 <description>{PAWN_nameDef} has pledged eternal loyalty to the Dark God and has been seen as worthy of recognition.</description>
+                <degree>0</degree>
                 <allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
                 <statFactors>
                     <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
                 </statFactors>
+            </li>
+            <!-- Dark lurkers -->
+            <li>
+                <label>justiciar</label>
+                <description>{PAWN_nameDef} pledged eternal loyalty to the Dark God and serves as a harbinger of its shadows.</description>
+                <degree>1</degree>
+                <allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+                </statFactors>
+                <abilities>
+                    <li>ABF_Ability_Justiciar_ConjureDarkness</li>
+                </abilities>
+            </li>
+            <!-- Soul hunters -->
+            <li>
+                <label>justiciar</label>
+                <description>{PAWN_nameDef} pledged eternal loyalty to the Dark God and serves as an executioner of its victims.</description>
+                <degree>2</degree>
+                <allowedMeditationFocusTypes><li>Morbid</li></allowedMeditationFocusTypes>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+                </statFactors>
+                <abilities>
+                    <li>ABF_Ability_Justiciar_Shadestep</li>
+                </abilities>
             </li>
         </degreeDatas>
     </TraitDef>

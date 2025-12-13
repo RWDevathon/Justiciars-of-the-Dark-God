@@ -74,10 +74,9 @@ namespace ArtificialBeings
 
         private void FinalizeChoice(PawnKindDef justiciarChoice)
         {
-            Pawn justiciar = JDG_Utils.GenerateJusticiarFor(pawn, justiciarChoice);
-            justiciar.SetFactionDirect(Faction.OfPlayer);
-            GenSpawn.Spawn(justiciar, spawnPosition, spawnMap);
-            justiciar.drafter.Drafted = true; // Try to keep the justiciar still on spawn so they don't immediately run off.
+            JDG_Utils.ConvertIntoJusticiar(pawn, justiciarChoice);
+            ResurrectionUtility.TryResurrect(pawn);
+            pawn.drafter.Drafted = true; // Try to keep the justiciar still on spawn so they don't immediately run off.
             Close();
         }
     }

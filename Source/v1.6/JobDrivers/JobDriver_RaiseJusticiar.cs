@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
@@ -30,8 +31,17 @@ namespace ArtificialBeings
             Toil raiseJusticiar = ToilMaker.MakeToil("MakeNewToils");
             raiseJusticiar.initAction = delegate
             {
-                Find.WindowStack.Add(new Dialog_RaiseJusticiar(Corpse.InnerPawn, Corpse.Position, Corpse.Map));
-                Corpse.Destroy();
+                Pawn justiciar = Corpse.InnerPawn;
+                // If the new justiciar has no path selected, they must choose one. If they have a path already, just revive them.
+                if (!(justiciar.story.traits.GetTrait(JDG_TraitDefOf.ABF_Trait_Justiciar_Adherent) is Trait adherentTrait) || adherentTrait.Degree == 0)
+                {
+                    Find.WindowStack.Add(new Dialog_RaiseJusticiar(justiciar, Corpse.Position, Corpse.Map));
+                }
+                else
+                {
+                    ResurrectionUtility.TryResurrect(justiciar);
+                    justiciar.drafter.Drafted = true; // Try to keep the justiciar still on spawn so they don't immediately run off.
+                }
             };
             raiseJusticiar.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return raiseJusticiar;

@@ -16,7 +16,7 @@ namespace ArtificialBeings
 
         public override bool TargetThingValid(Thing thing, FloatMenuContext context)
         {
-            if (!(thing is Corpse corpse) || corpse.InnerPawn.Faction != Faction.OfPlayerSilentFail) {
+            if (!(thing is Corpse corpse) || corpse.InnerPawn.Faction != Faction.OfPlayerSilentFail || !corpse.InnerPawn.RaceProps.Humanlike) {
                 return false;
             }
             return base.TargetThingValid(thing, context);
@@ -27,11 +27,6 @@ namespace ArtificialBeings
             if (!(clickedThing is Corpse corpse))
             {
                 return null;
-            }
-
-            if (ABF_Utils.IsArtificial(corpse.InnerPawn))
-            {
-                return new FloatMenuOption("ABF_CannotRaiseArtificial".Translate(corpse.InnerPawn), null);
             }
 
             return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("ABF_RaiseJusticiar".Translate(corpse.InnerPawn.NameShortColored), delegate

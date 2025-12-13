@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>ABF: Justiciars of the Dark God</name>
+	<name>Justiciars of the Dark God</name>
     <author>Killathon</author>
     <supportedVersions>
 		<li>1.6</li>
     </supportedVersions>
     <modDependencies>
         <li>
-            <packageId>Killathon.ArtificialBeings</packageId>
-            <displayName>Artificial Beings Framework</displayName>
-            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3284097810</steamWorkshopUrl>
-            <downloadUrl>https://github.com/RWDevathon/Artificial-Beings-Framework</downloadUrl>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+            <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
         </li>
     </modDependencies>
     <packageId>Killathon.ArtificialBeings.JusticiarsOfTheDarkGod</packageId>
     <loadAfter>
-        <li>Killathon.ArtificialBeings</li>
+        <li>brrainz.harmony</li>
     </loadAfter>
     <description><![CDATA[The Dark God beckons. Accept its embrace. Become a Justiciar.]]></description>
 </ModMetaData>
