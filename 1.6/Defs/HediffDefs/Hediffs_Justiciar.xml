@@ -10,7 +10,7 @@
         <stages>
             <li>
                 <label>invigorated</label>
-                <overrideTooltip>Weakened by brightness</overrideTooltip>
+                <overrideTooltip>Empowered by darkness</overrideTooltip>
                 <statFactors>
                     <MeleeCooldownFactor>0.8</MeleeCooldownFactor>
                     <MoveSpeed>1.25</MoveSpeed>
