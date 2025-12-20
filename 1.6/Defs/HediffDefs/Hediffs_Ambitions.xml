@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- These Hediffs are trackers for a Justiciar's ambitions, which replace mental breaks. -->
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_ContemplatingMurder</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_ContemplatingMurder</hediffClass>
+        <label>contemplating murder</label>
+        <description>An ambition to commit a murder of true meaning. This justiciar has come to the conclusion that they must end the life of someone of value - or perhaps of multiple of slightly less value.\n\nThis ambition will succeed after personally killing a colonist, a couple of slaves, or a handful of colony animals. Guests, outsiders, and anyone else will not count.\n\nShould the ambition expire before the deed is done, the justiciar will fall into a murderous rage.</description>
+        <descriptionShort>An ambition to commit a murder of true meaning.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete-->
+            <li>
+                <statOffsets>
+                </statOffsets>
+            </li>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>hollow</overrideLabel>
+                <overrideTooltip>Pre-meditated murder can leave one devoid of empathy and strangely serene. The Dark God approves of this callousness.</overrideTooltip>
+                <statOffsets>
+                    <MeleeHitChance>6</MeleeHitChance>
+                    <ShootingAccuracyPawn>6</ShootingAccuracyPawn>
+                    <MentalBreakThreshold>-0.36</MentalBreakThreshold>
+                </statOffsets>
+                <blocksMentalBreaks>true</blocksMentalBreaks>
+                <blocksInspirations>true</blocksInspirations>
+                <painFactor>0.25</painFactor>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>600000</expirationTicks> <!-- 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_EndureSuffering</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_EndureSuffering</hediffClass>
+        <label>contemplating murder</label>
+        <description>An ambition to withstand agonizing pain. This justiciar understands that pain fuels the one true god just as well as any other form of service, and feels compelled to offer up pain as tribute.\n\nThis ambition will succeed once the ambition expires if the justiciar has had at least 50% pain for 50% of the duration.\n\nShould the ambition expire without the justiciar having suffered sufficient pain, the justiciar will fall into a berserk rage.</description>
+        <descriptionShort>An ambition to withstand agonizing pain.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete-->
+            <li>
+                <statOffsets>
+                    <PainShockThreshold>0.1</PainShockThreshold>
+                </statOffsets>
+            </li>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>stalwart</overrideLabel>
+                <overrideTooltip>To remain unbroken and steadfast in the face of adversity is to build resilience and endurance.</overrideTooltip>
+                <statOffsets>
+                    <PainShockThreshold>0.4</PainShockThreshold>
+                </statOffsets>
+                <statFactors>
+                    <IncomingDamageFactor>0.75</IncomingDamageFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>300000~600000</expirationTicks> <!-- 5 to 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_CravingInspiration</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_CravingInspiration</hediffClass>
+        <label>craving inspiration</label>
+        <description>An ambition to have a reason to absolve oneself of sin. This justiciar wishes to repent of a sin that they do not yet possess, and thus need to find something to absolve themselves of.\n\nThis ambition will succeed when the justiciar has an inspiration.\n\nShould the ambition expire without the justiciar having acquired an inspiration, the justiciar will suffer from crushing despair for a long time.</description>
+        <descriptionShort>An ambition to have a reason to absolve oneself of sin.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete-->
+            <li/>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>guilty</overrideLabel>
+                <overrideTooltip>Guilt is often viewed negatively, but for those who strive for repentance... it is a powerful emotion that is necessary to induce.</overrideTooltip>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.18</MentalBreakThreshold>
+                </statOffsets>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+                </statFactors>
+                <blocksMentalBreaks>true</blocksMentalBreaks>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>1800000~2700000</expirationTicks> <!-- 30 to 45 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_CleansingFury</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_CleansingFury</hediffClass>
+        <label>demanding holy slaughter</label>
+        <description>An ambition to slaughter heretics in the name of the one true god. This justiciar is outraged by the continued existence of the vile heresies of those who live in the light and demands their destruction.\n\nThis ambition will succeed after personally killing ten heretics. It matters not whether these heretics are colonists or outsiders - it matters only that they are not justiciars. Only humanlike individuals count.\n\nShould the ambition expire before enough heretics are slain, the justiciar will fall into a berserking rage.</description>
+        <descriptionShort>An ambition to slaughter heretics in the name of the one true god.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete-->
+            <li>
+                <statOffsets>
+                    <MeleeHitChance>1</MeleeHitChance>
+                    <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+                </statOffsets>
+            </li>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>triumphant</overrideLabel>
+                <overrideTooltip>A sensation of triumph over heresy can encourage greater deeds of violence against it.</overrideTooltip>
+                <statOffsets>
+                    <MeleeHitChance>4</MeleeHitChance>
+                    <ShootingAccuracyPawn>4</ShootingAccuracyPawn>
+                </statOffsets>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>600000</expirationTicks> <!-- 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_Bloodletter</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_Bloodletter</hediffClass>
+        <label>lusting for bloodshed</label>
+        <description>An ambition to spill blood - whether that of others or of oneself. This justiciar has become enthralled by the beauty and simplicity of violence, seeing it as a divine gift.\n\nThis ambition will succeed after dealing or receiving a total of 500 damage. Damage against objects does not count - but this justiciar cares not who or what kind of person or animal is being harmed.\n\nShould the ambition expire before sufficient damage is dealt or taken, the justiciar will fall into a berserking rage.</description>
+        <descriptionShort>An ambition to spill blood - whether that of others or of oneself.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete-->
+            <li>
+                <statOffsets>
+                    <PainShockThreshold>0.1</PainShockThreshold>
+                </statOffsets>
+                <socialFightChanceFactor>2</socialFightChanceFactor>
+            </li>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>blessed by blood</overrideLabel>
+                <overrideTooltip>Being drenched in blood and rejoicing in it is usually a sign of insanity, but to those who savor such things, it is cause for celebration.</overrideTooltip>
+                <statOffsets>
+                    <PainShockThreshold>0.2</PainShockThreshold>
+                    <MentalBreakThreshold>-0.09</MentalBreakThreshold>
+                    <MeleeHitChance>2</MeleeHitChance>
+                    <ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+                </statOffsets>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>600000</expirationTicks> <!-- 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_Adamant</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_Adamant</hediffClass>
+        <label>adamant</label>
+        <description>An ambition to remain stalwart in the face of trials that lie ahead. This justiciar has taken solace in the fact that they remain unbroken in the face of adverse conditions and is determined to remain so to the point of willfully refusing to accept the possibility of faltering.\n\nThis ambition will succeed when it expires, if no other ambition or inspiration was acquired in the mean time.\n\nShould the justiciar acquire a new ambition or inspiration before this ambition expires, they will suffer from a shattered will, leaving them doubtful about their capabilities.</description>
+        <descriptionShort>An ambition to remain stalwart in the face of trials that lie ahead.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete-->
+            <li>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.09</MentalBreakThreshold>
+                </statOffsets>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
+                </statFactors>
+            </li>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>resolutely adamant</overrideLabel>
+                <overrideTooltip>A proven willpower improves confidence.</overrideTooltip>
+                <statOffsets>
+                    <MentalBreakThreshold>-0.18</MentalBreakThreshold>
+                    <NegotiationAbility>0.1</NegotiationAbility>
+                    <SocialImpact>0.1</SocialImpact>
+                    <MeleeHitChance>1</MeleeHitChance>
+                    <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+                </statOffsets>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+                </statFactors>
+                <blocksMentalBreaks>true</blocksMentalBreaks>
+                <blocksInspirations>true</blocksInspirations>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>300000~600000</expirationTicks> <!-- 5 to 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_MeldIntoShadow</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_MeldIntoShadow</hediffClass>
+        <label>obsessed with darkness</label>
+        <description>An ambition to remain in the blissful embrace of the shadows. This justiciar feels emboldened in the shade and vulnerable in the light, and has convinced themselves that they must leverage their strength to the fullest in order to please their deity.\n\nThis ambition will succeed when it expires if the justiciar has spent at least half of their time in low light conditions. If they have not, then they will be overcome with petulant rage at not being permitted to seclude themselves in the shadows and will lash out.</description>
+        <descriptionShort>An ambition to remain in the blissful embrace of the shadows.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete. Has no effects. -->
+            <li/>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>emboldened</overrideLabel>
+                <overrideTooltip>Playing to one's strengths refines them and encourages even greater capability.</overrideTooltip>
+                <statOffsets>
+                    <MeleeHitChance>4</MeleeHitChance>
+                    <ShootingAccuracyPawn>4</ShootingAccuracyPawn>
+                </statOffsets>
+                <statFactors>
+                    <MoveSpeed>1.1</MoveSpeed>
+                    <WorkSpeedGlobal>1.1</WorkSpeedGlobal>
+                </statFactors>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>150000~300000</expirationTicks> <!-- 2.5 to 5 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_DepressiveFixation</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_DepressiveFixation</hediffClass>
+        <label>fixated on despair</label>
+        <description>An ambition to reach the very pits of despair. This justiciar feels distant from their deity and is convinced that they must offer misery up in prayer.\n\nThis ambition will succeed when it expires if the justiciar has spent at least half of their time with a mood below 25%. If they have not, then they will bemoan their woeful lack of conviction and wander around in search of truths that elude them.</description>
+        <descriptionShort>An ambition to reach the very pits of despair.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete. Has no effects. -->
+            <li/>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>enlightened</overrideLabel>
+                <overrideTooltip>Suffering so exquisitely can sharpen the mind, give one a sense of purpose, and harden the spirit.</overrideTooltip>
+                <statOffsets>
+                    <GlobalLearningFactor>0.25</GlobalLearningFactor>
+                    <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+                    <PainShockThreshold>0.1</PainShockThreshold>
+                </statOffsets>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>150000~300000</expirationTicks> <!-- 2.5 to 5 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Ambition_RecruitmentMotivation</defName>
+        <hediffClass>ArtificialBeings.Hediff_Ambition_RecruitmentMotivation</hediffClass>
+        <label>insistent on recruiting a new justiciar</label>
+        <description>An ambition to induct a new justiciar to the faith. This justiciar is appaled that so many souls still don't hold the same deity in their hearts, and desperately wishes to rectify this sad state of affairs.\n\nThis ambition will succeed when the pawn successfully raises a new justiciar. Note that raising a deceased justiciar does not qualify - it must be a new justiciar.\n\nShould this ambition expire before a new justiciar is anointed, this person will mourn the lost souls and wander aimlessly in contemplation for a time.</description>
+        <descriptionShort>An ambition to induct a new justiciar to the faith.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- Default state while ambition is not complete. -->
+            <li>
+                <statOffsets>
+                    <NegotiationAbility>0.1</NegotiationAbility>
+                    <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.1</SuppressionPower>
+                    <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.1</ConversionPower>
+                    <SocialImpact>0.1</SocialImpact>
+                    <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1</SocialIdeoSpreadFrequencyFactor>
+                </statOffsets>
+            </li>
+            <!-- Success state -->
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <overrideLabel>exultant</overrideLabel>
+                <overrideTooltip>Saving a soul from the ignominy of heretical ignorance can inspire even greater acts of charisma.</overrideTooltip>
+                <statOffsets>
+                    <NegotiationAbility>0.2</NegotiationAbility>
+                    <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</SuppressionPower>
+                    <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
+                    <SocialImpact>0.2</SocialImpact>
+                    <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">3</SocialIdeoSpreadFrequencyFactor>
+                </statOffsets>
+                <statFactors>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>450000~900000</expirationTicks> <!-- 7.5 to 15 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+
+</Defs>

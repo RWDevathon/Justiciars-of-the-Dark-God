@@ -112,4 +112,28 @@
         </stages>
     </HediffDef>
 
+    <!-- This hediff is applied by particular failed ambitions/inspirations, but may be applied in other cases as well -->
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_CrushingDespair</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <label>crushing despair</label>
+        <description>An overwhelming sense of dread that is so acute it is almost a physical malady.</description>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>30000~60000</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <statFactors>
+                    <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+                    <ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
+                    <MeleeDodgeChance>0.8</MeleeDodgeChance>
+                    <MeleeHitChance>0.8</MeleeHitChance>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
 </Defs>

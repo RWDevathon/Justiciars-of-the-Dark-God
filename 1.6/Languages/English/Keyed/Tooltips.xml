@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- Used for Justiciar ambitions and inspirations -->
+    <ABF_MentalTrackerTimeRemaining>Expires in: {0}</ABF_MentalTrackerTimeRemaining>
+
+    <!-- Tooltip for ambitions to tell players progress on the success conditions. -->
+    <ABF_InShadowsPercentage>Time spent in darkness: {0}</ABF_InShadowsPercentage>
+    <ABF_PoorMoodPercentage>Time with poor mood: {0}</ABF_PoorMoodPercentage>
+    <ABF_CurrentKillTotal>Total kills: {0}</ABF_CurrentKillTotal>
+    <ABF_CurrentDamageTotal>Total damage: {0}</ABF_CurrentDamageTotal>
+    <ABF_CurrentKillLevel>Kill progress: {0}</ABF_CurrentKillLevel>
+    <ABF_PainPercentage>Time in great pain: {0}</ABF_PainPercentage>
+
+
+</LanguageData>

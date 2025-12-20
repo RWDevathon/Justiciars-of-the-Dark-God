@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <MentalBreakDef Name="ABF_MentalBreak_Justiciar_Base" Abstract="True">
+        <baseCommonality>1</baseCommonality>
+        <requiredTrait>ABF_Trait_Justiciar_Adherent</requiredTrait>
+        <commonalityFactorPerPopulationCurve>
+            <points>
+                <li>(2, 0)</li>
+                <li>(7, 1)</li>
+            </points>
+        </commonalityFactorPerPopulationCurve>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_ContemplatingMurder</defName>
+        <label>contemplate murder</label>
+        <intensity>Extreme</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_ContemplatingMurder</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_EndureSuffering</defName>
+        <label>endure suffering</label>
+        <intensity>Extreme</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_EndureSuffering</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_CravingInspiration</defName>
+        <label>crave inspiration</label>
+        <intensity>Extreme</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition_NoneInProgress</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_CravingInspiration</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_CleansingFury</defName>
+        <label>demand holy slaughter</label>
+        <intensity>Major</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_CleansingFury</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_Bloodletter</defName>
+        <label>lust for bloodshed</label>
+        <intensity>Major</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_Bloodletter</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_Adamant</defName>
+        <label>become adamant</label>
+        <intensity>Major</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition_NoneInProgress</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_Adamant</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_MeldIntoShadow</defName>
+        <label>obsess over darkness</label>
+        <intensity>Minor</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_MeldIntoShadow</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_DepressiveFixation</defName>
+        <label>fixate on despair</label>
+        <intensity>Minor</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition_NoneInProgress</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_DepressiveFixation</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+    <MentalBreakDef ParentName="ABF_MentalBreak_Justiciar_Base">
+        <defName>ABF_MentalBreak_Justiciar_RecruitmentMotivation</defName>
+        <label>insist on recruiting</label>
+        <intensity>Minor</intensity>
+        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
+                <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_RecruitmentMotivation</associatedHediffDef>
+            </li>
+        </modExtensions>
+    </MentalBreakDef>
+
+</Defs>

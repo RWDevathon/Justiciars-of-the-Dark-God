@@ -36,6 +36,11 @@ namespace ArtificialBeings
                 if (!(justiciar.story.traits.GetTrait(JDG_TraitDefOf.ABF_Trait_Justiciar_Adherent) is Trait adherentTrait) || adherentTrait.Degree == 0)
                 {
                     Find.WindowStack.Add(new Dialog_RaiseJusticiar(justiciar, Corpse.Position, Corpse.Map));
+                    // Raising a brand new justiciar can fulfill an ambition for the person who raised them.
+                    if (pawn.health.hediffSet.TryGetHediff<Hediff_Ambition_RecruitmentMotivation>(out var hediff) && !hediff.complete)
+                    {
+                        hediff.NotifySucceeded();
+                    }
                 }
                 else
                 {

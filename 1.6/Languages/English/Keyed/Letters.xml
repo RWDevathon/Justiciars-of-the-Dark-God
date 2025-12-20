@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <ABF_AmbitionAcquired>{0} has been overwhelmed with fervor!</ABF_AmbitionAcquired>
+    <!-- 0 is the label of the HediffDef associated with the mental break. -->
+    <ABF_AmbitionDetails>{PAWN_pronoun} is {0} and must satisfy this ambition or face consequences!</ABF_AmbitionDetails>
+    <ABF_AmbitionFailed>An ambition was failed</ABF_AmbitionFailed>
+    <ABF_AmbitionSucceeded>An ambition was completed</ABF_AmbitionSucceeded>
+    <ABF_InspirationFailed>An inspiration was failed</ABF_InspirationFailed>
+    <ABF_InspirationSucceeded>An inspiration was completed</ABF_InspirationSucceeded>
+
+    <!-- Elements relating to specific ambitions. Some do not have a fail and/or success message because they are handled by mental states or other letters. -->
+    <ABF_AmbitionFailed_Adamant>{0} was unable to remain in full control of {PAWN_possessive} emotions and succumbed to another roiling wave of fervor - leaving {PAWN_objective} torn and adrift. {PAWN_possessive} confidence is shaken and will need time to recover.</ABF_AmbitionFailed_Adamant>
+    <ABF_AmbitionSucceeded_Adamant>{0} was able to remain in control of {PAWN_possessive} emotions. {PAWN_pronoun} is feeling more confident and capable.</ABF_AmbitionSucceeded_Adamant>
+    <ABF_AmbitionSucceeded_MeldIntoShadow>{0} remained true to {PAWN_possessive} goal by leveraging strength found in shadow. {PAWN_pronoun} is feeling emboldened to hasten the spread of darkness over this benighted world.</ABF_AmbitionSucceeded_MeldIntoShadow>
+    <ABF_AmbitionSucceeded_DepressiveFixation>{0} plunged through the depths of despair and found truth - at least, according to {PAWN_objective}. {PAWN_pronoun} is viewing the world differently and with greater determination.</ABF_AmbitionSucceeded_DepressiveFixation>
+    <ABF_AmbitionSucceeded_RecruitmentMotivation>{0} lured a soul from the agonizing brightness into the pure, blissful darkness - {PAWN_pronoun} loathes the idiom about "bringing into the light" - and is feeling rather proud of themselves. {PAWN_pronoun} is likely to be more confident in conversation for a time, or perhaps just more annoyingly talkative.</ABF_AmbitionSucceeded_RecruitmentMotivation>
+    <ABF_AmbitionSucceeded_Bloodletter>{0} is content with the amount of violence committed. {PAWN_pronoun} is feeling ready for more ambitious battles.</ABF_AmbitionSucceeded_Bloodletter>
+    <ABF_AmbitionSucceeded_CleansingFury>{0} revelled in the slaughter as heretics were purged of their sins through death. {PAWN_pronoun} is excited to continue cleansing this benighted world of its heresies.</ABF_AmbitionSucceeded_CleansingFury>
+    <ABF_AmbitionSucceeded_ContemplatingMurder>{0} is a murderer. {PAWN_pronoun} does not seem bothered by this. In fact, {PAWN_pronoun} is eerily stoic and calm. {PAWN_possessive} gaze is steely and promises death to all.</ABF_AmbitionSucceeded_ContemplatingMurder>
+    <ABF_AmbitionSucceeded_EndureSuffering>{0} has withstood the trial of suffering and emerged intact. {PAWN_pronoun} is unfazed by the trials that lie ahead, and is determined to face them with stubborn resilience.</ABF_AmbitionSucceeded_EndureSuffering>
+    <ABF_AmbitionFailed_CravingInspiration>{0} was unable to find something to atone for - leaving {PAWN_objective} bereft of a justified cause to seek repentance. {PAWN_possessive} is left shaken by the idea that {PAWN_pronoun} is guilty without knowing why, and will not be able to shrug off this diffidence for a long time.</ABF_AmbitionFailed_CravingInspiration>
+    <ABF_AmbitionSucceeded_CravingInspiration>{0} found something to atone for, and is eager to absolve themselves of their sin. {PAWN_pronoun} is guilty and is - strangely enough - proud of this fact.</ABF_AmbitionSucceeded_CravingInspiration>
+
+    <!-- Elements relating to specific inspirations. Some do not have a fail and/or success message because they are handled by mental states or other letters. -->
+    <ABF_InspirationSucceeded_InduceWithdrawal>{0} has suffered the agony of withdrawal for long enough that {PAWN_pronoun} feels like the sin of joy has been purged.</ABF_InspirationSucceeded_InduceWithdrawal>
+    <ABF_InspirationSucceeded_Kinslayer>{0} has sacrificed {PAWN_possessive} kin. The joy {PAWN_pronoun} once felt has been supplanted by a mixture of horror, guilt, and awe. The Dark God approves of all three.</ABF_InspirationSucceeded_Kinslayer>
+    <ABF_InspirationSucceeded_Bondbreaker>{0} has sacrificed someone important to {PAWN_possessive}. Having ripped a soul so precious out of its body for {PAWN_pronoun} deity, {PAWN_pronoun} feels... better. {PAWN_pronoun} feels more free. {PAWN_pronoun} feels closer to the Dark God. Joy, happiness, companionship... such petty things were holding {0} back. But can {PAWN_pronoun} truly live without any such relationships at all?</ABF_InspirationSucceeded_Bondbreaker>
+    <ABF_InspirationSucceeded_VowOfSilence>{0} has remained silent for a full year, and has decided that enough is enough - one cannot silence the world while remaining silent. {PAWN_pronoun} is ready once again to offer up screaming sacrifices to the Dark God.</ABF_InspirationSucceeded_VowOfSilence>
+    <ABF_InspirationSucceeded_EmbraceScarcity>{0} has experienced what scarcity truly feels like, and finds comfort in this. {PAWN_pronoun} is certain that this world, while disgustingly abundant, may yet still be saved and so {PAWN_possessive} work must continue.</ABF_InspirationSucceeded_EmbraceScarcity>
+    <!-- This version of failure only occurs if leaving the colony is impossible (IE. because the justiciar is downed or somewhere where leaving is not allowed.)-->
+    <ABF_InspirationFailed_EmbraceScarcity>{0} could not truly feel the embrace of scarcity in this accursed world. {PAWN_pronoun} chose to do the one thing that could guarantee {PAWN_possessive} liberation from it - to take {PAWN_possessive} own life.</ABF_InspirationFailed_EmbraceScarcity>
+    <ABF_InspirationSucceeded_BurnInlight>{0} endured the horrid light and persevered. {PAWN_pronoun} is certain that an apocalyptic event in which the entire world is engulfed in endless light cannot come to pass as long as {PAWN_pronoun} remains strong.</ABF_InspirationSucceeded_BurnInlight>
+    <ABF_InspirationFailed_BurnInlight>{0} could not endure the horrid light. {PAWN_pronoun} is convinced that when the great veil of shadow descends and cleanses this world, {PAWN_pronoun} might be found unworthy of salvation from the light that {PAWN_pronoun} failed to challenge. This has left {PAWN_objective} terrified that {PAWN_pronoun} has learned the wrong skills and must find a new path.</ABF_InspirationFailed_BurnInlight>
+    <ABF_InspirationSucceeded_SeekRepentance>{0} has found {PAWN_possessive} trials and overcome them. {PAWN_pronoun} is feeling like a right and proper servant of the Dark God once again - tested and triumphant.</ABF_InspirationSucceeded_SeekRepentance>
+    <!-- This version of failure only occurs if leaving the colony is impossible (IE. because the justiciar is downed or somewhere where leaving is not allowed.)-->
+    <ABF_InspirationFailed_SeekRepentance>{0} could not find and overcome the trials that the Dark God had prepared for {PAWN_possessive} and is crushed by the failure. {PAWN_pronoun} knows exactly how to repent of this failure and to find a path toward redemption... but it cannot be done in this life. The Dark God beckons, and {0} obeys.</ABF_InspirationFailed_SeekRepentance>
+    <!-- There is no success letter for Commune with Darkness, as the Inspiration ceases to exist on death. -->
+    <ABF_InspirationFailed_CommuneWithDarkness>{0} did not answer the Dark God's summons on {PAWN_possessive} own terms. The Dark God beckons, though, and will not be denied.</ABF_InspirationFailed_CommuneWithDarkness>
+
+</LanguageData>

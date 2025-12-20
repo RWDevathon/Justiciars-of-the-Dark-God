@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_InduceWithdrawal</defName>
+        <label>induce withdrawal</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_InduceWithdrawal</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar_InduceWithdrawal</workerClass>
+        <baseDurationDays>15</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! Through the vision, [PAWN_pronoun] realized that only by wallowing in the agony of withdrawal symptoms of a drug can [PAWN_pronoun] be freed of sinful joy.\n\n[PAWN_pronoun] is hyper-fixated on this revelation, and will collapse into a binge of drugs and deep despair if [PAWN_pronoun] cannot experience a full day of withdrawal symptoms within the next quadrum.</beginLetter>
+        <beginLetterLabel>Commandment: Withdrawal</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Wants to experience chemical withdrawal</baseInspectLine>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_Kinslayer</defName>
+        <label>kinslayer</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_Kinslayer</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar_Kinslayer</workerClass>
+        <baseDurationDays>15</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! Through the vision, [PAWN_pronoun] saw blood - the blood of [PAWN_possessive] kin - flowing like a river to a sea of black nothingness.\n\nShaken by the revelation, [PAWN_pronoun] is convinced that [PAWN_pronoun] must send a member of [PAWN_possessive] bloodline into the embrace of the void personally. Should [PAWN_pronoun] fail to do so, a mindless rage of murderous intent will overcome [PAWN_objective] as despair sets in.</beginLetter>
+        <beginLetterLabel>Commandment: Kinslayer</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Kill a family member</baseInspectLine>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_Bondbreaker</defName>
+        <label>bondbreaker</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_Bondbreaker</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar_Bondbreaker</workerClass>
+        <baseDurationDays>15</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! [PAWN_pronoun] saw a vision in which [PAWN_pronoun] stood over the corpse of a ritually sacrificed beloved companion and screamed out in prayer.\n\nShaken by the revelation, [PAWN_pronoun] is certain that [PAWN_pronoun] must kill one of [PAWN_possessive] closest friends or a bonded pet. Should [PAWN_pronoun] fail to do so, a mindless rage of murderous intent will overcome [PAWN_objective] as despair sets in.</beginLetter>
+        <beginLetterLabel>Commandment: Bondbreaker</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Kill a friend or bonded pet</baseInspectLine>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_VowOfSilence</defName>
+        <label>vow of silence</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_VowOfSilence</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar</workerClass>
+        <baseDurationDays>60</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! [PAWN_pronoun] saw a vision... but could hear nothing at all. It was a vision in which life continued without a single, wretched, vile, unconsciable, aggravating, damnable noise was to be made. It was majestic.\n\nEnthralled by the beauty of the silence in the revelation, [PAWN_pronoun] refuses to speak and has become completely silent. The world will continue its horrific cacophany around [PAWN_objective], but [PAWN_pronoun] will not contribute to it... for a year. True silence can only be achieved when the last heretic is found and made to beg and plead for the Dark God's mercy, and this will require noise.</beginLetter>
+        <beginLetterLabel>Commandment: Vow of Silence</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Vow of Silence</baseInspectLine>
+        <requiredNonDisabledWorkTags>Social</requiredNonDisabledWorkTags>
+        <requiredSkills>
+            <Social>2</Social>
+        </requiredSkills>
+        <associatedSkills>
+            <li>Social</li>
+        </associatedSkills>
+        <requiredCapacities>
+            <li>Talking</li>
+        </requiredCapacities>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_EmbraceScarcity</defName>
+        <label>embrace scarcity</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_EmbraceScarcity</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar_EmbraceScarcity</workerClass>
+        <baseDurationDays>20</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! In a vision of a world beautifully bereft of life, [PAWN_pronoun] realized there can be no place for abundance in it - and so [PAWN_pronoun] must reject it and instead embrace scarcity in its entirety.\n\n[PAWN_possessive] obsession can only be satisfied by fasting and plunging into fervent madness. Should [PAWN_possessive] fail to achieve this in time, [PAWN_pronoun] will suffer a catastrophic mental sublimation and flee from the colony... or simply perish if unable to.</beginLetter>
+        <beginLetterLabel>Commandment: Embrace Scarcity</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Must fast and experience madness</baseInspectLine>
+        <statOffsets>
+            <MentalBreakThreshold>0.18</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+            <EatingSpeed>0.25</EatingSpeed>
+            <RestRateMultiplier>0.75</RestRateMultiplier>
+            <InjuryHealingFactor>0.75</InjuryHealingFactor>
+        </statFactors>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_BurnInLight</defName>
+        <label>burn in light</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_BurnInLight</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar</workerClass>
+        <baseDurationDays>10</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! The vision was of blinding light, extended suffering, and endless waves of roiling flame that engulfed the world in its horrible luminosity.\n\n[PAWN_pronoun] knows that [PAWN_pronoun] must be a bulwark against this vile heresy and withstand the agony of light. [PAWN_pronoun] must spend no more than ten percent of the next ten days in darkness to endure this trial. Should [PAWN_possessive] shy away from the challenge, [PAWN_pronoun] will be crippled by diffidence in [PAWN_possessive] skills and beset by terrible despair.</beginLetter>
+        <beginLetterLabel>Commandment: Burn in the Light</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Must endure the light</baseInspectLine>
+        <statOffsets>
+            <MentalBreakThreshold>0.18</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+            <MoveSpeed>0.8</MoveSpeed>
+            <RestRateMultiplier>0.75</RestRateMultiplier>
+            <InjuryHealingFactor>0.75</InjuryHealingFactor>
+        </statFactors>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_SeekRepentance</defName>
+        <label>seek repentance</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_SeekRepentance</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar_NoneInProgress</workerClass>
+        <baseDurationDays>30</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! [PAWN_pronoun] witnessed himself standing before a set of trials to be faced and defeated with the utmost vigor.\n\n[PAWN_pronoun] must search for these trials in the pits of madness and pluck these divine mandates from the clutches of insanity. Two ambitions must be completed, or else [PAWN_pronoun] will be forced to search for these trials elsewhere... either away from the colony or in death.</beginLetter>
+        <beginLetterLabel>Commandment: Seek Repentance</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Repent by completing ambitions</baseInspectLine>
+        <statOffsets>
+            <MentalBreakThreshold>0.18</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+            <MoveSpeed>0.8</MoveSpeed>
+            <RestRateMultiplier>0.75</RestRateMultiplier>
+            <InjuryHealingFactor>0.75</InjuryHealingFactor>
+        </statFactors>
+    </InspirationDef>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_CommuneWithDarkness</defName>
+        <label>seek repentance</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_CommuneWithDarkness</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar</workerClass>
+        <baseDurationDays>10</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! [PAWN_pronoun] bore witness to a realm beyond all things - indeed, beyond the very concept of things existing. This must be the realm of the Dark God.\n\n[PAWN_pronoun] must answer the summons. [PAWN_pronoun] must die. [PAWN_pronoun] must listen. [PAWN_pronoun] must return. Should this summons go ignored, then the Dark God will simply claim [PAWN_objective].</beginLetter>
+        <beginLetterLabel>Commandment: Commune with Darkness</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Die and return</baseInspectLine>
+    </InspirationDef>
+
+</Defs>

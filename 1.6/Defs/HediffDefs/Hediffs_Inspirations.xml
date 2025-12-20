@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- Some Inspirations require tracking Hediffs -->
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Inspiration_Kinslayer</defName>
+        <hediffClass>ArtificialBeings.Hediff_Inspiration_Kinslayer</hediffClass>
+        <label>murderous thoughts of kin</label>
+        <description>An inspiration to take the life of one's own kin. This justiciar has become inspired to kill a family member in the name of the Dark God. Stress induced from the invasive thoughts will impair focus and strain the body's resources.\n\nThis inspiration will succeed when the justiciar is responsible for landing the killing blow on a member of their own family.\n\nShould the justiciar fail to do so before the inspiration expires, they will succumb to murderous rage and deepset despair.</description>
+        <descriptionShort>An inspiration to take the life of one's own kin.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- There is no success state. This Hediff is removed on success. -->
+            <li>
+                <socialFightChanceFactor>4</socialFightChanceFactor>
+                <statOffsets>
+                    <MentalBreakThreshold>0.09</MentalBreakThreshold>
+                </statOffsets>
+                <statFactors>
+                    <GlobalLearningFactor>0.75</GlobalLearningFactor>
+                    <RestRateMultiplier>0.75</RestRateMultiplier>
+                    <InjuryHealingFactor>0.75</InjuryHealingFactor>
+                    <JoyFallRateFactor>1.25</JoyFallRateFactor>
+                    <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
+                </statFactors>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>600000</expirationTicks> <!-- 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Inspiration_Bondbreaker</defName>
+        <hediffClass>ArtificialBeings.Hediff_Inspiration_Bondbreaker</hediffClass>
+        <label>searching for a sacrifice</label>
+        <description>An inspiration to sacrifice someone precious to the justiciar. This justiciar has become inspired to offer up someone they care about to the Dark God's embrace. Stress induced from the invasive thoughts will impair focus and strain the body's resources.\n\nThis inspiration will succeed when the justiciar is responsible for landing the killing blow on a close friend (greater or equal to 75 opinion) or a bonded animal.\n\nShould the justiciar fail to do so before the inspiration expires, they will succumb to murderous rage and deepset despair.</description>
+        <descriptionShort>An inspiration to sacrifice someone precious to the justiciar.</descriptionShort>
+        <isBad>false</isBad>
+        <stages>
+            <!-- There is no success state. This Hediff is removed on success. -->
+            <li>
+                <socialFightChanceFactor>4</socialFightChanceFactor>
+                <statOffsets>
+                    <MentalBreakThreshold>0.09</MentalBreakThreshold>
+                </statOffsets>
+                <statFactors>
+                    <GlobalLearningFactor>0.75</GlobalLearningFactor>
+                    <RestRateMultiplier>0.75</RestRateMultiplier>
+                    <InjuryHealingFactor>0.75</InjuryHealingFactor>
+                    <JoyFallRateFactor>1.25</JoyFallRateFactor>
+                    <WorkSpeedGlobal>0.9</WorkSpeedGlobal>
+                </statFactors>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
+                <expirationTicks>600000</expirationTicks> <!-- 10 days -->
+            </li>
+        </modExtensions>
+    </HediffDef>
+
+    <!-- Vow Of Silence does not have success/fail states, and is maintained by the Inspiration. -->
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Inspiration_VowOfSilence</defName>
+        <label>silent</label>
+        <description>This justiciar has taken a vow of silence - which includes both speaking and hearing.</description>
+        <isBad>false</isBad>
+        <blocksSocialInteraction/>
+        <stages>
+            <!-- There is no success state. -->
+            <li>
+                <opinionOfOthersFactor>0</opinionOfOthersFactor>
+                <capMods>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                </capMods>
+                <blocksMentalBreaks/>
+                <blocksInspirations/>
+            </li>
+        </stages>
+    </HediffDef>
+
+
+</Defs>
