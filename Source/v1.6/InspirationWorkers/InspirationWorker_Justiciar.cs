@@ -7,7 +7,7 @@ namespace ArtificialBeings
     {
         public override bool InspirationCanOccur(Pawn pawn)
         {
-            if (pawn.story?.traits?.HasTrait(JDG_TraitDefOf.ABF_Trait_Justiciar_Adherent) != true)
+            if (!JDG_Utils.IsJusticiar(pawn))
             {
                 return false;
             }

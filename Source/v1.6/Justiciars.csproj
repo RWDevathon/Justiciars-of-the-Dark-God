@@ -172,6 +172,7 @@
     <Compile Include="Components\AbilityEffects\CompAbilityEffect_ConjureDarkness.cs" />
     <Compile Include="Components\AbilityEffects\CompAbilityEffect_Shadestep.cs" />
     <Compile Include="Components\MapComponents\MapComponent_DarknessGrid.cs" />
+    <Compile Include="Components\GameComponents\GameComponent_Justiciars.cs" />
     <Compile Include="DefOfs\JDG_BackstoryDefOf.cs" />
     <Compile Include="DefOfs\JDG_MentalStateDefOf.cs" />
     <Compile Include="DefOfs\JDG_HediffDefOf.cs" />
@@ -183,10 +184,14 @@
     <Compile Include="Extensions\JusticiarMentalTimerExtension.cs" />
     <Compile Include="Extensions\JusticiarMentalBreakExtension.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_RaiseJusticiar.cs" />
+    <Compile Include="Harmony\GameCondition_UnnaturalDarkness_Patch.cs" />
+    <Compile Include="Harmony\MemoryUtility_Patch.cs" />
+    <Compile Include="Harmony\HediffComp_Invisibility_Patch.cs" />
     <Compile Include="Harmony\GasUtility_Patch.cs" />
     <Compile Include="Harmony\InspirationWorker_Patch.cs" />
     <Compile Include="Harmony\MentalBreakWorker_Patch.cs" />
     <Compile Include="Harmony\GlowGrid_Patch.cs" />
+    <Compile Include="Harmony\ShotReport_Patch.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_ContemplatingMurder.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_CleansingFury.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_Bloodletter.cs" />

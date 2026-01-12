@@ -30,7 +30,7 @@ namespace ArtificialBeings
         public override void Notify_KilledPawn(Pawn victim, DamageInfo? dinfo)
         {
             base.Notify_KilledPawn(victim, dinfo);
-            if (!complete && victim.RaceProps.Humanlike && victim.story?.traits?.HasTrait(JDG_TraitDefOf.ABF_Trait_Justiciar_Adherent) == false)
+            if (!complete && victim.RaceProps.Humanlike && !JDG_Utils.IsJusticiar(victim))
             {
                 killTotal++;
                 if (killTotal >= targetKills)

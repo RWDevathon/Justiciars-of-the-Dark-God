@@ -10,8 +10,6 @@ namespace ArtificialBeings
         [HarmonyPatch(typeof(GasUtility), "AnyGas")]
         public static class GasUtility_AnyGas_Patch
         {
-            private static Dictionary<Map, MapComponent_DarknessGrid> darkGridDict = new Dictionary<Map, MapComponent_DarknessGrid> ();
-
             [HarmonyPostfix]
             public static bool Listener(bool __result, IntVec3 cell, Map map, GasType gasType)
             {
@@ -20,11 +18,7 @@ namespace ArtificialBeings
                     return __result;
                 }
 
-                if (!darkGridDict.ContainsKey(map))
-                {
-                    darkGridDict[map] = map.GetComponent<MapComponent_DarknessGrid>();
-                }
-                return darkGridDict[map].IsDark(cell);
+                return JDG_Utils.IsDark(cell, map);
             }
         }
     }

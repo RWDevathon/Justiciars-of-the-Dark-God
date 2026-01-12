@@ -13,7 +13,7 @@ namespace ArtificialBeings
             [HarmonyPrefix]
             public static bool Listener(Pawn pawn, ref bool __result, MentalBreakWorker __instance)
             {
-                if (pawn.story?.traits?.HasTrait(JDG_TraitDefOf.ABF_Trait_Justiciar_Adherent) == true && !(__instance is MentalBreakWorker_JusticiarAmbition))
+                if (JDG_Utils.IsJusticiar(pawn) && !(__instance is MentalBreakWorker_JusticiarAmbition))
                 {
                     __result = false;
                     return false;

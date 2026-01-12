@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- We nullify certain thoughts for justiciars for Anomaly, but it's possible someone else does so as well. We only add the nullifyingTraits node if no one else has done so yet. -->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThoughtDef[defName="SwallowedByDarkness" or defName="UnnaturalDarkness"]/nullifyingTraits</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThoughtDef[defName="SwallowedByDarkness" or defName="UnnaturalDarkness"]</xpath>
+            <value>
+                <nullifyingTraits/>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <!-- Make justiciars immune to certain thoughts. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThoughtDef[defName="SwallowedByDarkness" or defName="UnnaturalDarkness"]/nullifyingTraits</xpath>
+        <value>
+            <li>ABF_Trait_Justiciar_Adherent</li>
+        </value>
+    </Operation>
+
+</Patch>

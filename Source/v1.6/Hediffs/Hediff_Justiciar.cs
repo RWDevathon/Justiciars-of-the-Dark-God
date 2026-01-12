@@ -9,22 +9,10 @@ namespace ArtificialBeings
         // This should not be removed.
         public override bool ShouldRemove => false;
 
-        // Downed justiciars of non-player factions instantly die.
-        public override void Notify_Downed()
-        {
-            base.Notify_Downed();
-            if (pawn.Faction != Faction.OfPlayer)
-            {
-                pawn.Kill(null);
-            }
-        }
-
-        // Justiciars have no corpse, and can accidentally delete their inventory on death in rare circumstances.
-        // This will spawn a single tile of darkness where they died, and drop their inventory.
+        // Justiciars will spawn a single tile of darkness where they died.
         public override void Notify_PawnKilled()
         {
             base.Notify_PawnKilled();
-            pawn.DropAndForbidEverything();
             BlackVeil veil = (BlackVeil)ThingMaker.MakeThing(JDG_ThingDefOf.ABF_Thing_BlackVeil);
             veil.Radius = 0.9f;
             veil.ticksLeft = 600;
@@ -58,6 +46,21 @@ namespace ArtificialBeings
         public override void PostRemoved()
         {
             pawn.health.AddHediff(def);
+        }
+
+        public override void PostAdd(DamageInfo? dinfo)
+        {
+            base.PostAdd(dinfo);
+
+            // This hediff identifies justiciars, and they should be added to the cache of all known justiciars on being made one.
+            JDG_Utils.Justiciars.allJusticiars.Add(pawn);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            // This hediff identifies justiciars, and they should be re-added to the cache of all known justiciars on loading saves.
+            JDG_Utils.Justiciars.allJusticiars.Add(pawn);
         }
     }
 }
