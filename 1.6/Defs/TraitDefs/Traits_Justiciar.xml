@@ -25,9 +25,6 @@
                 <statFactors>
                     <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
                 </statFactors>
-                <abilities>
-                    <li>ABF_Ability_Justiciar_ConjureDarkness</li>
-                </abilities>
             </li>
             <!-- Soul hunters -->
             <li>
@@ -38,9 +35,6 @@
                 <statFactors>
                     <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
                 </statFactors>
-                <abilities>
-                    <li>ABF_Ability_Justiciar_Shadestep</li>
-                </abilities>
             </li>
         </degreeDatas>
     </TraitDef>

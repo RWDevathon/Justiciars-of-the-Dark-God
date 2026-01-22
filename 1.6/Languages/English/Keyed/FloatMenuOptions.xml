@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-    <ABF_CannotRaiseArtificial>Cannot raise: {0} is a soulless being</ABF_CannotRaiseArtificial>
-    <ABF_RaiseJusticiar>Raise {0} as a justiciar</ABF_RaiseJusticiar>
+    <JDG_InsufficientFavorToRaise>Cannot raise: {0} and {1} do not have a combined total of 100 favor</JDG_InsufficientFavorToRaise>
+    <JDG_RaiseJusticiar>Raise {0} to serve again</JDG_RaiseJusticiar>
+    <JDG_Induct>Induct {0} to the faith ({1} favor)</JDG_Induct>
+    <JDG_InsufficientFavorToInduct>Cannot induct: Need {0} favor</JDG_InsufficientFavorToInduct>
+    <JDG_StealFavor>Steal {1} favor from {0}</JDG_StealFavor>
+    <JDG_RecruitAcolyte>Summon an acolyte (60 favor)</JDG_RecruitAcolyte>
+    <JDG_InsufficientFavorToRecruit>Cannot recruit: Need 60 favor</JDG_InsufficientFavorToRecruit>
 
 </LanguageData>

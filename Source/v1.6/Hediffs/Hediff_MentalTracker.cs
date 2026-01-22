@@ -49,11 +49,11 @@ namespace ArtificialBeings
                 stringBuilder.Append(base.TipStringExtra);
                 if (expirationTick < GenDate.TicksPerHour)
                 {
-                    stringBuilder.AppendLine("ABF_MentalTrackerTimeRemaining".Translate(TicksRemaining.ToStringSecondsFromTicks("F0")));
+                    stringBuilder.AppendLine("JDG_MentalTrackerTimeRemaining".Translate(TicksRemaining.ToStringSecondsFromTicks("F0")));
                 }
                 else
                 {
-                    stringBuilder.AppendLine("ABF_MentalTrackerTimeRemaining".Translate(TicksRemaining.ToStringTicksToPeriod(allowSeconds: true, shortForm: true, canUseDecimals: true, allowYears: true)));
+                    stringBuilder.AppendLine("JDG_MentalTrackerTimeRemaining".Translate(TicksRemaining.ToStringTicksToPeriod(allowSeconds: true, shortForm: true, canUseDecimals: true, allowYears: true)));
                 }
                 return stringBuilder.ToString();
             }

@@ -26,7 +26,7 @@
             <li Class="CompProperties_EffectWithDest">
                 <compClass>ArtificialBeings.CompAbilityEffect_Shadestep</compClass>
                 <destination>Selected</destination>
-                <requiresLineOfSight>True</requiresLineOfSight>
+                <requiresLineOfSight>true</requiresLineOfSight>
                 <range>27.9</range>
                 <clamorType>Ability</clamorType>
                 <clamorRadius>10</clamorRadius>
@@ -60,7 +60,7 @@
             <li Class="CompProperties_EffectWithDest">
                 <compClass>ArtificialBeings.CompAbilityEffect_ConjureDarkness</compClass>
                 <destination>Selected</destination>
-                <requiresLineOfSight>True</requiresLineOfSight>
+                <requiresLineOfSight>true</requiresLineOfSight>
                 <range>27.9</range>
                 <clamorType>Ability</clamorType>
                 <clamorRadius>10</clamorRadius>

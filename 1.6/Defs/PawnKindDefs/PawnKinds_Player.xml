@@ -28,6 +28,9 @@
                 <def>ABF_Hediff_Justiciar_DarkLurker</def>
             </li>
         </startingHediffs>
+        <abilities>
+            <li>ABF_Ability_Justiciar_ConjureDarkness</li>
+        </abilities>
     </PawnKindDef>
 
     <PawnKindDef ParentName="ABF_PawnKind_Justiciar_Base">
@@ -41,6 +44,9 @@
                 <def>ABF_Hediff_Justiciar_SoulHunter</def>
             </li>
         </startingHediffs>
+        <abilities>
+            <li>ABF_Ability_Justiciar_Shadestep</li>
+        </abilities>
     </PawnKindDef>
 
 </Defs>

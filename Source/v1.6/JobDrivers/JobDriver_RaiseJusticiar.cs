@@ -1,55 +1,30 @@
 ﻿using RimWorld;
-using System.Collections.Generic;
 using Verse;
-using Verse.AI;
 
 namespace ArtificialBeings
 {
-    public class JobDriver_RaiseJusticiar : JobDriver
+    public class JobDriver_RaiseJusticiar : JobDriver_JusticiarBase
     {
-        public Corpse Corpse => job.GetTarget(TargetIndex.A).Thing as Corpse;
+        public Corpse Corpse => TargetThing as Corpse;
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        protected override void EndInitAction()
         {
-            pawn.Reserve(Corpse, job);
-            return true;
-        }
-
-        protected override IEnumerable<Toil> MakeNewToils()
-        {
-            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-            Toil raisingJusticiar = Toils_General.Wait(600).WithProgressBarToilDelay(TargetIndex.A);
-            raisingJusticiar.initAction = delegate
+            Pawn justiciar = Corpse.InnerPawn;
+            ResurrectionUtility.TryResurrect(justiciar);
+            justiciar.drafter.Drafted = true; // Try to keep the justiciar still on spawn so they don't immediately run off.
+            // This costs the newly resurrected justiciar 100 favor. If they have less than 100, the remainder is taken from the resurrector.
+            Hediff_Justiciar justiciarHediff = justiciar.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+            if (justiciarHediff.FavorCurrent < 100f)
             {
-                BlackVeil veil = (BlackVeil)ThingMaker.MakeThing(JDG_ThingDefOf.ABF_Thing_BlackVeil);
-                veil.Radius = 0.9f;
-                veil.ticksLeft = 900;
-                GenSpawn.Spawn(veil, Corpse.Position, Corpse.Map);
-            };
-            yield return raisingJusticiar;
-            Toil raiseJusticiar = ToilMaker.MakeToil("MakeNewToils");
-            raiseJusticiar.initAction = delegate
+                Hediff_Justiciar casterHediff = pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+                float remainder = 100f - justiciarHediff.FavorCurrent;
+                casterHediff.NotifyFavorLost(remainder);
+                justiciarHediff.NotifyFavorLost(justiciarHediff.FavorCurrent);
+            }
+            else
             {
-                Pawn justiciar = Corpse.InnerPawn;
-                // If the new justiciar has no path selected, they must choose one. If they have a path already, just revive them.
-                if (!(justiciar.story.traits.GetTrait(JDG_TraitDefOf.ABF_Trait_Justiciar_Adherent) is Trait adherentTrait) || adherentTrait.Degree == 0)
-                {
-                    Find.WindowStack.Add(new Dialog_RaiseJusticiar(justiciar, Corpse.Position, Corpse.Map));
-                    // Raising a brand new justiciar can fulfill an ambition for the person who raised them.
-                    if (pawn.health.hediffSet.TryGetHediff<Hediff_Ambition_RecruitmentMotivation>(out var hediff) && !hediff.complete)
-                    {
-                        hediff.NotifySucceeded();
-                    }
-                }
-                else
-                {
-                    ResurrectionUtility.TryResurrect(justiciar);
-                    justiciar.drafter.Drafted = true; // Try to keep the justiciar still on spawn so they don't immediately run off.
-                }
-            };
-            raiseJusticiar.defaultCompleteMode = ToilCompleteMode.Instant;
-            yield return raiseJusticiar;
+                justiciarHediff.NotifyFavorLost(100f);
+            }
         }
     }
 }

@@ -27,12 +27,12 @@ namespace ArtificialBeings
         {
             if (ticksInDarkness < GenDate.TicksPerDay)
             {
-                Find.LetterStack.ReceiveLetter("ABF_InspirationSucceeded".Translate(), "ABF_InspirationSucceeded_BurnInlight".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter("JDG_InspirationSucceeded".Translate(), "JDG_InspirationSucceeded_BurnInlight".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
                 pawn.mindState.mentalBreaker.Notify_RecoveredFromMentalState();
             }
             else
             {
-                Find.LetterStack.ReceiveLetter("ABF_InspirationFailed".Translate(), "ABF_InspirationFailed_BurnInlight".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent);
+                Find.LetterStack.ReceiveLetter("JDG_InspirationFailed".Translate(), "JDG_InspirationFailed_BurnInlight".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent);
                 foreach (SkillRecord skillRecord in pawn.skills.skills)
                 {
                     skillRecord.Level -= 2;
@@ -44,6 +44,17 @@ namespace ArtificialBeings
                 }
                 pawn.health.AddHediff(crushingDespair);
             }
+        }
+
+        public override void PostStart(bool sendLetter = true)
+        {
+            base.PostStart(sendLetter);
+
+            // Receiving an inspiration results in favor loss.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorLost(25f);
+
+            // If the player has not yet learned about inspirations, they will also receive a learning helper tip about how they work.
+            LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Inspirations, OpportunityType.Critical);
         }
     }
 }

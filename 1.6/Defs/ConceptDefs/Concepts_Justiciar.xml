@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ConceptDef ParentName="NotedOpportunisticBase">
+        <defName>ABF_Concept_Justiciar_Attainment</defName>
+        <label>Acolytes</label>
+        <helpText>You have acquired your first acolyte. Acolytes can become full-fledged justiciars by acquiring 100 favor - the current value of which can be seen in their health tab while hovering over their hediff. If an acolyte has -50 favor at any time, they will no longer be an acolyte.\n\nAcolytes gain favor by:\n- Pain: Up to 25 favor per year at 100% pain\n- Killing a colonist: 50 favor\n- Killing a guest: 25 favor\n- Killing entities: 2.5 favor per body size\n- Stealing favor from dead acolytes or justiciars: 1-to-1 transfer\n\nAcolytes lose favor by:\n- Going a full quadrum without reaching at least 10% pain: -50 favor per year\n\nYou will be able to recruit more acolytes by having justiciars induct new members, or by events if you have no acolytes.</helpText>
+    </ConceptDef>
+
+    <ConceptDef ParentName="NotedOpportunisticBase">
+        <defName>ABF_Concept_Justiciar_Characteristics</defName>
+        <label>Justiciars</label>
+        <helpText>A new justiciar has been forged! Justiciars have access to special abilities and more mechanics than acolytes, but are also highly temperamental and come with great expectations.\n\nJusticiars may spend favor to induct any colonist as an acolyte - specifically, as their neophyte, which confers a special relationship. They can also induct any player animal or mechanoid as a shadespirit, which grants them access to a lesser form of the justiciar innate modifiers. Should a justiciar die, they can be revived by other justiciars. More abilities will unlock as this justiciar gains more favor. Thresholds are reached based on the total favor gained and ignores spent/lost favor.\n\nJusticiars gain favor by:\n- Pain: Up to 25 favor per year at 100% pain\n- Killing a colonist: 50 favor\n- Killing a guest: 25 favor\n- Killing entities: 2.5 favor per body size\n- Stealing favor from dead acolytes or justiciars: 1-to-1 transfer\n- Completing ambitions: An amount of favor depending on the tier and difficulty of the ambition\n\nJusticiars lose favor by:\n- Going a full quadrum without reaching at least 10% pain: -50 favor per year\n- Inspirations: -25 favor\n- Colony performing charity: -10 favor\n- Anomaly rituals besides void provocation: -10 favor</helpText>
+    </ConceptDef>
+
+    <ConceptDef ParentName="NotedOpportunisticBase">
+        <defName>ABF_Concept_Justiciar_Ambitions</defName>
+        <label>Justiciar Ambitions</label>
+        <helpText>A justiciar has acquired an ambition for the first time. These replace mental breaks, and always involve completing a task. In most cases, these can be viewed in the health tab and will explain how to be completed in an attached letter and the hediff.\n\nCompleting an ambition rewards both favor and a temporary boon. The boon will last for however long the task would last, plus an additional span of time, so completing tasks quickly means the duration of the boon will be longer. An ambition cannot reappear until the current boon wears out, but a justiciar can have multiple ambitions at once.\n\nFailing an ambition has a negative consequence, which is usually a debilitating modifier accompanied by a normal mental break.</helpText>
+    </ConceptDef>
+
+    <ConceptDef ParentName="NotedOpportunisticBase">
+        <defName>ABF_Concept_Justiciar_Inspirations</defName>
+        <label>Justiciar Inspirations</label>
+        <helpText>A justiciar has acquired an inspiration for the first time. Unlike normal inspirations, the inspirations for a justiciar are always grim and can be deeply negative. It is best to avoid acquiring inspirations by keeping justiciars out of the throes of joy - the Dark God detests contentment and merryment.\n\nLike ambitions, inspirations are associated with tasks. Some inspirations have attached hediffs, but many will display a task on the inspect panel. Completing an inspiration does not award anything, but failing an inspiration usually has devastating consequences.\n\nA justiciar may have no more than one inspiration at a time.</helpText>
+    </ConceptDef>
+
+    <ConceptDef ParentName="NotedOpportunisticBase">
+        <defName>ABF_Concept_Justiciar_FirstTierUnlocks</defName>
+        <label>Justiciar Unlocks, First Tier</label>
+        <helpText>A justiciar has acquired 100 favor and unlocked new abilites! They have unlocked the following capabilities:\n\nWhile standing in conjured darkness, they can spend 10 favor to become completely invisible for up to two hours, or until they leave conjured darkness. Moving, attacking, or any other actions does not break invisibility, but taking damage will momentarily reveal them. (This ability is only available if at least one of Royalty or Anomaly is installed)\n\nAt any time, they can spend favor to create a somewhat-close copy of certain things:\n- Mechanoid boss items: 25 favor per tier (with Biotech)\n- Colony mechanoids: 25 favor per bandwidth cost (with Biotech)\n- Colony animals: 10 favor per body size (Fully learned skills will be copied)\n- Psylink neuroformers: 100 favor (with Royalty)\n- Shield cores: 50 favor (with Royalty)\n- Eltex apparel and staves: 25 favor (with Royalty, quality of items is copied)\n\nUsing a comms console, they can spend 60 favor and four hours summoning a new, random acolyte recruit to the colony.
+        </helpText>
+    </ConceptDef>
+
+
+</Defs>

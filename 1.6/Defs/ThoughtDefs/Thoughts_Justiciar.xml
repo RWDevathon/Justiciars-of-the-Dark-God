@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThoughtDef>
+        <defName>ABF_Thought_Justiciar_Displeased</defName>
+        <durationDays>5</durationDays>
+        <requiredTraits>
+            <li>ABF_Trait_Justiciar_Adherent</li>
+        </requiredTraits>
+        <stages>
+            <li>
+                <label>displeased deity</label>
+                <description>I can feel the displeasure of my god upon me. I must harden my heart.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

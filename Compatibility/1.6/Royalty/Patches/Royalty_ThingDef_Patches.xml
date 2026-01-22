@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <!-- Shield cores and some eltex items are clonable -->
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="BroadshieldCore"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>50</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="Apparel_PsyfocusHelmet" or defName="Apparel_EltexSkullcap" or defName="Apparel_PsyfocusShirt" or defName="Apparel_PsyfocusVest" or defName="Apparel_PsyfocusRobe" or defName="MeleeWeapon_PsyfocusStaff"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>25</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+</Patch>

@@ -28,6 +28,12 @@ namespace ArtificialBeings
             kinslayerHediff = (Hediff_Inspiration_Kinslayer)HediffMaker.MakeHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_Inspiration_Kinslayer, pawn);
             kinslayerHediff.KinslayerInspiration = this;
             pawn.health.AddHediff(kinslayerHediff);
+
+            // Receiving an inspiration results in favor loss.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorLost(25f);
+
+            // If the player has not yet learned about inspirations, they will also receive a learning helper tip about how they work.
+            LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Inspirations, OpportunityType.Critical);
         }
     }
 }

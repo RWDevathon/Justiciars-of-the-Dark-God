@@ -55,6 +55,11 @@
                 </statOffsets>
             </li>
         </stages>
+        <comps>
+            <li>
+                <compClass>ArtificialBeings.HediffComp_CloneTargeting</compClass>
+            </li>
+        </comps>
     </HediffDef>
 
     <HediffDef>
@@ -110,6 +115,11 @@
                 </statOffsets>
             </li>
         </stages>
+        <comps>
+            <li>
+                <compClass>ArtificialBeings.HediffComp_CloneTargeting</compClass>
+            </li>
+        </comps>
     </HediffDef>
 
     <!-- This hediff is applied by particular failed ambitions/inspirations, but may be applied in other cases as well -->
@@ -131,6 +141,76 @@
                     <ShootingAccuracyPawn>0.8</ShootingAccuracyPawn>
                     <MeleeDodgeChance>0.8</MeleeDodgeChance>
                     <MeleeHitChance>0.8</MeleeHitChance>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <!-- This hediff is applied when an acolyte is inducted or recruited. It tracks favor accrued and turns into a justiciar hediff or disappears when appropriate.-->
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_Acolyte</defName>
+        <hediffClass>ArtificialBeings.Hediff_Acolyte</hediffClass>
+        <label>acolyte</label>
+        <description>Acolytes of the faith have not yet found the favor of the Dark God, but are on the path to earning it. By currying favor, they may yet earn the title of justiciar, or by losing it, they may fall off the path entirely.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li/>
+        </stages>
+    </HediffDef>
+
+    <!-- This hediff is applied by justiciars using the Umbral Stride "ability" granted by their Hediff_Justiciar class. -->
+    <!-- Note that this hediff will do nothing if Royalty and Anomaly are inactive, as invisibility requires either of them to function. The "ability" won't appear unless one or both are active. -->
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_UmbralStride</defName>
+        <label>umbral stride</label>
+        <hediffClass>ArtificialBeings.Hediff_UmbralStride</hediffClass>
+        <description>Invisibility granted by the power of the Dark God. Like the invisibility granted by psychic powers, others cannot perceive this individual. Unlike other forms of invisibility, this is done by warping and manipulating light rather than by manipulating the minds of others. Should the justiciar step out of conjured darkness, they will be instantly revealed.</description>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_Invisibility">
+                <visibleToPlayer>true</visibleToPlayer>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>5000</disappearsAfterTicks> <!-- 2 hours -->
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_ShadeSpirit</defName>
+        <hediffClass>ArtificialBeings.Hediff_ShadeSpirit</hediffClass>
+        <label>shadespirit</label>
+        <description>Shade spirits are lesser beings compared to justiciars, but possess the same natural sensitivity to the level of light they are exposed to. In darkness, they are empowered and invigorated. In bright light, they are disoriented which can lead to costly mistakes and vulnerability.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <label>invigorated</label>
+                <overrideTooltip>Empowered by darkness</overrideTooltip>
+                <statFactors>
+                    <MoveSpeed>1.25</MoveSpeed>
+                    <IncomingDamageFactor>0.5</IncomingDamageFactor>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                    <MeleeDodgeChance>2</MeleeDodgeChance>
+                    <StaggerDurationFactor>0.5</StaggerDurationFactor>
+                </statFactors>
+            </li>
+            <li>
+                <label>normal</label>
+                <overrideTooltip>Comfortable conditions</overrideTooltip>
+                <minSeverity>0.3</minSeverity>
+            </li>
+            <li>
+                <label>debilitated</label>
+                <overrideTooltip>Weakened by brightness</overrideTooltip>
+                <minSeverity>0.71</minSeverity>
+                <statFactors>
+                    <MoveSpeed>0.8</MoveSpeed>
+                    <WorkSpeedGlobal>0.8</WorkSpeedGlobal>
+                    <IncomingDamageFactor>1.5</IncomingDamageFactor>
+                    <MeleeDodgeChance>0.5</MeleeDodgeChance>
+                    <StaggerDurationFactor>1.5</StaggerDurationFactor>
                 </statFactors>
             </li>
         </stages>

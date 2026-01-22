@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <!-- Biotech Mech Boss drops are clonable -->
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="SignalChip"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>50</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="PowerfocusChip"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>100</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="NanostructuringChip"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>150</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+</Patch>

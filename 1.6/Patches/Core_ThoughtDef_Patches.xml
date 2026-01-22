@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <!-- Justiciars do not mind darkness -->
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThoughtDef[defName="EnvironmentDark"]/nullifyingTraits</xpath>
+        <value>
+            <li>ABF_Trait_Justiciar_Adherent</li>
+        </value>
+    </Operation>
+
+</Patch>

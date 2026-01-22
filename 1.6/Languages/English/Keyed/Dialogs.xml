@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-    <ABF_ChooseJusticiarPath>Choose Path</ABF_ChooseJusticiarPath>
-    <ABF_JusticiarPath_DarkLurker>Dark Lurker</ABF_JusticiarPath_DarkLurker>
-    <ABF_JusticiarPath_DarkLurker_Desc>This path emphasizes the Dark God's love of inducing chaos and despair in the ranks of its foes. Able to conjure darkness and deliver devastating blows in melee combat against those who struggle to see, the dark lurker prefers to disorient enemies and then close in for the kill.</ABF_JusticiarPath_DarkLurker_Desc>
-    <ABF_JusticiarPath_SoulHunter>Soul Hunter</ABF_JusticiarPath_SoulHunter>
-    <ABF_JusticiarPath_SoulHunter_Desc>This path emphasizes the Dark God's evasiveness and its silent judgement of the unworthy. Able to rapidly relocate between shadows and strike with unerring accuracy, the soul hunter prefers to find advantageous positions and then slaughter helplessly outmaneuvered targets.</ABF_JusticiarPath_SoulHunter_Desc>
+    <JDG_ChooseJusticiarPath>Choose Path</JDG_ChooseJusticiarPath>
+    <JDG_JusticiarPath_DarkLurker>Dark Lurker</JDG_JusticiarPath_DarkLurker>
+    <JDG_JusticiarPath_DarkLurker_Desc>This path emphasizes the Dark God's love of inducing chaos and despair in the ranks of its foes. Able to conjure darkness and deliver devastating blows in melee combat against those who struggle to see, the dark lurker prefers to disorient enemies and then close in for the kill.</JDG_JusticiarPath_DarkLurker_Desc>
+    <JDG_JusticiarPath_SoulHunter>Soul Hunter</JDG_JusticiarPath_SoulHunter>
+    <JDG_JusticiarPath_SoulHunter_Desc>This path emphasizes the Dark God's evasiveness and its silent judgement of the unworthy. Able to rapidly relocate between shadows and strike with unerring accuracy, the soul hunter prefers to find advantageous positions and then slaughter helplessly outmaneuvered targets.</JDG_JusticiarPath_SoulHunter_Desc>
 
 </LanguageData>

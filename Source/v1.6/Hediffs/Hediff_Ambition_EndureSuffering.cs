@@ -47,7 +47,7 @@ namespace ArtificialBeings
         // On failure, the justiciar falls into a berserk rage and despairs.
         public override void NotifyFailed()
         {
-            pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, reason: "ABF_AmbitionFailed".Translate(), forced: true);
+            pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, reason: "JDG_AmbitionFailed".Translate(), forced: true);
             Hediff crushingDespair = HediffMaker.MakeHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_CrushingDespair, pawn);
             if (crushingDespair.TryGetComp<HediffComp_Disappears>() is HediffComp_Disappears comp)
             {
@@ -64,7 +64,10 @@ namespace ArtificialBeings
             complete = true;
             Severity = 1f;
             expirationTick = Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("ABF_AmbitionSucceeded".Translate(), "ABF_AmbitionSucceeded_EndureSuffering".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_EndureSuffering".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+
+            // Completing this ambition grants favor.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(20f);
         }
 
         public override void ExposeData()
@@ -82,7 +85,7 @@ namespace ArtificialBeings
                 if (!complete)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.AppendLine("ABF_PainPercentage".Translate(TimeWithPainAsPercentage.ToStringPercent()));
+                    stringBuilder.AppendLine("JDG_PainPercentage".Translate(TimeWithPainAsPercentage.ToStringPercent()));
                     stringBuilder.Append(base.TipStringExtra);
                     return stringBuilder.ToString();
                 }

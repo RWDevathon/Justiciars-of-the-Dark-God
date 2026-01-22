@@ -1,4 +1,6 @@
-﻿namespace ArtificialBeings
+﻿using RimWorld;
+
+namespace ArtificialBeings
 {
     // Base class to control logic for Justiciar Ambitions specifically.
     public abstract class Hediff_Ambition : Hediff_MentalTracker
@@ -8,6 +10,9 @@
         {
             base.PostMake();
             pawn.mindState.mentalBreaker.Notify_RecoveredFromMentalState();
+
+            // If the player has not yet learned about ambitions, they will also receive a learning helper tip about how they work.
+            LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Ambitions, OpportunityType.Critical);
         }
 
         public override void NotifySucceeded()

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- This incident will select a random colonist to become an acolyte, if accepted. It only fires if there are no acolytes/justiciars. -->
+	<IncidentDef>
+		<defName>ABF_Incident_Justiciar_AcolyteWhispers</defName>
+		<label>dark whispers</label>
+		<category>Misc</category>
+		<targetTags>
+		    <li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>ArtificialBeings.IncidentWorker_AcolyteWhispers</workerClass>
+		<baseChance>1.0</baseChance>
+        <requireColonistsPresent>true</requireColonistsPresent>
+	</IncidentDef>
+
+</Defs>

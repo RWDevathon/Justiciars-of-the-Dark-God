@@ -2,6 +2,13 @@
 <LanguageData>
 
     <!-- Used as a Title for Pawns -->
-    <ABF_Justiciar_Title>Justiciar</ABF_Justiciar_Title>
+    <JDG_Justiciar_Title>Justiciar</JDG_Justiciar_Title>
+
+    <!-- Used for an tooltip to display favor -->
+    <JDG_JusticiarFavor>Current / Lifetime favor: {0} / {1}</JDG_JusticiarFavor>
+    <JDG_AcolyteFavor>Current favor: {0}</JDG_AcolyteFavor>
+
+    <!-- Used in GUI elements -->
+    <JDG_FavorRequirement>Requires {0} favor</JDG_FavorRequirement>
 
 </LanguageData>

@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace ArtificialBeings
@@ -17,7 +18,12 @@ namespace ArtificialBeings
             {
                 return;
             }
-            GenSpawn.Spawn(JDG_ThingDefOf.ABF_Thing_BlackVeil, target.Cell, Caster.Map);
+            BlackVeil blackVeil = (BlackVeil)ThingMaker.MakeThing(JDG_ThingDefOf.ABF_Thing_BlackVeil);
+            Hediff_Justiciar justiciarHediff = Caster.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+            blackVeil.Radius = 2.49f + Mathf.Clamp(justiciarHediff.FavorCurrent / 100f, -2f, 4f);
+            blackVeil.ticksLeft = 60;
+            justiciarHediff.NotifyNewMaintainee(blackVeil);
+            GenSpawn.Spawn(blackVeil, target.Cell, Caster.Map);
             if (Props.destClamorType != null)
             {
                 GenClamor.DoClamor(Caster, target.Cell, Props.destClamorRadius, Props.destClamorType);

@@ -27,7 +27,7 @@ namespace ArtificialBeings
         // On failure, the justiciar has a minor breakdown and falls into despair for a little while.
         public override void NotifyFailed()
         {
-            pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Wander_Sad, reason: "ABF_AmbitionFailed".Translate(), forced: true);
+            pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Wander_Sad, reason: "JDG_AmbitionFailed".Translate(), forced: true);
             Hediff crushingDespair = HediffMaker.MakeHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_CrushingDespair, pawn);
             pawn.health.AddHediff(crushingDespair);
             pawn.health.RemoveHediff(this);
@@ -40,7 +40,10 @@ namespace ArtificialBeings
             complete = true;
             Severity = 1f;
             expirationTick = Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("ABF_AmbitionSucceeded".Translate(), "ABF_AmbitionSucceeded_RecruitmentMotivation".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_RecruitmentMotivation".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+
+            // Completing this ambition grants favor.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(10f);
         }
     }
 }

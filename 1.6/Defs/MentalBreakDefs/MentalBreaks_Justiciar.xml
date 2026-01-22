@@ -112,7 +112,7 @@
         <defName>ABF_MentalBreak_Justiciar_RecruitmentMotivation</defName>
         <label>insist on recruiting</label>
         <intensity>Minor</intensity>
-        <workerClass>ArtificialBeings.MentalBreakWorker_JusticiarAmbition</workerClass>
+        <workerClass>ArtificialBeings.MentalBreakWorker_RecruitmentMotivation</workerClass>
         <modExtensions>
             <li Class="ArtificialBeings.JusticiarMentalBreakExtension">
                 <associatedHediffDef>ABF_Hediff_Justiciar_Ambition_RecruitmentMotivation</associatedHediffDef>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-    <ABF_PositionTooBright>Position is too bright</ABF_PositionTooBright>
+    <JDG_PositionTooBright>Position is too bright</JDG_PositionTooBright>
+
+    <JDG_BeginUmbralStride>Begin umbral stride</JDG_BeginUmbralStride>
+    <JDG_BeginUmbralStrideDesc>Cloak oneself in shadow to become completely invisible for a time, or until leaving the Dark God's shadows.</JDG_BeginUmbralStrideDesc>
+    <JDG_CannotUmbralStrideNotInDarkness>Cannot begin umbral striding while outside conjured darkness - it would immediately end.</JDG_CannotUmbralStrideNotInDarkness>
+    <JDG_EndUmbralStride>End umbral stride</JDG_EndUmbralStride>
+    <JDG_EndUmbralStrideDesc>Cast off the cloak of shadows and immediately reveal oneself.</JDG_EndUmbralStrideDesc>
+    <JDG_CreateUmbralClone>Create umbral clone</JDG_CreateUmbralClone>
+    <JDG_CreateUmbralCloneDesc>Use favor to clone a rare item, an animal, or a mechanoid. The cost depends on the target.</JDG_CreateUmbralCloneDesc>
+    <JDG_StopConcentration>Stop maintaining abilities</JDG_StopConcentration>
+    <JDG_StopConcentrationDesc>Some abilities, such as conjure darkness, remain until cancelled</JDG_StopConcentrationDesc>
 
 </LanguageData>

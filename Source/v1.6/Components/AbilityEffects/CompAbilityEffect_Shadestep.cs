@@ -1,4 +1,7 @@
 ﻿using RimWorld;
+using System;
+using System.Security.Cryptography;
+using UnityEngine;
 using Verse;
 
 namespace ArtificialBeings
@@ -27,7 +30,7 @@ namespace ArtificialBeings
             reason = null;
             if (!Caster.Spawned || Caster.Map.glowGrid.GroundGlowAt(Caster.Position) >= 0.3)
             {
-                reason = "ABF_PositionTooBright".Translate();
+                reason = "JDG_PositionTooBright".Translate();
                 return true;
             }
             return false;
@@ -83,7 +86,7 @@ namespace ArtificialBeings
         {
             if (target.IsValid && Caster.Map.glowGrid.GroundGlowAt(target.Cell) >= 0.3)
             {
-                return "ABF_PositionTooBright".Translate();
+                return "JDG_PositionTooBright".Translate();
             }
             return true;
         }

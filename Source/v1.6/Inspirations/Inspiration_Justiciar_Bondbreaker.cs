@@ -28,6 +28,12 @@ namespace ArtificialBeings
             bondbreakerHediff = (Hediff_Inspiration_Bondbreaker)HediffMaker.MakeHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_Inspiration_Bondbreaker, pawn);
             bondbreakerHediff.BondbreakerInspiration = this;
             pawn.health.AddHediff(bondbreakerHediff);
+
+            // Receiving an inspiration results in favor loss.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorLost(25f);
+
+            // If the player has not yet learned about inspirations, they will also receive a learning helper tip about how they work.
+            LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Inspirations, OpportunityType.Critical);
         }
     }
 }

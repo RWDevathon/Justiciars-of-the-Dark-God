@@ -36,7 +36,7 @@ namespace ArtificialBeings
             }
             pawn.health.AddHediff(crushingDespair);
             pawn.health.RemoveHediff(this);
-            Find.LetterStack.ReceiveLetter("ABF_AmbitionFailed".Translate(), "ABF_AmbitionFailed_CravingInspiration".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent);
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionFailed".Translate(), "JDG_AmbitionFailed_CravingInspiration".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent);
             pawn.mindState.mentalBreaker.Notify_RecoveredFromMentalState();
         }
 
@@ -47,7 +47,10 @@ namespace ArtificialBeings
             complete = true;
             Severity = 1f;
             expirationTick = Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("ABF_AmbitionSucceeded".Translate(), "ABF_AmbitionSucceeded_CravingInspiration".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_CravingInspiration".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+
+            // Completing this ambition grants favor.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(40f);
         }
     }
 }

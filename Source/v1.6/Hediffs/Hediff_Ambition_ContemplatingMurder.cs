@@ -53,7 +53,7 @@ namespace ArtificialBeings
         // On failure, the justiciar goes into a murderous rage.
         public override void NotifyFailed()
         {
-            pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.MurderousRage, reason: "ABF_AmbitionFailed".Translate(), forced: true);
+            pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.MurderousRage, reason: "JDG_AmbitionFailed".Translate(), forced: true);
             pawn.health.RemoveHediff(this);
         }
 
@@ -65,7 +65,10 @@ namespace ArtificialBeings
             complete = true;
             Severity = 1f;
             expirationTick += Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("ABF_AmbitionSucceeded".Translate(), "ABF_AmbitionSucceeded_ContemplatingMurder".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_ContemplatingMurder".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+
+            // Completing this ambition grants favor.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(20f);
         }
 
         public override void ExposeData()
@@ -82,7 +85,7 @@ namespace ArtificialBeings
                 if (!complete)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.AppendLine("ABF_CurrentKillLevel".Translate(killLevel.ToStringPercent()));
+                    stringBuilder.AppendLine("JDG_CurrentKillLevel".Translate(killLevel.ToStringPercent()));
                     stringBuilder.Append(base.TipStringExtra);
                     return stringBuilder.ToString();
                 }

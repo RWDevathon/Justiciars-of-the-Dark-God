@@ -38,7 +38,7 @@ namespace ArtificialBeings
         {
             if (complete)
             {
-                Find.LetterStack.ReceiveLetter("ABF_InspirationSucceeded".Translate(), "ABF_InspirationSucceeded_EmbraceScarcity".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter("JDG_InspirationSucceeded".Translate(), "JDG_InspirationSucceeded_EmbraceScarcity".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
                 pawn.mindState.mentalBreaker.Notify_RecoveredFromMentalState();
             }
             else
@@ -46,7 +46,7 @@ namespace ArtificialBeings
                 // If the Justiciar can reach the map edge, have them give up and leave. Otherwise, they just die of despair.
                 if (!pawn.Downed && pawn.CanReachMapEdge())
                 {
-                    pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.Binging_DrugExtreme, reason: "ABF_InspirationFailed".Translate(), forced: true);
+                    pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.Binging_DrugExtreme, reason: "JDG_InspirationFailed".Translate(), forced: true);
                 }
                 else
                 {
@@ -56,10 +56,21 @@ namespace ArtificialBeings
                         comp.SetDuration(comp.disappearsAfterTicks * 10);
                     }
                     pawn.health.AddHediff(crushingDespair);
-                    Find.LetterStack.ReceiveLetter("ABF_InspirationFailed".Translate(), "ABF_InspirationFailed_EmbraceScarcity".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent);
+                    Find.LetterStack.ReceiveLetter("JDG_InspirationFailed".Translate(), "JDG_InspirationFailed_EmbraceScarcity".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NegativeEvent);
                     pawn.Kill(null, crushingDespair);
                 }
             }
+        }
+
+        public override void PostStart(bool sendLetter = true)
+        {
+            base.PostStart(sendLetter);
+
+            // Receiving an inspiration results in favor loss.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorLost(25f);
+
+            // If the player has not yet learned about inspirations, they will also receive a learning helper tip about how they work.
+            LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Inspirations, OpportunityType.Critical);
         }
     }
 }

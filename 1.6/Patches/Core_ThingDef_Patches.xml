@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <!-- Psylink Neuroformers are clonable -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="PsychicAmplifier"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>100</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- The Comms Console needs to have the ability to summon acolytes -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="CommsConsole"]/comps</xpath>
+        <value>
+            <li>
+                <compClass>ArtificialBeings.ThingComp_JusticiarComms</compClass>
+            </li>
+        </value>
+    </Operation>
+
+</Patch>

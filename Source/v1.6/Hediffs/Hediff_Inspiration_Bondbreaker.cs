@@ -50,7 +50,7 @@ namespace ArtificialBeings
         // On failure, the justiciar goes into a murderous rage and suffers crushing despair 10 times longer than its normal duration.
         public override void NotifyFailed()
         {
-            pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.MurderousRage, reason: "ABF_AmbitionFailed".Translate(), forced: true);
+            pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.MurderousRage, reason: "JDG_AmbitionFailed".Translate(), forced: true);
             Hediff crushingDespair = HediffMaker.MakeHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_CrushingDespair, pawn);
             if (crushingDespair.TryGetComp<HediffComp_Disappears>() is HediffComp_Disappears comp)
             {
@@ -65,7 +65,7 @@ namespace ArtificialBeings
         {
             pawn.mindState.inspirationHandler.EndInspiration(BondbreakerInspiration);
             pawn.health.RemoveHediff(this);
-            Find.LetterStack.ReceiveLetter("ABF_InspirationSucceeded".Translate(), "ABF_InspirationSucceeded_Bondbreaker".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
+            Find.LetterStack.ReceiveLetter("JDG_InspirationSucceeded".Translate(), "JDG_InspirationSucceeded_Bondbreaker".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
         }
     }
 }

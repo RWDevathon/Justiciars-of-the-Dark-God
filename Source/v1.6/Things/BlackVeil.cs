@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -6,8 +7,9 @@ namespace ArtificialBeings
 {
     // This Thing will create darkness around it, and periodically update it. It will remove darkness upon despawning, and force other instances to update at that time.
     [StaticConstructorOnStartup]
-    public class BlackVeil : ThingWithComps
+    public class BlackVeil : ThingWithComps, IJusticiarMaintainable
     {
+        private Hediff_Justiciar maintainer = null;
         private float radius = 3.49f;
 
         private static readonly Material DarknessMat = MaterialPool.MatFrom("Things/Gas/GasCloudThickA", ShaderDatabase.TransparentPostLight);
@@ -16,6 +18,19 @@ namespace ArtificialBeings
         private readonly int[] rotationRates = new int[4];
 
         public int ticksLeft = 2400;
+
+        // Not all veils have maintainers, but those which were casted by an ability do. Maintainers can keep this veil around longer than ticksLeft would imply.
+        public Hediff_Justiciar Maintainer
+        {
+            get
+            {
+                return maintainer;
+            }
+            set
+            {
+                maintainer = value;
+            }
+        }
 
         public float Radius
         {
@@ -62,10 +77,17 @@ namespace ArtificialBeings
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             base.DrawAt(drawLoc, flip);
-            // The Darkness Grid area, which shows only if hovered over.
+            // Show some things only if hovered over.
             if (Position == UI.MouseCell())
             {
+                // The Darkness Grid area affected.
                 GenDraw.DrawRadiusRing(Position, radius, Color.black);
+
+                // A line to the maintainer of this veil, if applicable.
+                if (Maintainer != null && Maintainer.pawn.Spawned && Maintainer.pawn.Map == Map)
+                {
+                    GenDraw.DrawLineBetween(Position.ToVector3(), Maintainer.pawn.Position.ToVector3(), color: SimpleColor.Blue);
+                }
             }
             // The cloud effects
             drawLoc.y = AltitudeLayer.MoteOverheadLow.AltitudeFor();
@@ -111,9 +133,12 @@ namespace ArtificialBeings
             {
                 angles[i] += rotationRates[i];
             }
-            if (--ticksLeft <= 0)
+            if (Maintainer == null)
             {
-                Destroy();
+                if (--ticksLeft <= 0)
+                {
+                    Destroy();
+                }
             }
         }
 
@@ -143,6 +168,18 @@ namespace ArtificialBeings
                     }
                 }
             }
+        }
+
+        // This method is called by a maintainer to keep this alive.
+        public void Maintain(int ticks)
+        {
+            ticksLeft += ticks;
+        }
+
+        // This method can be called by a maintainer to instantly destroy this (such as in the case of this being tied to an ability and the caster re-casted it elsewhere).
+        public void Terminate()
+        {
+            Destroy();
         }
     }
 }

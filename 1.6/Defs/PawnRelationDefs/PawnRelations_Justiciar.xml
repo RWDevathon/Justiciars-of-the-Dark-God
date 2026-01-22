@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Neophyte/Arbiter does not randomly generate, and is applied when a justiciar inducts a new acolyte. -->
+    <!-- For now, just raises opinion of each other. -->
+    <PawnRelationDef>
+        <workerClass>PawnRelationWorker</workerClass>
+        <defName>ABF_PawnRelation_Justiciar_Arbiter</defName>
+        <label>arbiter</label>
+        <importance>194</importance>
+        <opinionOffset>20</opinionOffset>
+        <generationChanceFactor>0</generationChanceFactor>
+        <implied>false</implied>
+    </PawnRelationDef>
+
+    <PawnRelationDef>
+        <workerClass>PawnRelationWorker</workerClass>
+        <defName>ABF_PawnRelation_Justiciar_Neophyte</defName>
+        <label>neophyte</label>
+        <importance>189</importance>
+        <opinionOffset>20</opinionOffset>
+        <generationChanceFactor>0</generationChanceFactor>
+        <implied>false</implied>
+    </PawnRelationDef>
+
+</Defs>

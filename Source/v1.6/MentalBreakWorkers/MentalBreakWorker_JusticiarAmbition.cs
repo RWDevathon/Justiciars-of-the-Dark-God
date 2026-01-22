@@ -37,10 +37,10 @@ namespace ArtificialBeings
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
             {
                 TaggedString label = def.LabelCap + ": " + pawn.LabelShortCap;
-                TaggedString taggedString = "ABF_AmbitionAcquired".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst();
+                TaggedString taggedString = "JDG_AmbitionAcquired".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst();
                 if (Extension?.associatedHediffDef != null)
                 {
-                    taggedString += " " + "ABF_AmbitionDetails".Translate(Extension.associatedHediffDef.label, pawn.Named("PAWN"));
+                    taggedString += " " + "JDG_AmbitionDetails".Translate(Extension.associatedHediffDef.label, pawn.Named("PAWN"));
                 }
                 if (reason != null)
                 {

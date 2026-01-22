@@ -38,7 +38,7 @@ namespace ArtificialBeings
         {
             if (complete)
             {
-                Find.LetterStack.ReceiveLetter("ABF_InspirationSucceeded".Translate(), "ABF_InspirationSucceeded_InduceWithdrawal".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter("JDG_InspirationSucceeded".Translate(), "JDG_InspirationSucceeded_InduceWithdrawal".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.NeutralEvent);
                 pawn.mindState.mentalBreaker.Notify_RecoveredFromMentalState();
             }
             else
@@ -49,8 +49,19 @@ namespace ArtificialBeings
                     comp.SetDuration(comp.disappearsAfterTicks * 10);
                 }
                 pawn.health.AddHediff(crushingDespair);
-                pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.Binging_DrugExtreme, reason: "ABF_InspirationFailed".Translate(), forced: true);
+                pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.Binging_DrugExtreme, reason: "JDG_InspirationFailed".Translate(), forced: true);
             }
+        }
+
+        public override void PostStart(bool sendLetter = true)
+        {
+            base.PostStart(sendLetter);
+
+            // Receiving an inspiration results in favor loss.
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorLost(25f);
+
+            // If the player has not yet learned about inspirations, they will also receive a learning helper tip about how they work.
+            LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Inspirations, OpportunityType.Critical);
         }
     }
 }
