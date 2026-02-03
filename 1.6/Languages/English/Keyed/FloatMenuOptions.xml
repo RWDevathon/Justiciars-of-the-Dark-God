@@ -8,5 +8,6 @@
     <JDG_StealFavor>Steal {1} favor from {0}</JDG_StealFavor>
     <JDG_RecruitAcolyte>Summon an acolyte (60 favor)</JDG_RecruitAcolyte>
     <JDG_InsufficientFavorToRecruit>Cannot recruit: Need 60 favor</JDG_InsufficientFavorToRecruit>
+    <JDG_InsufficientFavorToClone>Cannot clone: Need {0} favor</JDG_InsufficientFavorToClone>
 
 </LanguageData>

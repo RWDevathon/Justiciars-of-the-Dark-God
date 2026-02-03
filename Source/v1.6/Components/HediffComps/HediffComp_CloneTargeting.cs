@@ -75,7 +75,7 @@ namespace ArtificialBeings
             if (CanHitTarget(target))
             {
                 float favorCost = JDG_Utils.FavorCostToClone(target.Thing);
-                string text = "JDG_InsufficientFavor".Translate(favorCost.ToString("F2"));
+                string text = "JDG_InsufficientFavorToClone".Translate(favorCost.ToString("F2"));
                 if (!ValidateTarget(target))
                 {
                     icon = TexCommand.CannotShoot;
