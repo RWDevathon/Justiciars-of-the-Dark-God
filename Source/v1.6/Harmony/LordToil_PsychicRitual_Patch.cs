@@ -15,7 +15,7 @@ namespace ArtificialBeings
             public static void Listener(LordToil_PsychicRitual __instance)
             {
                 // Void provocation is excluded, as this is insulting the rival "deity" and intentionally provoking hostility from it.
-                if (__instance.RitualData.playerRitual && !(__instance.RitualData.CurPsychicRitualToil is PsychicRitualToil_VoidProvocation))
+                if (__instance.RitualData.playerRitual && !(__instance.RitualData.psychicRitual.def == JDG_PsychicRitualDefOf.VoidProvocation))
                 {
                     bool anyJusticiarsAffected = false;
                     foreach (Pawn justiciar in JDG_Utils.Justiciars)

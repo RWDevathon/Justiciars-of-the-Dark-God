@@ -184,6 +184,7 @@
     <Compile Include="DefOfs\JDG_MentalStateDefOf.cs" />
     <Compile Include="DefOfs\JDG_HediffDefOf.cs" />
     <Compile Include="DefOfs\JDG_ThoughtDefOf.cs" />
+    <Compile Include="DefOfs\JDG_PsychicRitualDefOf.cs" />
     <Compile Include="DefOfs\JDG_TraitDefOf.cs" />
     <Compile Include="DefOfs\JDG_JobDefOf.cs" />
     <Compile Include="DefOfs\JDG_ThingDefOf.cs" />
