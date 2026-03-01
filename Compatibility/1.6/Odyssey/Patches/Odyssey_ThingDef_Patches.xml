@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="ArcheanSeed"]/comps</xpath>
+        <value>
+            <li Class="ArtificialBeings.ThingCompProperties_Corruptible">
+                <defToSpawn>ABF_Thing_Justiciar_CorruptedArcheanSeed</defToSpawn>
+            </li>
+        </value>
+    </Operation>
+
+</Patch>

@@ -7,9 +7,10 @@ namespace ArtificialBeings
     {
         static JDG_PsychicRitualDefOf()
         {
-            DefOfHelper.EnsureInitializedInCtor(typeof(JDG_TraitDefOf));
+            DefOfHelper.EnsureInitializedInCtor(typeof(JDG_PsychicRitualDefOf));
         }
 
+        [MayRequireAnomaly]
         public static PsychicRitualDef_VoidProvocation VoidProvocation;
     }
 }

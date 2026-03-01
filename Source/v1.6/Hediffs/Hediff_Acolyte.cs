@@ -12,10 +12,18 @@ namespace ArtificialBeings
         public bool chosenLetterSent = false;
 
         // Measurement of how pious the acolyte has proven themselves to be as of this moment. Upon reaching 100, they become a justiciar. Upon reaching -50, they lose this status.
-        public float favorCurrent = 0f;
+        private float favorCurrent = 0f;
 
         // Tracker for when the acolyte was last in pain. Used for various calculations.
         public int tickLastInPain = 0;
+
+        public float FavorCurrent
+        {
+            get
+            {
+                return favorCurrent;
+            }
+        }
 
         // This should not remove itself from a pawn automatically.
         public override bool ShouldRemove => false;
@@ -33,11 +41,11 @@ namespace ArtificialBeings
                 if (painTotal > 0.1f)
                 {
                     tickLastInPain = GenTicks.TicksGame;
-                    favorCurrent += 25f / GenDate.TicksPerYear * painTotal * delta;
+                    NotifyFavorGained(25f / GenDate.TicksPerYear * painTotal * delta);
                 }
                 else if (GenTicks.TicksGame - tickLastInPain > GenDate.TicksPerQuadrum)
                 {
-                    favorCurrent -= 50f / GenDate.TicksPerYear * delta;
+                    NotifyFavorLost(50f / GenDate.TicksPerYear * delta);
                 }
             }
             if (!chosenLetterSent)
@@ -90,16 +98,16 @@ namespace ArtificialBeings
             {
                 if (victim.IsFreeColonist)
                 {
-                    favorCurrent += 50f;
+                    NotifyFavorGained(50f);
                 }
                 else if (victim.HostFaction == pawn.Faction && !victim.IsPrisoner)
                 {
-                    favorCurrent += 25f;
+                    NotifyFavorGained(25f);
                 }
             }
             if (victim.IsEntity)
             {
-                favorCurrent += 2.5f * victim.BodySize;
+                NotifyFavorGained(2.5f * victim.BodySize);
             }
         }
 
@@ -160,6 +168,18 @@ namespace ArtificialBeings
                 yield return resetFavor;
             }
             yield break;
+        }
+
+        // This should be used when accruing favor so that the gain rate modifier is applied.
+        public void NotifyFavorGained(float toGain)
+        {
+            favorCurrent += toGain * pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorGainRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
+        }
+
+        // This should be used when losing favor so the loss rate modifier is applied.
+        public void NotifyFavorLost(float toLose)
+        {
+            favorCurrent -= toLose * pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorLossRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
         }
     }
 }

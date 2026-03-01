@@ -13,6 +13,9 @@ namespace ArtificialBeings
 
         public static HediffDef ABF_Hediff_Justiciar_Acolyte;
 
+        [MayRequireOdyssey]
+        public static HediffDef ABF_Hediff_Justiciar_ChokingDarkness;
+
         public static HediffDef ABF_Hediff_Justiciar_CrushingDespair;
 
         public static HediffDef ABF_Hediff_Justiciar_Inspiration_Kinslayer;
@@ -23,6 +26,10 @@ namespace ArtificialBeings
 
         public static HediffDef ABF_Hediff_Justiciar_ShadeSpirit;
 
+        public static HediffDef ABF_Hediff_Justiciar_Ambition_CleansingFury;
+
         public static HediffDef ABF_Hediff_Justiciar_UmbralStride;
+
+
     }
 }

@@ -1,11 +1,10 @@
-﻿using System;
-using Verse;
+﻿using Verse;
 
 namespace ArtificialBeings
 {
     public interface IJusticiarMaintainable : ILoadReferenceable
     {
-        Hediff_Justiciar Maintainer { get; set; }
+        Thing Maintainer { get; set; }
 
         void Maintain(int ticks);
 

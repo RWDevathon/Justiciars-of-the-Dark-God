@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <PawnKindDef Name="ABF_PawnKind_Justiciar_Player_CreatureBase" ParentName="DryadKindBase" Abstract="True">
+        <ignoresPainShock>true</ignoresPainShock>
+        <startingHediffs>
+            <li>
+                <def>ABF_Hediff_Justiciar_ShadeSpirit</def>
+            </li>
+        </startingHediffs>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ABF_PawnKind_Justiciar_Player_CreatureBase">
+        <defName>ABF_PawnKind_Justiciar_Player_CreaturePerceptor</defName>
+        <label>perceptor</label>
+        <race>ABF_Thing_Justiciar_Perceptor</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Dryad_Medicinemaker/DryadMedicinemaker</texPath>
+                    <drawSize>1.5</drawSize>
+                    <color>(0.2, 0.2, 0.2)</color>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Dryad_Medicinemaker/Dessicated_DryadMedicinemaker</texPath>
+                    <drawSize>1.5</drawSize>
+                    <color>(0.2, 0.2, 0.2)</color>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ABF_PawnKind_Justiciar_Player_CreatureBase">
+        <defName>ABF_PawnKind_Justiciar_Player_CreatureWraith</defName>
+        <label>wraith</label>
+        <race>ABF_Thing_Justiciar_Wraith</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Dryad_Clawer/Dryad_Clawer</texPath>
+                    <drawSize>1.0</drawSize>
+                    <color>(0.2, 0.2, 0.2)</color>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Dryad_Clawer/Dessicated_DryadClawer</texPath>
+                    <drawSize>1.0</drawSize>
+                    <color>(0.2, 0.2, 0.2)</color>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>ABF_Ability_Justiciar_Shadestep</li>
+        </abilities>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ABF_PawnKind_Justiciar_Player_CreatureBase">
+        <defName>ABF_PawnKind_Justiciar_Player_CreatureHerald</defName>
+        <label>herald</label>
+        <race>ABF_Thing_Justiciar_Herald</race>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Dryad_Carrier/DryadCarrier</texPath>
+                    <drawSize>1.5</drawSize>
+                    <color>(0.2, 0.2, 0.2)</color>
+                </bodyGraphicData>
+                <dessicatedBodyGraphicData>
+                    <texPath>Things/Pawn/Animal/Dryad_Carrier/Dessicated_DryadCarrier</texPath>
+                    <drawSize>1.5</drawSize>
+                    <color>(0.2, 0.2, 0.2)</color>
+                </dessicatedBodyGraphicData>
+            </li>
+        </lifeStages>
+        <abilities>
+            <li>ABF_Ability_Justiciar_ConjureDarkness</li>
+            <li>ABF_Ability_Justiciar_Shadestep</li>
+        </abilities>
+    </PawnKindDef>
+
+</Defs>

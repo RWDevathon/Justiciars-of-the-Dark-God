@@ -31,7 +31,7 @@ namespace ArtificialBeings
             }
 
             // Favor can only be stolen if there is any to take.
-            float? toTake = (corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.FavorCurrent) ?? (corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Acolyte>()?.favorCurrent);
+            float? toTake = (corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.FavorCurrent) ?? (corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Acolyte>()?.FavorCurrent);
             if (!toTake.HasValue || toTake <= 0f)
             {
                 return null;

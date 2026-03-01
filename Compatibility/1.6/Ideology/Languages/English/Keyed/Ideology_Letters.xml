@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <JDG_PerceptorDetectedBlight>Blight Howl: {PLANTDEF_labelPlural}</JDG_PerceptorDetectedBlight>
+    <JDG_PerceptorDetectedBlightDesc>A low, droning howl fills the air, seemingly from nowhere. Justiciars know what this means - Blight has been detected early on the {PLANTDEF_labelPlural} by perceptors!\n\nYou should cut or burn the affected plants before the blight spreads. Perceptor early detection meant the blight was {1} as large as it would have otherwise been (minimum 20% size).</JDG_PerceptorDetectedBlightDesc>
+    <JDG_PerceptorDetectedPoison>Poison Howl</JDG_PerceptorDetectedPoison>
+    <JDG_PerceptorDetectedPoisonDesc>A gurgling, choking howl fills the air, seemingly from nowhere. Justiciars know what this means - perceptors have detected poisoned food!\n\nYou should destroy it before anyone gets food poisoning... or dispose of it through other means, such as selling to unwary merchants.</JDG_PerceptorDetectedPoisonDesc>
+    <JDG_PerceptorDetectedMetalhorrorFoodImplant>Parasite Howl</JDG_PerceptorDetectedMetalhorrorFoodImplant>
+    <JDG_PerceptorDetectedMetalhorrorFoodImplantDesc>A plaintive howl fills the air, seemingly from nowhere. Justiciars know what this means - perceptors have detected food with metalhorror parasites!\n\nYou should destroy it before anyone gets infected... and figure out who cooked it.</JDG_PerceptorDetectedMetalhorrorFoodImplantDesc>
+    <JDG_MetalhorrorReasonPerceptorDetection>{INFECTED_nameDef}'s metalhorror emerged because it was discovered by the piercing gaze of a perceptor.</JDG_MetalhorrorReasonPerceptorDetection>
+    <JDG_PerceptorDetectedDesc>The piercing gaze of a perceptor reveals much of what mortal eyes cannot, and tends to fixate on the Dark God's foes. {INFECTED_nameDef} is undoubtedly infected by a blasphemous creation known as a metalhorror - it must be purged.</JDG_PerceptorDetectedDesc>
+    <JDG_PerceptorDetectedCreepjoinerFlaws>Creepjoiner Scrying: {CREEPY_nameDef}</JDG_PerceptorDetectedCreepjoinerFlaws>
+    <JDG_PerceptorDetectedCreepjoinerFlawsDesc>{CREEPY_nameDef} has some unusual qualities, but cannot hide their darkest secrets - perhaps unknown even to themselves - from a perceptor. A series of cryptic whispers reveal truths, if a bit crudely, about what may happen when interacting with {CREEPY_nameDef}:\nInnate flaw: {0}\nIf made aggressive: {1}\nIf rejected: {2}</JDG_PerceptorDetectedCreepjoinerFlawsDesc>
+    <JDG_PerceptorDetectedInvisibleThreat>Frenzied Howl</JDG_PerceptorDetectedInvisibleThreat>
+    <JDG_PerceptorDetectedInvisibleThreatDesc>A cacophany of enraged, frenzied howls pierce the air from a thousand angles, as if reality itself were bending under the weight of invisible anger. Justiciars need not ponder the cause, for the Dark God's wrath is as clear as its domain is dark: Something, or some things, in the service of a pretender dares approach while bathed in psychic power that prevents their visual detection. They can hide their bodies from the view of perceptors, but not their vile power.\n\nPrepare yourself - the threat may not strike immediately, but no amount of psychic power can hide a creature if within the Dark God's blessed darkness.</JDG_PerceptorDetectedInvisibleThreatDesc>
+
+</LanguageData>

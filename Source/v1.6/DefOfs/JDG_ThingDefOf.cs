@@ -12,5 +12,8 @@ namespace ArtificialBeings
         }
 
         public static ThingDef ABF_Thing_BlackVeil;
+
+        [MayRequireIdeology]
+        public static ThingDef ABF_Thing_Justiciar_CorruptedGauranlenSeed;
     }
 }

@@ -12,7 +12,18 @@ namespace ArtificialBeings
         // Dictionary matching maps to their darkness grids to be checked as needed.
         public static Dictionary<Map, MapComponent_DarknessGrid> darkGridDict = new Dictionary<Map, MapComponent_DarknessGrid>();
 
-        public static GameComponent_Justiciars GameComponent_Justiciars
+        // Dictionary matching pawns' thingIds to trackers including information on when perceptors last revealed something about them.
+        public static Dictionary<int, PerceptorTracker> perceptorCheckedPawns = new Dictionary<int, PerceptorTracker>();
+
+        // List referencing all currently existing dark creatures for the umbral anchor.
+        public static List<PawnKindDef> darkCreatureKinds = new List<PawnKindDef>()
+        {
+            JDG_PawnKindDefOf.ABF_PawnKind_Justiciar_Player_CreaturePerceptor,
+            JDG_PawnKindDefOf.ABF_PawnKind_Justiciar_Player_CreatureWraith,
+            JDG_PawnKindDefOf.ABF_PawnKind_Justiciar_Player_CreatureHerald,
+        };
+
+    public static GameComponent_Justiciars GameComponent_Justiciars
         {
             get
             {
@@ -114,6 +125,7 @@ namespace ArtificialBeings
         public static void ClearCaches()
         {
             justiciarsCache = null;
+            perceptorCheckedPawns = new Dictionary<int, PerceptorTracker>();
         }
 
         // For a given target Thing, returns the cost to clone it. Returns 0 if the cost is unknown.
@@ -160,6 +172,23 @@ namespace ArtificialBeings
                 return 25f * pawn.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks:GenTicks.TicksPerRealSecond);
             }
             return 0f;
+        }
+
+        public static void UpdatePerceptorTracker(Pawn pawn, int tick)
+        {
+            if (perceptorCheckedPawns.TryGetValue(pawn.thingIDNumber, out var tracker))
+            {
+                tracker.tickPerceived = tick;
+            }
+            else
+            {
+                perceptorCheckedPawns[pawn.thingIDNumber] = new PerceptorTracker(tick);
+            }
+        }
+
+        public static PerceptorTracker GetPerceptorTracker(this Pawn pawn)
+        {
+            return perceptorCheckedPawns.TryGetValue(pawn.thingIDNumber, null);
         }
     }
 }

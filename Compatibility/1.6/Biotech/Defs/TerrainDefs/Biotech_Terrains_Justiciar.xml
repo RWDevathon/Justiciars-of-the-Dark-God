@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <TerrainDef ParentName="Sand">
+        <defName>ABF_Terrain_Justiciar_BlackSand</defName>
+        <label>black sand</label>
+        <color>(0.25, 0.25, 0.25)</color>
+        <fertility>0</fertility>
+        <scatterType IsNull="true"/>
+    </TerrainDef>
+
+</Defs>

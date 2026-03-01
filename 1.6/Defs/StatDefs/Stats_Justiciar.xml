@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <StatDef>
+        <defName>ABF_Stat_Justiciar_FavorGainRate</defName>
+        <label>favor gain rate</label>
+        <description>A multiplier on how much favor this devotee of the Dark God earns when fulfilling duties.</description>
+        <workerClass>ArtificialBeings.StatWorker_Justiciar</workerClass>
+        <category>BasicsPawn</category>
+        <defaultBaseValue>1.0</defaultBaseValue>
+        <hideAtValue>1.0</hideAtValue>
+        <toStringStyle>PercentZero</toStringStyle>
+        <minValue>0</minValue>
+        <parts>
+            <li Class="ArtificialBeings.StatPart_WearingBlack">
+                <requiredPercentage>0.75</requiredPercentage>
+                <factor>1.05</factor>
+            </li>
+        </parts>
+    </StatDef>
+
+    <StatDef>
+        <defName>ABF_Stat_Justiciar_FavorLossRate</defName>
+        <label>favor loss rate</label>
+        <description>A multiplier on how much favor this devotee of the Dark God loses when failing to uphold duties.</description>
+        <workerClass>ArtificialBeings.StatWorker_Justiciar</workerClass>
+        <category>BasicsPawn</category>
+        <defaultBaseValue>1.0</defaultBaseValue>
+        <hideAtValue>1.0</hideAtValue>
+        <toStringStyle>PercentZero</toStringStyle>
+        <minValue>0.1</minValue>
+        <parts>
+            <li Class="ArtificialBeings.StatPart_WearingBlack">
+                <requiredPercentage>0.75</requiredPercentage>
+                <factor>0.95</factor>
+            </li>
+        </parts>
+    </StatDef>
+
+</Defs>

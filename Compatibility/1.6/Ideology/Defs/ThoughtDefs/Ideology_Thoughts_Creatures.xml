@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThoughtDef>
+        <defName>ABF_Thought_Justiciar_SecretRevealed</defName>
+        <durationDays>5</durationDays>
+        <stages>
+            <li>
+                <label>secret revealed</label>
+                <description>One of my dearly held secrets was revealed to everyone. This is humiliating.</description>
+                <baseMoodEffect>-6</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

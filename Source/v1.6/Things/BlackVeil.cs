@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -9,7 +8,7 @@ namespace ArtificialBeings
     [StaticConstructorOnStartup]
     public class BlackVeil : ThingWithComps, IJusticiarMaintainable
     {
-        private Hediff_Justiciar maintainer = null;
+        private Thing maintainer = null;
         private float radius = 3.49f;
 
         private static readonly Material DarknessMat = MaterialPool.MatFrom("Things/Gas/GasCloudThickA", ShaderDatabase.TransparentPostLight);
@@ -20,7 +19,7 @@ namespace ArtificialBeings
         public int ticksLeft = 2400;
 
         // Not all veils have maintainers, but those which were casted by an ability do. Maintainers can keep this veil around longer than ticksLeft would imply.
-        public Hediff_Justiciar Maintainer
+        public Thing Maintainer
         {
             get
             {
@@ -84,9 +83,9 @@ namespace ArtificialBeings
                 GenDraw.DrawRadiusRing(Position, radius, Color.black);
 
                 // A line to the maintainer of this veil, if applicable.
-                if (Maintainer != null && Maintainer.pawn.Spawned && Maintainer.pawn.Map == Map)
+                if (Maintainer != null && Maintainer.Spawned && Maintainer.Map == Map)
                 {
-                    GenDraw.DrawLineBetween(Position.ToVector3(), Maintainer.pawn.Position.ToVector3(), color: SimpleColor.Blue);
+                    GenDraw.DrawLineBetween(Position.ToVector3(), Maintainer.Position.ToVector3(), color: SimpleColor.Blue);
                 }
             }
             // The cloud effects

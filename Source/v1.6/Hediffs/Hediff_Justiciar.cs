@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Verse;
 
 namespace ArtificialBeings
@@ -139,7 +138,7 @@ namespace ArtificialBeings
 
                 if (maintainee != null)
                 {
-                    maintainee.Maintainer = this;
+                    maintainee.Maintainer = pawn;
                 }
             }
         }
@@ -253,6 +252,8 @@ namespace ArtificialBeings
         // This should be used when accruing favor, so that both the current and lifespan values are updated and thresholds are checked.
         public void NotifyFavorGained(float toGain)
         {
+            toGain *= pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorGainRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
+
             favorLifespan += toGain;
             favorCurrent += toGain;
 
@@ -266,14 +267,14 @@ namespace ArtificialBeings
         // This should be used when losing favor. It does *not* update the lifespan value.
         public void NotifyFavorLost(float toLose)
         {
-            favorCurrent -= toLose;
+            favorCurrent -= toLose * pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorLossRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
         }
 
         public void NotifyNewMaintainee(IJusticiarMaintainable newMaintainee)
         {
             maintainee?.Terminate();
             maintainee = newMaintainee;
-            maintainee.Maintainer = this;
+            maintainee.Maintainer = pawn;
         }
     }
 }

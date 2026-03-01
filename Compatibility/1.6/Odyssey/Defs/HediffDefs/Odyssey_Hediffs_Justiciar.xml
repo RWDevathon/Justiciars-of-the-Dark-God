@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_ChokingDarkness</defName>
+        <label>choking darkness</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>Choking induced by a malicious shadespirit nestled within a corrupted archean tree. The darkness expelled by the spirit is capable not just of filling lungs, but can also penetrate the shells of mechanoids, insects, and even the accursed bodies of entities in order to disburse its debilitating maladies.</description>
+        <initialSeverity>1</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-4</severityPerDay>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+        <stages>
+            <li>
+                <label>recovering</label>
+                <vomitMtbDays>0.8</vomitMtbDays>
+                <painOffset>0.1</painOffset>
+                <capMods>
+                <li>
+                    <capacity>Consciousness</capacity>
+                    <postFactor>0.9</postFactor>
+                </li>
+                <li>
+                    <capacity>Breathing</capacity>
+                    <postFactor>0.75</postFactor>
+                </li>
+                <li>
+                    <capacity>Talking</capacity>
+                    <postFactor>0.4</postFactor>
+                </li>
+                <li>
+                    <capacity>Eating</capacity>
+                    <postFactor>0.4</postFactor>
+                </li>
+                </capMods>
+            </li>
+            <li>
+                <label>major</label>
+                <minSeverity>0.2</minSeverity>
+                <vomitMtbDays>0.5</vomitMtbDays>
+                <painOffset>0.25</painOffset>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.8</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <postFactor>0.5</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0.1</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Eating</capacity>
+                        <postFactor>0.1</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

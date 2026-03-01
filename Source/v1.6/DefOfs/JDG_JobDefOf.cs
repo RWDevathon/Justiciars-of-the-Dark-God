@@ -11,14 +11,37 @@ namespace ArtificialBeings
             DefOfHelper.EnsureInitializedInCtor(typeof(JDG_JobDefOf));
         }
 
+        [MayRequireOdyssey]
+        public static JobDef ABF_Job_Justiciar_AwakenMaliciousSpirit;
+
         public static JobDef ABF_Job_Justiciar_Clone;
 
-        public static JobDef ABF_Job_Justiciar_Raise;
+        public static JobDef ABF_Job_Justiciar_CorruptThing;
 
-        public static JobDef ABF_Job_Justiciar_SummonAcolyte;
+        [MayRequireIdeology]
+        public static JobDef ABF_Job_Justiciar_DoManualScrying;
+
+        [MayRequireIdeology]
+        public static JobDef ABF_Job_Justiciar_HarvestDead;
 
         public static JobDef ABF_Job_Justiciar_Induct;
 
+        [MayRequireRoyalty]
+        public static JobDef ABF_Job_Justiciar_PillagePsychicEnergy;
+
+        public static JobDef ABF_Job_Justiciar_Raise;
+
+        [MayRequireBiotech]
+        public static JobDef ABF_Job_Justiciar_ReapFavor;
+
+        [MayRequireRoyalty]
+        public static JobDef ABF_Job_Justiciar_SiphonPsychicEnergy;
+
         public static JobDef ABF_Job_Justiciar_StealFavor;
+
+        public static JobDef ABF_Job_Justiciar_SummonAcolyte;
+
+        [MayRequireIdeology]
+        public static JobDef ABF_Job_Justiciar_SummonCreature;
     }
 }

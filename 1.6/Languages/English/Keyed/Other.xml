@@ -11,4 +11,11 @@
     <!-- Used in GUI elements -->
     <JDG_FavorRequirement>Requires {0} favor</JDG_FavorRequirement>
 
+    <!-- Used in explaining stats for favor -->
+    <JDG_Favor_WearingBlack>Wearing at least {0} black clothing: {1}</JDG_Favor_WearingBlack>
+
+    <!-- Used for a float menu and inspect panel for corrupted archean trees-->
+    <JDG_MaliciousSpirit_Ready>Shadespirit ready for activation</JDG_MaliciousSpirit_Ready>
+    <JDG_MaliciousSpirit_Preparing>Shadespirit preparing: {0}</JDG_MaliciousSpirit_Preparing>
+
 </LanguageData>

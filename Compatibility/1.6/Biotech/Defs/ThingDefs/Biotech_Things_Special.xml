@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- Acquired by corrupting a normal Polux seed-->
+
+    <ThingDef ParentName="TreeBase">
+        <defName>ABF_Thing_Justiciar_CorruptedPoluxTree</defName>
+        <label>corrupted polux tree</label>
+        <description>Leeching the very nutrients and minerals from the terrain around itself instead of pollution, this tree leaves naugth but barren black sand around itself. The elements stolen from this plane by these trees will never again give rise to new life, and thus bringing reality one step closer to the Dark God's embrace. Justiciars and acolytes may visit this tree to receive a boon of favor as the tree performs its grim task of accelerating the death of reality.</description>
+        <graphicData>
+            <texPath>Things/Plant/TreePolux</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <shadowData>
+                <volume>(0.35, 0.3, 0.35)</volume>
+                <offset>(0,0,0.05)</offset>
+            </shadowData>
+            <color>(0.2, 0.2, 0.2)</color>
+        </graphicData>
+        <tickerType>Rare</tickerType>
+        <minifiedDef IsNull="True" />
+        <statBases>
+            <Beauty>6</Beauty>
+            <BeautyOutdoors>6</BeautyOutdoors>
+            <Flammability>0</Flammability>
+            <MaxHitPoints>300</MaxHitPoints>
+        </statBases>
+        <ingestible />
+        <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+        <canScatterOver>false</canScatterOver>
+        <plant>
+            <pollution>Any</pollution>
+            <growDays>1</growDays>
+            <visualSizeRange>1.5~2.1</visualSizeRange>
+            <sowMinSkill>0</sowMinSkill>
+            <sowTags Inherit="False"/>
+            <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+            <fertilityMin>0</fertilityMin>
+            <fertilitySensitivity>0</fertilitySensitivity>
+            <wildClusterWeight>0</wildClusterWeight>
+            <sowWork>400</sowWork>
+            <harvestYield>30</harvestYield>
+            <treeCategory>Super</treeCategory>
+            <dieIfNoSunlight>false</dieIfNoSunlight>
+            <growMinGlow>0</growMinGlow>
+            <sowResearchPrerequisites Inherit="False" />
+            <dieFromToxicFallout>False</dieFromToxicFallout>
+            <showGrowthInInspectPane>false</showGrowthInInspectPane>
+            <minSpacingBetweenSamePlant>6.9</minSpacingBetweenSamePlant>
+            <warnIfMarkedForCut>true</warnIfMarkedForCut>
+            <harvestWork>1000</harvestWork>
+            <choppedThingDef>ChoppedStump_Polux</choppedThingDef>
+            <smashedThingDef>SmashedStump_Polux</smashedThingDef>
+            <immatureGraphicPath>Things/Plant/TreePolux_Immature</immatureGraphicPath>
+            <snowOverlayGraphicPath>Things/Plant/TreePolux_Snowy</snowOverlayGraphicPath>
+            <immatureSnowOverlayGraphicPath>Things/Plant/TreePolux_ImmatureSnowy</immatureSnowOverlayGraphicPath>
+        </plant>
+        <comps>
+            <li Class="CompProperties_SelfhealHitpoints">
+                <ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
+            </li>
+            <li Class="CompProperties_Terraformer">
+                <radius>7.9</radius>
+                <secondsPerConvert>500</secondsPerConvert> <!-- Half a day -->
+                <convertTerrainDef>ABF_Terrain_Justiciar_BlackSand</convertTerrainDef>
+            </li>
+            <li Class="ArtificialBeings.ThingCompProperties_ProducesFavor">
+                <favorPerDay>0.5</favorPerDay>
+            </li>
+            <li Class="CompProperties_PlantPreventCutting"/>
+            <li Class="ArtificialBeings.ThingCompProperties_MaintainsDarkness">
+                <radius>0.9</radius>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>ABF_Thing_Justiciar_CorruptedPoluxSeed</defName>
+        <label>corrupted polux seed</label>
+        <description>The corrupted seed of a polux tree. It can be planted to create a new tree which will produce favor while leaving the terrain around it as useless black sand.</description>
+        <descriptionHyperlinks>
+            <ThingDef>ABF_Thing_Justiciar_CorruptedPoluxTree</ThingDef>
+        </descriptionHyperlinks>
+        <stackLimit>5</stackLimit>
+        <statBases>
+            <MaxHitPoints>50</MaxHitPoints>
+            <Mass>0.3</Mass>
+            <Beauty>0</Beauty>
+            <MarketValue>1200</MarketValue>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/PoluxSeed</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>(0.6, 0.6)</drawSize>
+            <color>(0.2, 0.2, 0.2)</color>
+        </graphicData>
+        <thingCategories>
+            <li>ItemsMisc</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Plantable">
+                <plantDefToSpawn>ABF_Thing_Justiciar_CorruptedPoluxTree</plantDefToSpawn>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>

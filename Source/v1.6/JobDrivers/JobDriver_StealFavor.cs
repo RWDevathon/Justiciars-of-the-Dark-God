@@ -17,8 +17,8 @@ namespace ArtificialBeings
             }
             else if (target.health.hediffSet.GetFirstHediff<Hediff_Acolyte>() is Hediff_Acolyte acolyteHediff)
             {
-                toTransfer = acolyteHediff.favorCurrent;
-                acolyteHediff.favorCurrent = 0f;
+                toTransfer = acolyteHediff.FavorCurrent;
+                acolyteHediff.NotifyFavorLost(toTransfer);
             }
             else
             {
@@ -31,7 +31,7 @@ namespace ArtificialBeings
             }
             else if (JDG_Utils.IsAcolyte(pawn))
             {
-                pawn.health.hediffSet.GetFirstHediff<Hediff_Acolyte>().favorCurrent += toTransfer;
+                pawn.health.hediffSet.GetFirstHediff<Hediff_Acolyte>().NotifyFavorGained(toTransfer);
             }
         }
     }

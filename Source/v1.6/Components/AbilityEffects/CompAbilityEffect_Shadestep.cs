@@ -1,7 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Security.Cryptography;
-using UnityEngine;
 using Verse;
 
 namespace ArtificialBeings

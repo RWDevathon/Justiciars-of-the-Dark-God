@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <JDG_SummonCreature>Summon a creature</JDG_SummonCreature>
+    <JDG_HarvestDead>Harvest {0}</JDG_HarvestDead>
+    <JDG_DoManualScrying>Scry details on {0}</JDG_DoManualScrying>
+    <JDG_CannotScryOnCooldown>Cannot scry for {0}</JDG_CannotScryOnCooldown>
+
+</LanguageData>

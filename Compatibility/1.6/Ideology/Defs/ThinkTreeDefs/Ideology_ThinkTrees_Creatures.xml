@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- Wait if drafted -->
+    <ThinkTreeDef>
+        <defName>ABF_ThinkTree_Justiciar_DraftableCreature</defName>
+        <insertTag>Animal_PreMain</insertTag>
+        <insertPriority>2</insertPriority>
+        <thinkRoot Class="ThinkNode_ConditionalOfPlayerFaction">
+            <subNodes>
+                <li Class="ThinkNode_Tagger">
+                    <tagToGive>DraftedOrder</tagToGive>
+                    <subNodes>
+                        <li Class="JobGiver_MoveToStandable" />
+                        <li Class="JobGiver_Orders" />
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+</Defs>

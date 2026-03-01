@@ -9,16 +9,9 @@
     </JobDef>
 
     <JobDef>
-        <defName>ABF_Job_Justiciar_Raise</defName>
-        <driverClass>ArtificialBeings.JobDriver_RaiseJusticiar</driverClass>
-        <reportString>raising TargetA.</reportString>
-        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-    </JobDef>
-
-    <JobDef>
-        <defName>ABF_Job_Justiciar_SummonAcolyte</defName>
-        <driverClass>ArtificialBeings.JobDriver_SummonAcolyte</driverClass>
-        <reportString>summoning acolyte.</reportString>
+        <defName>ABF_Job_Justiciar_CorruptThing</defName>
+        <driverClass>ArtificialBeings.JobDriver_CorruptThing</driverClass>
+        <reportString>corrupting TargetA.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
 
@@ -30,9 +23,51 @@
     </JobDef>
 
     <JobDef>
+        <defName>ABF_Job_Justiciar_PillagePsychicEnergy</defName>
+        <driverClass>ArtificialBeings.JobDriver_PillagePsychicEnergy</driverClass>
+        <reportString>pillaging TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_Raise</defName>
+        <driverClass>ArtificialBeings.JobDriver_RaiseJusticiar</driverClass>
+        <reportString>raising TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_ReapFavor</defName>
+        <driverClass>ArtificialBeings.JobDriver_ReapFavor</driverClass>
+        <reportString>reaping favor from TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_SiphonPsychicEnergy</defName>
+        <driverClass>ArtificialBeings.JobDriver_SiphonPsychicEnergy</driverClass>
+        <reportString>siphoning psychic energy from TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
         <defName>ABF_Job_Justiciar_StealFavor</defName>
         <driverClass>ArtificialBeings.JobDriver_StealFavor</driverClass>
         <reportString>stealing favor from TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_SummonAcolyte</defName>
+        <driverClass>ArtificialBeings.JobDriver_SummonAcolyte</driverClass>
+        <reportString>summoning acolyte.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_SummonCreature</defName>
+        <driverClass>ArtificialBeings.JobDriver_SummonCreature</driverClass>
+        <reportString>summoning creature.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <JDG_CreatureSpawnReady>An umbral anchor is ready to summon a new creature</JDG_CreatureSpawnReady>
+
+    <JDG_UnnaturalCorpseHarvest_Successful>Dark God be praised, the herald kept the corpse down and is blessed with productivity!</JDG_UnnaturalCorpseHarvest_Successful>
+    <JDG_UnnaturalCorpseHarvest_Failure>This herald failed the Dark God. Blood stains both soil and sky, and it seems more is coming...</JDG_UnnaturalCorpseHarvest_Failure>
+
+    <JDG_PerceptorDetectedMinorSecret>A perceptor revealed an embarrassing secret about {0}.</JDG_PerceptorDetectedMinorSecret>
+
+</LanguageData>

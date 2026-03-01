@@ -16,4 +16,21 @@
         </stages>
     </ThoughtDef>
 
+    <ThoughtDef>
+        <defName>ABF_Thought_Justiciar_WearingAllBlack</defName>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <workerClass>ArtificialBeings.ThoughtWorker_WearingColor_Black</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <requiredTraits>
+            <li>ABF_Trait_Justiciar_Adherent</li>
+        </requiredTraits>
+        <stages>
+            <li>
+                <label>garbed in black</label>
+                <description>My clothing is as majestically dark as my god.</description>
+                <baseMoodEffect>1</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
 </Defs>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- Acquired by corrupting a normal Archean seed-->
+
+    <ThingDef ParentName="TreeBase">
+        <defName>ABF_Thing_Justiciar_CorruptedArcheanTree</defName>
+        <label>corrupted archean tree</label>
+        <description>A corrupted tree infused with a brooding shadespirit. Constantly gathering strength for the day it will be called upon, the shadespirit will eagerly respond to the touch of a justiciar. When ready, the spirit will unleash a miasmic wave of roiling, choking darkness around itself. Capable of penetrating the bodies of the living as well as the armor of mechanoids and the accursed shells of entities, only justiciars and shadespirits are spared the wrath of the shadespirit within. While darkness lingers around the tree for a while after activation, only those embraced by the initial blast will be smothered - and they will suffer greatly for much of a day. After activation, the shadespirit retreats back within the tree to regather its strength.</description>
+        <graphicData>
+            <texPath>Things/Plant/TreeArchean/ArcheanTree</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shadowData>
+                <volume>(0.15, 0.3, 0.1)</volume>
+                <offset>(0.05,0,-0.18)</offset>
+            </shadowData>
+            <color>(0.2, 0.2, 0.2)</color>
+        </graphicData>
+        <tickerType>Rare</tickerType>
+        <minifiedDef IsNull="True" />
+        <statBases>
+            <Beauty>6</Beauty>
+            <BeautyOutdoors>6</BeautyOutdoors>
+            <Flammability>0</Flammability>
+            <MaxHitPoints>250</MaxHitPoints>
+        </statBases>
+        <ingestible />
+        <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+        <canScatterOver>false</canScatterOver>
+        <plant>
+            <pollution>Any</pollution>
+            <growDays>1</growDays>
+            <visualSizeRange>2~2.5</visualSizeRange>
+            <sowMinSkill>0</sowMinSkill>
+            <sowTags Inherit="False"/>
+            <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+            <fertilityMin>0</fertilityMin>
+            <fertilitySensitivity>0</fertilitySensitivity>
+            <wildClusterWeight>0</wildClusterWeight>
+            <sowWork>400</sowWork>
+            <harvestYield>30</harvestYield>
+            <treeCategory>Super</treeCategory>
+            <sowResearchPrerequisites Inherit="False" />
+            <dieFromToxicFallout>False</dieFromToxicFallout>
+            <showGrowthInInspectPane>false</showGrowthInInspectPane>
+            <minSpacingBetweenSamePlant>2.9</minSpacingBetweenSamePlant>
+            <warnIfMarkedForCut>true</warnIfMarkedForCut>
+            <harvestWork>1000</harvestWork>
+            <choppedThingDef>ChoppedStump_Archean</choppedThingDef>
+            <smashedThingDef>SmashedStump_Archean</smashedThingDef>
+            <leaflessGraphicPath>Things/Plant/TreeArchean/ArcheanTree_Leafless</leaflessGraphicPath>
+            <leaflessSnowOverlayGraphicPath>Things/Plant/TreeArchean_Snowy/SnowyArcheanTree_Leafless</leaflessSnowOverlayGraphicPath>
+            <vacuumResistant>true</vacuumResistant>
+            <blockAdjacentSow>false</blockAdjacentSow>
+            <dieIfNoSunlight>false</dieIfNoSunlight>
+            <interferesWithRoof>false</interferesWithRoof>
+            <growMinGlow>0</growMinGlow>
+        </plant>
+        <comps>
+            <li Class="CompProperties_SelfhealHitpoints">
+                <ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
+            </li>
+            <li>
+                <compClass>ArtificialBeings.ThingComp_MaliciousSpirit</compClass>
+            </li>
+            <li Class="CompProperties_PlantPreventCutting"/>
+            <li Class="ArtificialBeings.ThingCompProperties_MaintainsDarkness">
+                <radius>0.9</radius>
+            </li>
+        </comps>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>ABF_Thing_Justiciar_CorruptedArcheanSeed</defName>
+        <label>corrupted archean seed</label>
+        <description>The corrupted seed of an archean tree. It can be planted to grow a corrupted archean tree, which contains a brooding shadespirit which gathers strength for the day it will be called upon. When it is ready, a justiciar can activate the tree to unleash its malicious wrath.</description>
+        <descriptionHyperlinks>
+            <ThingDef>ABF_Thing_Justiciar_CorruptedArcheanTree</ThingDef>
+        </descriptionHyperlinks>
+        <stackLimit>5</stackLimit>
+        <statBases>
+            <MaxHitPoints>50</MaxHitPoints>
+            <Mass>0.3</Mass>
+            <Beauty>0</Beauty>
+            <MarketValue>650</MarketValue>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Special/ArcheanSeed</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>(0.6, 0.6)</drawSize>
+            <color>(0.2, 0.2, 0.2)</color>
+        </graphicData>
+        <thingCategories>
+            <li>ItemsMisc</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Plantable">
+                <plantDefToSpawn>ABF_Thing_Justiciar_CorruptedArcheanTree</plantDefToSpawn>
+            </li>
+        </comps>
+        <possessionCount>1</possessionCount>
+    </ThingDef>
+
+    <!-- Used only when activing a corrupted Archean tree -->
+
+    <ThingDef ParentName="MoteBase">
+        <defName>ABF_Thing_Justiciar_MaliciousSpiritMote</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <mote>
+            <fadeInTime>0.05</fadeInTime>
+            <fadeOutTime>0.6</fadeOutTime>
+            <solidTime>0.6</solidTime>
+            <growthRate>6</growthRate>
+        </mote>
+        <graphicData>
+            <texPath>Things/Mote/RadiationDistortion_A</texPath>
+            <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+            <color>(0.3, 0.3, 0.3, 0.75)</color>
+            <shaderType>MoteMultiplyCircularGrayscale</shaderType>
+            <shaderParameters>
+                <_MultiplyTex>/Things/Mote/RadiationDistortion_B</_MultiplyTex>
+                <_texAScale>0.3</_texAScale>
+                <_texBScale>0.3</_texBScale>
+                <_texAScrollSpeed>0.8</_texAScrollSpeed>
+                <_texBScrollSpeed>-0.4</_texBScrollSpeed>
+                <_texAScaleDist>0.5</_texAScaleDist>
+                <_DistortionScale>0.6</_DistortionScale>
+                <_Intensity>8</_Intensity>
+            </shaderParameters>
+            <drawSize>(2.5, 2.5)</drawSize>
+        </graphicData>
+    </ThingDef>
+
+</Defs>

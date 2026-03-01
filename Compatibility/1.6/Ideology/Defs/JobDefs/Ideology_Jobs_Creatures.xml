@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_DoManualScrying</defName>
+        <driverClass>ArtificialBeings.JobDriver_DoManualScrying</driverClass>
+        <reportString>scrying details on TargetA.</reportString>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_HarvestDead</defName>
+        <driverClass>ArtificialBeings.JobDriver_HarvestDead</driverClass>
+        <reportString>harvesting TargetA.</reportString>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>

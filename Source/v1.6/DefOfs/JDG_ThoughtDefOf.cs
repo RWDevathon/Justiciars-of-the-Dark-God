@@ -11,5 +11,8 @@ namespace ArtificialBeings
         }
 
         public static ThoughtDef ABF_Thought_Justiciar_Displeased;
+
+        [MayRequireIdeology]
+        public static ThoughtDef ABF_Thought_Justiciar_SecretRevealed;
     }
 }

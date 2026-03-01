@@ -21,4 +21,15 @@
         </value>
     </Operation>
 
+    <!-- The Anima Tree can be pillaged for psychic energy -->
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Plant_TreeAnima"]/comps</xpath>
+        <value>
+            <li>
+                <compClass>ArtificialBeings.ThingComp_PsychicCorruptible</compClass>
+            </li>
+        </value>
+    </Operation>
+
 </Patch>

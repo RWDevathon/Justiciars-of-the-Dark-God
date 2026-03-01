@@ -13,4 +13,7 @@
     <JDG_StopConcentration>Stop maintaining abilities</JDG_StopConcentration>
     <JDG_StopConcentrationDesc>Some abilities, such as conjure darkness, remain until cancelled</JDG_StopConcentrationDesc>
 
+    <JDG_CorruptThing>Corrupt {0}</JDG_CorruptThing>
+    <JDG_CorruptThingDesc>Order a justiciar to corrupt {0} to produce {1}</JDG_CorruptThingDesc>
+
 </LanguageData>

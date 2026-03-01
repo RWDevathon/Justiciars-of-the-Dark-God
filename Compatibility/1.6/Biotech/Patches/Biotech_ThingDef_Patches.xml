@@ -30,4 +30,15 @@
         </value>
     </Operation>
 
+    <!-- Polux seeds can be corrupted -->
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="PoluxSeed"]/comps</xpath>
+        <value>
+            <li Class="ArtificialBeings.ThingCompProperties_Corruptible">
+                <defToSpawn>ABF_Thing_Justiciar_CorruptedPoluxSeed</defToSpawn>
+            </li>
+        </value>
+    </Operation>
+
 </Patch>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef Name="ABF_Thing_Justiciar_CreatureBase" ParentName="AnimalThingBase" Abstract="True">
+        <statBases>
+            <ToxicResistance>1</ToxicResistance>
+            <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+			<MeatAmount>0</MeatAmount>
+			<LeatherAmount>0</LeatherAmount>
+            <PainShockThreshold>1</PainShockThreshold>
+            <Wildness>0</Wildness>
+			<ComfyTemperatureMin>-200</ComfyTemperatureMin>
+			<ComfyTemperatureMax>200</ComfyTemperatureMax>
+            <Mass>10</Mass>
+        </statBases>
+        <comps>
+            <li>
+                <compClass>ArtificialBeings.ThingComp_DraftableCreature</compClass>
+            </li>
+            <li Class="ArtificialBeings.ThingCompProperties_PerceptorVision">
+                <daysBetweenScrying>5~10</daysBetweenScrying>
+                <plantRatioForOptimalDetection>50</plantRatioForOptimalDetection>
+            </li>
+        </comps>
+        <race>
+            <body>QuadrupedAnimalWithPawsAndTail</body>
+            <hasGenders>false</hasGenders>
+            <packAnimal>false</packAnimal>
+			<herdAnimal>false</herdAnimal>
+			<predator>false</predator>
+            <canBePredatorPrey>false</canBePredatorPrey>
+			<foodType>None</foodType>
+			<needsRest>false</needsRest>
+            <isImmuneToInfections>true</isImmuneToInfections>
+            <hasMeat>false</hasMeat>
+            <leatherDef IsNull="true"/>
+            <hasCorpse>false</hasCorpse>
+            <lifeExpectancy>40</lifeExpectancy>
+            <trainability>Advanced</trainability>
+            <hediffGiverSets Inherit="False"/>
+            <ageGenerationCurve>
+                <points>
+                    <li>(0,0)</li>
+                    <li>(1,30)</li>
+                    <li>(2,10)</li>
+                    <li>(10,0)</li>
+                </points>
+            </ageGenerationCurve>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+                    <soundCall>Pawn_Dryad_Call</soundCall>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+        </race>
+    </ThingDef>
+
+    <ThingDef ParentName="ABF_Thing_Justiciar_CreatureBase">
+        <defName>ABF_Thing_Justiciar_Perceptor</defName>
+		<label>perceptor</label>
+		<description>A grotesque creature that is inky-black and clearly not quite fully materialized, the perceptor is an unimposing manifestation of a shadespirit. Known for their proclivity to wander and to glare menacingly at anyone and everything that moves within their line of sight, the perceptor is a natural sentry.\n\nWhile normally useless in a fight as they lack innate offensive and defensive capabilities, they have considerable utility to justiciars: They can perceive what others cannot. The Dark God has many foes and prey, and it is through creatures such as the perceptor that its minions identify which is which. Perceptors will scry into the very essence of others nearby, sometimes revealing useful information or identifying a threat.\n\nAs a dark spirit, they are unusually intelligent for what is otherwise an animal: They can be ordered to put out fires, capture or rescue creatures, and even be ordered to pick up weaponry to use. This should be done with care, though - they don't seem to comprehend the concept of dropping a weapon unless it involves picking up something else, and if they die carrying anything, it will be dragged with them to the Dark God's domain.</description>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<MoveSpeed>4.1</MoveSpeed>
+		</statBases>
+		<tools>
+			<li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>1.5</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>4</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>1.5</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>4</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>0.6</baseHealthScale>
+		</race>
+    </ThingDef>
+
+    <ThingDef ParentName="ABF_Thing_Justiciar_CreatureBase">
+        <defName>ABF_Thing_Justiciar_Wraith</defName>
+		<label>wraith</label>
+		<description>A diminuitive and malicious shadespirit, the wraith predates on the fears and insecurities of mortals in the service of its planar masters. While it wanders aimlessly when not needed for something, it is a devastatingly lethal killer.\n\nCapable of shadestepping like the soul hunters that they often accompany, wraiths can maneuver themselves into the vulnerable flanks or directly next to their prey - or out of harm's way. This natural advantage helps offset their innate fragility, and lets them slaughter the foes of the Dark God. They do, however, struggle to pierce thick armor, leaving them better suited to the slaughter of less well-protected foes.\n\nAs a dark spirit, they are unusually intelligent for what is otherwise an animal: They can be ordered to put out fires, capture or rescue creatures, and even be ordered to pick up weaponry to use. This should be done with care, though - they don't seem to comprehend the concept of dropping a weapon unless it involves picking up something else, and if they die carrying anything, it will be dragged with them to the Dark God's domain.</description>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<MoveSpeed>5.1</MoveSpeed>
+		</statBases>
+		<tools>
+			<li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>12</power>
+                <armorPenetration>0</armorPenetration>
+				<cooldownTime>0.5</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>12</power>
+                <armorPenetration>0</armorPenetration>
+				<cooldownTime>0.5</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>0.75</cooldownTime>
+                <armorPenetration>0</armorPenetration>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<baseBodySize>0.6</baseBodySize>
+			<baseHealthScale>0.8</baseHealthScale>
+		</race>
+    </ThingDef>
+
+    <ThingDef ParentName="ABF_Thing_Justiciar_CreatureBase">
+        <defName>ABF_Thing_Justiciar_Herald</defName>
+		<label>herald</label>
+		<description>A large, hulking monstrosity of darkness, herald shadespirits are the harbingers of the Dark God's oblivion. Feasting on the corpses and bones of humanlike creatures, these creatures reap the very essence of the Dark God's favored prey.\n\nHeralds excel at most tasks that they can be given, as they are dangerous, durable, and reasonably fast, but their primary purpose is to harvest corpses in order to produce new corrupted gauranlen seeds so more anchors may be created. They are the dark, mirrored versions of the dryad queens that live within the gauranlen trees, and it is their sovereign duty to spread the Dark God's power.\n\nAs a dark spirit, they are unusually intelligent for what is otherwise an animal: They can be ordered to put out fires, capture or rescue creatures, and even be ordered to pick up weaponry to use. This should be done with care, though - they don't seem to comprehend the concept of dropping a weapon unless it involves picking up something else, and if they die carrying anything, it will be dragged with them to the Dark God's domain.</description>
+		<statBases>
+			<MarketValue>500</MarketValue>
+			<MoveSpeed>4.6</MoveSpeed>
+		</statBases>
+        <comps>
+            <li>
+                <compClass>ArtificialBeings.ThingComp_HeraldHarvest</compClass>
+            </li>
+        </comps>
+		<tools>
+			<li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>0.75</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>0.75</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<baseBodySize>1.4</baseBodySize>
+			<baseHealthScale>3</baseHealthScale>
+		</race>
+    </ThingDef>
+
+</Defs>
