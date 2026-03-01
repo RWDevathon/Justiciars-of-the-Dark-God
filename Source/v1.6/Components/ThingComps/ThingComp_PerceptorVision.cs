@@ -33,7 +33,7 @@ namespace ArtificialBeings
                     }
                 }
 
-                // In the event that nothing is scriable now, try again in an hour.
+                // In the event that nothing is scryable now, try again in an hour.
                 if (viableScryingTargets.Count == 0)
                 {
                     ticksToNextScrying = GenDate.TicksPerHour;
@@ -68,7 +68,7 @@ namespace ArtificialBeings
                     }
                 }, out Thing scryingTarget))
                 {
-                    ticksToNextScrying = Props.daysBetweenScrying.RandomInRange;
+                    ResetScryingTimer();
                     DoScrying(scryingTarget);
                 }
                 // In the event that nothing was scried, try again in an hour.

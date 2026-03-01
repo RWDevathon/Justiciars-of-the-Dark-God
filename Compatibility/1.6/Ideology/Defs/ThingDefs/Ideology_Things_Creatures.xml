@@ -17,10 +17,6 @@
             <li>
                 <compClass>ArtificialBeings.ThingComp_DraftableCreature</compClass>
             </li>
-            <li Class="ArtificialBeings.ThingCompProperties_PerceptorVision">
-                <daysBetweenScrying>5~10</daysBetweenScrying>
-                <plantRatioForOptimalDetection>50</plantRatioForOptimalDetection>
-            </li>
         </comps>
         <race>
             <body>QuadrupedAnimalWithPawsAndTail</body>
@@ -67,6 +63,12 @@
 			<MarketValue>200</MarketValue>
 			<MoveSpeed>4.1</MoveSpeed>
 		</statBases>
+        <comps>
+            <li Class="ArtificialBeings.ThingCompProperties_PerceptorVision">
+                <daysBetweenScrying>5~10</daysBetweenScrying>
+                <plantRatioForOptimalDetection>50</plantRatioForOptimalDetection>
+            </li>
+        </comps>
 		<tools>
 			<li>
 				<label>left claw</label>
