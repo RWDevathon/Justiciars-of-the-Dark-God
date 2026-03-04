@@ -279,8 +279,8 @@
         <defName>ABF_Hediff_Justiciar_Ambition_RecruitmentMotivation</defName>
         <hediffClass>ArtificialBeings.Hediff_Ambition_RecruitmentMotivation</hediffClass>
         <label>insistent on recruiting a new justiciar</label>
-        <description>An ambition to induct a new justiciar to the faith. This justiciar is appaled that so many souls still don't hold the same deity in their hearts, and desperately wishes to rectify this sad state of affairs.\n\nThis ambition will succeed when the pawn successfully raises a new justiciar. Note that raising a deceased justiciar does not qualify - it must be a new justiciar.\n\nShould this ambition expire before a new justiciar is anointed, this person will mourn the lost souls and wander aimlessly in contemplation for a time.</description>
-        <descriptionShort>An ambition to induct a new justiciar to the faith.</descriptionShort>
+        <description>An ambition to induct a new acolyte to the faith. This justiciar is appalled that so many souls still don't hold the same deity in their hearts, and desperately wishes to rectify this sad state of affairs.\n\nThis ambition will succeed when the pawn successfully inducts someone as an acolyte or recruits an acolyte. Acolytes can be recruited from the comms console if there is no one here worthy, but it costs significant favor.\n\nShould this ambition expire before a new acolyte is anointed, this person will mourn the lost souls and wander aimlessly in contemplation for a time.</description>
+        <descriptionShort>An ambition to induct a new acolyte to the faith.</descriptionShort>
         <isBad>false</isBad>
         <stages>
             <!-- Default state while ambition is not complete. -->

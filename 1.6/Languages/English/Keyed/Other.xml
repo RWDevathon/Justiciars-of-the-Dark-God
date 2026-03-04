@@ -18,4 +18,11 @@
     <JDG_MaliciousSpirit_Ready>Shadespirit ready for activation</JDG_MaliciousSpirit_Ready>
     <JDG_MaliciousSpirit_Preparing>Shadespirit preparing: {0}</JDG_MaliciousSpirit_Preparing>
 
+    <!-- Used for the Menagerie smuggler network, accessed via comms console -->
+    <JDG_MenagerieCallLabel>The Menagerie</JDG_MenagerieCallLabel>
+    <JDG_MenagerieInfoText>Tamers, Trainer, Justiciars</JDG_MenagerieInfoText>
+    <JDG_CannotTradeNotJusticiar>Cannot trade: {0} is not a justiciar</JDG_CannotTradeNotJusticiar>
+    <JDG_NeedBeaconToTradeWithNetwork>You need a powered trade beacon to trade with this network.</JDG_NeedBeaconToTradeWithNetwork>
+    <JDG_SmugglerNetworkStockReset>{0} has new stock ready for purchase!</JDG_SmugglerNetworkStockReset>
+
 </LanguageData>

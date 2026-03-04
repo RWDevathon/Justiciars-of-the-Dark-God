@@ -75,14 +75,16 @@ namespace ArtificialBeings
             if (CanHitTarget(target))
             {
                 float favorCost = JDG_Utils.FavorCostToClone(target.Thing);
-                string text = "JDG_InsufficientFavorToClone".Translate(favorCost.ToString("F2"));
+                string text;
                 if (!ValidateTarget(target))
                 {
+                    text = "JDG_InsufficientFavorToClone".Translate(favorCost.ToString("F2"));
                     icon = TexCommand.CannotShoot;
                     text = text.Colorize(Color.red);
                 }
                 else
                 {
+                    text = "JDG_FavorRequirement".Translate(favorCost.ToString("F2"));
                     icon = TexCommand.Attack;
                 }
                 Widgets.MouseAttachedLabel(text);

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
+    <!-- Sentience catalysts are clonable -->
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="SentienceCatalyst"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>20</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Archean tree seeds may be corrupted -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="ArcheanSeed"]/comps</xpath>
         <value>

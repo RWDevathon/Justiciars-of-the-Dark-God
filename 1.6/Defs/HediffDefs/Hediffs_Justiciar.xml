@@ -184,6 +184,9 @@
         <label>shadespirit</label>
         <description>Shade spirits are lesser beings compared to justiciars, but possess the same natural sensitivity to the level of light they are exposed to. In darkness, they are empowered and invigorated. In bright light, they are disoriented which can lead to costly mistakes and vulnerability.</description>
         <isBad>false</isBad>
+        <skinColorTint>(0.2, 0.2, 0.2)</skinColorTint>
+        <skinColorTintStrength>0.8</skinColorTintStrength>
+        <forceRenderTreeRecache>true</forceRenderTreeRecache>
         <stages>
             <li>
                 <label>invigorated</label>

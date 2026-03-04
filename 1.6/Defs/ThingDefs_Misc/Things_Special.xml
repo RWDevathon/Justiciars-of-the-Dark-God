@@ -17,4 +17,18 @@
         </graphicData>
     </ThingDef>
 
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_Justiciar_Smoke</defName>
+        <graphicData>
+            <texPath>Justiciars/Things/Flecks/ShadespiritSmoke</texPath>
+            <renderInstanced>true</renderInstanced>
+            <color>(0.2, 0.2, 0.2, 0.4)</color>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <solidTime>0.6</solidTime>
+        <fadeOutTime>0.3</fadeOutTime>
+        <growthRate>1</growthRate>
+    </FleckDef>
+
 </Defs>

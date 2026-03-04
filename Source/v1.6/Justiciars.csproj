@@ -191,6 +191,7 @@
     <Compile Include="Components\ThingComps\ThingComp_PsychicCorruptible.cs" />
     <Compile Include="Components\ThingComps\ThingComp_JusticiarComms.cs" />
     <Compile Include="Components\ThingComps\ThingComp_UmbralAnchor.cs" />
+    <Compile Include="DefOfs\JDG_TraderKindDefOf.cs" />
     <Compile Include="DefOfs\JDG_IncidentDefOf.cs" />
     <Compile Include="DefOfs\JDG_EffecterDefOf.cs" />
     <Compile Include="DefOfs\JDG_ConceptDefOf.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="DefOfs\JDG_HediffDefOf.cs" />
     <Compile Include="DefOfs\JDG_SoundDefOf.cs" />
     <Compile Include="DefOfs\JDG_StatDefOf.cs" />
+    <Compile Include="DefOfs\JDG_FleckDefOf.cs" />
     <Compile Include="DefOfs\JDG_ThoughtDefOf.cs" />
     <Compile Include="DefOfs\JDG_PsychicRitualDefOf.cs" />
     <Compile Include="DefOfs\JDG_TraitDefOf.cs" />
@@ -212,6 +214,7 @@
     <Compile Include="Extensions\UmbralClonableExtension.cs" />
     <Compile Include="Extensions\JusticiarMentalTimerExtension.cs" />
     <Compile Include="Extensions\JusticiarMentalBreakExtension.cs" />
+    <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_DominateAnimal.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_DoManualScrying.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_Induct.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_HarvestDead.cs" />
@@ -227,6 +230,7 @@
     <Compile Include="Harmony\HarbingerTree_Patch.cs" />
     <Compile Include="Harmony\LordToil_PsychicRitual_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
+    <Compile Include="Harmony\MentalStateWorker_Roaming_Patch.cs" />
     <Compile Include="Harmony\Quest_Patch.cs" />
     <Compile Include="Harmony\MemoryUtility_Patch.cs" />
     <Compile Include="Harmony\HediffComp_Invisibility_Patch.cs" />
@@ -252,6 +256,8 @@
     <Compile Include="Hediffs\Hediff_Ambition_Adamant.cs" />
     <Compile Include="Hediffs\Hediff_Ambition.cs" />
     <Compile Include="Hediffs\Hediff_Justiciar.cs" />
+    <Compile Include="Harmony\CompOverseerSubject_Patch.cs" />
+    <Compile Include="Harmony\Pawn_TrainingTracker_Patches.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_AcolyteWhispers.cs" />
     <Compile Include="Inspirations\Inspiration_Justiciar_CommuneWithDarkness.cs" />
     <Compile Include="Inspirations\Inspiration_Justiciar_SeekRepentance.cs" />
@@ -270,6 +276,7 @@
     <Compile Include="Interfaces\IJusticiarMaintainable.cs" />
     <Compile Include="JobDrivers\JobDriver_DoManualScrying.cs" />
     <Compile Include="JobDrivers\JobDriver_HarvestDead.cs" />
+    <Compile Include="JobDrivers\JobDriver_DominateAnimal.cs" />
     <Compile Include="JobDrivers\JobDriver_ReapFavor.cs" />
     <Compile Include="JobDrivers\JobDriver_AwakenMaliciousSpirit.cs" />
     <Compile Include="JobDrivers\JobDriver_CorruptThing.cs" />
@@ -293,6 +300,7 @@
     <Compile Include="Justiciars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\PerceptorTracker.cs" />
+    <Compile Include="Utils\SmugglerNetwork.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

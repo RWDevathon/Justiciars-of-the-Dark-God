@@ -98,6 +98,11 @@ namespace ArtificialBeings
 
             // If the player has not yet learned about justiciars, they will also receive a learning helper tip about how favor and justiciars work.
             LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Characteristics, OpportunityType.Critical);
+            if (Current.Game.GetComponent<GameComponent_Justiciars>() is GameComponent_Justiciars gameCompJusticiars && !gameCompJusticiars.everSentMenagerieNotification)
+            {
+                gameCompJusticiars.everSentMenagerieNotification = true;
+                Find.LetterStack.ReceiveLetter("JDG_MenagerieInvitation".Translate(), "JDG_MenagerieInvitationDesc".Translate(), LetterDefOf.NeutralEvent, delayTicks: GenDate.TicksPerDay);
+            }
         }
 
         // Killing a fellow faction member, a guest, or an entity provides favor.
@@ -135,6 +140,11 @@ namespace ArtificialBeings
 
                 // If the player has not yet learned about justiciars, they will also receive a learning helper tip about how favor and justiciars work.
                 LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Characteristics, OpportunityType.Critical);
+                if (Current.Game.GetComponent<GameComponent_Justiciars>() is GameComponent_Justiciars gameCompJusticiars && !gameCompJusticiars.everSentMenagerieNotification)
+                {
+                    gameCompJusticiars.everSentMenagerieNotification = true;
+                    Find.LetterStack.ReceiveLetter("JDG_MenagerieInvitation".Translate(), "JDG_MenagerieInvitationDesc".Translate(pawn.NameShortColored), LetterDefOf.NeutralEvent, delayTicks: GenDate.TicksPerDay);
+                }
 
                 if (maintainee != null)
                 {
@@ -161,7 +171,7 @@ namespace ArtificialBeings
                     Command_Action umbralStride = new Command_Action
                     {
                         defaultLabel = "JDG_BeginUmbralStride".Translate(),
-                        icon = ContentFinder<Texture2D>.Get("UI/Abilities/Darkness"),
+                        icon = ContentFinder<Texture2D>.Get("Justiciars/UI/Abilities/Darkness"),
                         defaultDesc = "JDG_BeginUmbralStrideDesc".Translate(),
                         action = delegate
                         {
@@ -184,7 +194,7 @@ namespace ArtificialBeings
                     Command_Action createClone = new Command_Action
                     {
                         defaultLabel = "JDG_CreateUmbralClone".Translate(),
-                        icon = ContentFinder<Texture2D>.Get("UI/Abilities/ShadeStep"),
+                        icon = ContentFinder<Texture2D>.Get("Justiciars/UI/Abilities/ShadeStep"),
                         defaultDesc = "JDG_CreateUmbralCloneDesc".Translate(),
                         action = delegate
                         {

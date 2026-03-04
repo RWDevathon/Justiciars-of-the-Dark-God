@@ -165,13 +165,29 @@ namespace ArtificialBeings
             }
             else if (pawn.IsColonyAnimal)
             {
-                return 25f * pawn.BodySize;
+                return 10f * pawn.BodySize;
             }
             else if (pawn.IsColonyMechPlayerControlled)
             {
-                return 25f * pawn.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks:GenTicks.TicksPerRealSecond);
+                return 10f * pawn.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks:GenTicks.TicksPerRealSecond);
             }
             return 0f;
+        }
+
+        // Wild animals that are not aggressive can be dominated and instantly tamed. The cost is given by the following curve, depending on the target's wildness.
+        public static readonly SimpleCurve dominationFavorCostForWildnessCurve = new SimpleCurve
+        {
+            new CurvePoint(0.0f, 5f),
+            new CurvePoint(0.1f, 5f),
+            new CurvePoint(0.2f, 10f),
+            new CurvePoint(0.4f, 20f),
+            new CurvePoint(0.8f, 40f),
+            new CurvePoint(0.95f, 80f)
+        };
+
+        public static float FavorCostToDominate(Pawn pawn)
+        {
+            return dominationFavorCostForWildnessCurve.Evaluate(pawn.GetStatValue(StatDefOf.Wildness, cacheStaleAfterTicks: GenDate.TicksPerHour));
         }
 
         public static void UpdatePerceptorTracker(Pawn pawn, int tick)

@@ -1,4 +1,6 @@
-﻿using Verse;
+﻿using RimWorld;
+using UnityEngine;
+using Verse;
 
 namespace ArtificialBeings
 {
@@ -25,6 +27,28 @@ namespace ArtificialBeings
                 Severity = pawn.Map.glowGrid.GroundGlowAt(pawn.Position);
             }
             base.TickInterval(delta);
+        }
+
+        public override void Tick()
+        {
+            if (pawn.IsHashIntervalTick(6) && (pawn.Spawned || pawn.ParentHolder is Pawn_CarryTracker))
+            {
+                Map map = pawn.MapHeld;
+                if (map != null)
+                {
+                    Vector3 location = pawn.DrawPos;
+                    if (location.ShouldSpawnMotesAt(map))
+                    {
+                        float facingAngle = pawn.Rotation.AsAngle;
+                        FleckCreationData dataStatic = FleckMaker.GetDataStatic(location, map, JDG_FleckDefOf.ABF_Fleck_Justiciar_Smoke, Rand.Range(1.5f, 3f) * pawn.Graphic.drawSize.magnitude);
+                        dataStatic.rotationRate = Rand.Range(-90f, 90f);
+                        dataStatic.velocityAngle = Rand.Range(facingAngle - 30, facingAngle + 30);
+                        dataStatic.velocitySpeed = Rand.Range(0.05f, 0.2f);
+                        map.flecks.CreateFleck(dataStatic);
+                    }
+                }
+            }
+            base.Tick();
         }
 
         // This hediff identifies shadespirits, and they should be added to the cache of all known shadespirits on being made one.

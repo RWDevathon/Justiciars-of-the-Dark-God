@@ -5,7 +5,7 @@
         <defName>ABF_Ability_Justiciar_Shadestep</defName>
         <label>shadestep</label>
         <description>Step from one shadow to another within view.</description>
-        <iconPath>UI/Abilities/ShadeStep</iconPath>
+        <iconPath>Justiciars/UI/Abilities/ShadeStep</iconPath>
         <cooldownTicksRange>600</cooldownTicksRange>
         <hostile>false</hostile>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -40,7 +40,7 @@
         <defName>ABF_Ability_Justiciar_ConjureDarkness</defName>
         <label>conjure darkness</label>
         <description>Conjure a cloud of darkness at a position within view.</description>
-        <iconPath>UI/Abilities/Darkness</iconPath>
+        <iconPath>Justiciars/UI/Abilities/Darkness</iconPath>
         <cooldownTicksRange>600</cooldownTicksRange>
         <hostile>false</hostile>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>

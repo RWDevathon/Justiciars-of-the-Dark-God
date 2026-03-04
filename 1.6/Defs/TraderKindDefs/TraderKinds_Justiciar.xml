@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <!-- The Menagerie only sells fighting animals at exorbitant rates, and only accepts silver in payment. -->
+    <TraderKindDef>
+        <defName>ABF_TraderKind_Justiciar_Menagerie</defName>
+        <label>justiciar beast tamers</label>
+        <stockGenerators>
+            <!-- Animals -->
+            <li Class="StockGenerator_Animals">
+                <maxWildness>0.90</maxWildness>
+                <checkTemperature>false</checkTemperature>
+                <tradeTagsSell>
+                    <li>AnimalFighter</li>
+                </tradeTagsSell>
+                <kindCountRange>4~10</kindCountRange>
+                <countRange>20~60</countRange>
+                <price>Exorbitant</price>
+            </li>
+        </stockGenerators>
+    </TraderKindDef>
+
+</Defs>

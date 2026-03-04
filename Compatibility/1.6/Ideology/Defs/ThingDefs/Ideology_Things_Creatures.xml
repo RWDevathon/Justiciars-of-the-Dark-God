@@ -33,6 +33,8 @@
             <hasCorpse>false</hasCorpse>
             <lifeExpectancy>40</lifeExpectancy>
             <trainability>Advanced</trainability>
+            <neverIncludeInQuests>true</neverIncludeInQuests>
+            <animalType>Dryad</animalType>
             <hediffGiverSets Inherit="False"/>
             <ageGenerationCurve>
                 <points>

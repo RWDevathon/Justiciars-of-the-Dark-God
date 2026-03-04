@@ -21,6 +21,8 @@ namespace ArtificialBeings
         [MayRequireIdeology]
         public static JobDef ABF_Job_Justiciar_DoManualScrying;
 
+        public static JobDef ABF_Job_Justiciar_DominateAnimal;
+
         [MayRequireIdeology]
         public static JobDef ABF_Job_Justiciar_HarvestDead;
 

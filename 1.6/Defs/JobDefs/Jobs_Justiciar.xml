@@ -16,6 +16,13 @@
     </JobDef>
 
     <JobDef>
+        <defName>ABF_Job_Justiciar_DominateAnimal</defName>
+        <driverClass>ArtificialBeings.JobDriver_DominateAnimal</driverClass>
+        <reportString>dominating TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
         <defName>ABF_Job_Justiciar_Induct</defName>
         <driverClass>ArtificialBeings.JobDriver_Induct</driverClass>
         <reportString>inducting TargetA.</reportString>

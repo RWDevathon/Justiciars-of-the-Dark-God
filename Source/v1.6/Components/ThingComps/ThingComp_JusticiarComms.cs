@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
@@ -26,6 +27,11 @@ namespace ArtificialBeings
                             selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
                         });
                     }
+                }
+
+                if (parent is Building_CommsConsole commsConsole)
+                {
+                    yield return Current.Game.GetComponent<GameComponent_Justiciars>().MenagerieNetwork.CommFloatMenuOption(commsConsole, selPawn);
                 }
             }
             yield break;

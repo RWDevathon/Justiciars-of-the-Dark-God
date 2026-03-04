@@ -24,7 +24,7 @@ namespace ArtificialBeings
             Command_Action endStride = new Command_Action
             {
                 defaultLabel = "JDG_EndUmbralStride".Translate(),
-                icon = ContentFinder<Texture2D>.Get("UI/Abilities/Darkness"),
+                icon = ContentFinder<Texture2D>.Get("Justiciars/UI/Abilities/Darkness"),
                 defaultDesc = "JDG_EndUmbralStrideDesc".Translate(),
                 action = delegate
                 {

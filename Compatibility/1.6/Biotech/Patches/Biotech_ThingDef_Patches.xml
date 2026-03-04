@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
-    <!-- Biotech Mech Boss drops are clonable -->
+    <!-- Biotech Mech Boss drops and mechlinks are clonable -->
 
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/ThingDef[defName="SignalChip"]</xpath>
@@ -26,6 +26,15 @@
         <value>
             <li Class="ArtificialBeings.UmbralClonableExtension">
                 <favorCost>150</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="Mechlink"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>100</favorCost>
             </li>
         </value>
     </Operation>

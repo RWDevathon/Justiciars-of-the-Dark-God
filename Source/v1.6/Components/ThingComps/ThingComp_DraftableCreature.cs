@@ -40,15 +40,10 @@ namespace ArtificialBeings
             {
                 foreach (TrainableDef trainableDef in TrainableUtility.TrainableDefsInListOrder)
                 {
-                    if (Pawn.training.CanBeTrained(trainableDef))
+                    if (Pawn.training.CanAssignToTrain(trainableDef))
                     {
-                        // These are checked in the wrong method in vanilla (CanAssignToTrain rather than CanBeTrained), so we have to manually check them ourselves here.
-                        if ((trainableDef.tags == null || !trainableDef.tags.Any(tag => Pawn.RaceProps.untrainableTags.NotNullAndContains(tag)))
-                            && (!trainableDef.specialTrainable || Pawn.RaceProps.specialTrainables.NotNullAndContains(trainableDef)))
-                        {
-                            Pawn.training.Train(trainableDef, null, true);
-                            Pawn.training.SetWantedRecursive(trainableDef, true);
-                        }
+                        Pawn.training.Train(trainableDef, null, true);
+                        Pawn.training.SetWantedRecursive(trainableDef, true);
                     }
                 }
             }
