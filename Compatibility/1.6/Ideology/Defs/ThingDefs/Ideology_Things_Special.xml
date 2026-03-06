@@ -6,14 +6,13 @@
         <label>umbral anchor</label>
         <description>A larged, distinctive-looking tree that has been warped by dark powers. No longer truly living, this tree is an anchor point tied to a domain of pure darkness. Through this tenuous connection, a shadespirit can be drawn and forced to take physical form. Utterly loyal to the justiciars of this plane, the creature will serve without question for as long as its form is intact. The anchor's ephemeral bond to the domain of darkness means it can sustain only one shadespirit at a time, and can only manifest a singular creature every quadrum should one perish.</description>
         <graphicData>
-            <texPath>Things/Plant/GauranlenTree</texPath>
-            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Justiciars/Ideology/Things/Trees/UmbralAnchor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
             <shadowData>
                 <volume>(0.21, 0.6, 0.21)</volume>
             </shadowData>
-            <color>(0.2, 0.2, 0.2)</color>
         </graphicData>
-        <tickerType>Rare</tickerType>
+        <tickerType>Long</tickerType>
         <canScatterOver>false</canScatterOver>
         <descriptionHyperlinks>
             <ThingDef>ABF_Thing_Justiciar_CorruptedGauranlenSeed</ThingDef>
@@ -34,6 +33,7 @@
             <sowMinSkill>0</sowMinSkill>
             <sowTags Inherit="False"/>
             <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+            <completelyIgnoreFertility>true</completelyIgnoreFertility>
             <fertilityMin>0</fertilityMin>
             <fertilitySensitivity>0</fertilitySensitivity>
             <wildClusterWeight>0</wildClusterWeight>
@@ -41,17 +41,20 @@
             <harvestYield>35</harvestYield>
             <treeCategory>Super</treeCategory>
             <dieIfNoSunlight>false</dieIfNoSunlight>
+            <interferesWithRoof>false</interferesWithRoof>
             <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+            <minGrowthTemperature>-200</minGrowthTemperature>
+            <minOptimalGrowthTemperature>-200</minOptimalGrowthTemperature>
+            <maxGrowthTemperature>200</maxGrowthTemperature>
+            <maxOptimalGrowthTemperature>200</maxOptimalGrowthTemperature>
             <sowResearchPrerequisites Inherit="False" />
             <dieFromToxicFallout>False</dieFromToxicFallout>
             <showGrowthInInspectPane>false</showGrowthInInspectPane>
             <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
             <warnIfMarkedForCut>true</warnIfMarkedForCut>
-            <choppedThingDef>ChoppedStump_Gauranlen</choppedThingDef>
-            <smashedThingDef>SmashedStump_Gauranlen</smashedThingDef>
-            <immatureGraphicPath>Things/Plant/GauranlenTree_Immature</immatureGraphicPath>
-            <snowOverlayGraphicPath>Things/Plant/GauranlenTree_Snowy</snowOverlayGraphicPath>
-            <immatureSnowOverlayGraphicPath>Things/Plant/GauranlenTree_ImmatureSnowy</immatureSnowOverlayGraphicPath>
+            <choppedThingDef>ABF_Thing_Justiciar_ChoppedStump_UmbralAnchor</choppedThingDef>
+            <smashedThingDef>ABF_Thing_Justiciar_SmashedStump_UmbralAnchor</smashedThingDef>
         </plant>
         <comps>
             <li Class="CompProperties_SelfhealHitpoints">
@@ -61,10 +64,27 @@
                 <daysBetweenSpawns>15</daysBetweenSpawns>
             </li>
             <li Class="CompProperties_PlantPreventCutting"/>
-            <li Class="ArtificialBeings.ThingCompProperties_MaintainsDarkness">
-                <radius>0.9</radius>
-            </li>
         </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="StumpChoppedBase">
+        <defName>ABF_Thing_Justiciar_ChoppedStump_UmbralAnchor</defName>
+        <label>chopped umbral anchor stump</label>
+        <description>A stump left behind after an umbral anchor has been felled. The stump can be extracted but yields very little usable wood. Left outdoors, the stump will deteriorate in time.</description>
+        <graphicData>
+            <texPath>Justiciars/Ideology/Things/Trees/UmbralAnchor_ChoppedStump</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="StumpSmashedBase">
+        <defName>ABF_Thing_Justiciar_SmashedStump_UmbralAnchor</defName>
+        <label>smashed umbral anchor stump</label>
+        <description>The remnants of an umbral anchor destroyed by damage. It's ugly. The stump can be extracted but yields very little usable wood. Left outdoors, the stump will deteriorate in time.</description>
+        <graphicData>
+            <texPath>Justiciars/Ideology/Things/Trees/UmbralAnchor_SmashedStump</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
     </ThingDef>
 
     <ThingDef ParentName="ResourceBase">
@@ -82,10 +102,9 @@
             <MarketValue>70</MarketValue>
         </statBases>
         <graphicData>
-            <texPath>Things/Item/GauranlenSeed</texPath>
+            <texPath>Justiciars/Ideology/Things/UmbralAnchorSeeds</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
             <drawSize>(0.6, 0.6)</drawSize>
-            <color>(0.2, 0.2, 0.2)</color>
         </graphicData>
         <thingCategories>
             <li>ItemsMisc</li>

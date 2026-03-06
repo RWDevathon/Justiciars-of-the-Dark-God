@@ -71,10 +71,10 @@ namespace ArtificialBeings
                     ResetScryingTimer();
                     DoScrying(scryingTarget);
                 }
-                // In the event that nothing was scried, try again in an hour.
+                // In the event that nothing was scried, try again in half a day.
                 else
                 {
-                    ticksToNextScrying = GenDate.TicksPerHour;
+                    ticksToNextScrying = GenDate.TicksPerDay / 2;
                 }
             }
             else
@@ -114,7 +114,7 @@ namespace ArtificialBeings
 
         public void ResetScryingTimer()
         {
-            ticksToNextScrying = Props.daysBetweenScrying.RandomInRange;
+            ticksToNextScrying = Props.daysBetweenScrying.RandomInRange * GenDate.TicksPerDay;
         }
 
         public bool CanScry(Thing thing)

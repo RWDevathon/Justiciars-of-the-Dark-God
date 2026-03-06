@@ -187,6 +187,7 @@
     <Compile Include="Components\ThingComps\ThingComp_HeraldHarvest.cs" />
     <Compile Include="Components\ThingComps\ThingComp_DraftableCreature.cs" />
     <Compile Include="Components\ThingComps\ThingComp_MaliciousSpirit.cs" />
+    <Compile Include="Components\ThingComps\ThingComp_JusticiarTerraformer.cs" />
     <Compile Include="Components\ThingComps\ThingComp_ProducesFavor.cs" />
     <Compile Include="Components\ThingComps\ThingComp_PsychicCorruptible.cs" />
     <Compile Include="Components\ThingComps\ThingComp_JusticiarComms.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="Harmony\LordToil_PsychicRitual_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
     <Compile Include="Harmony\MentalStateWorker_Roaming_Patch.cs" />
+    <Compile Include="Harmony\RitualOutcomeEffectWorker_Consumable_Patch.cs" />
     <Compile Include="Harmony\Quest_Patch.cs" />
     <Compile Include="Harmony\MemoryUtility_Patch.cs" />
     <Compile Include="Harmony\HediffComp_Invisibility_Patch.cs" />

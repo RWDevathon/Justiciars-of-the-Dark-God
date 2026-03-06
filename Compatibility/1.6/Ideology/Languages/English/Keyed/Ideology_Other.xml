@@ -8,6 +8,7 @@
     <!-- Used in float menu's and inspect panels -->
     <JDG_SelectCreatureType>Select creature type</JDG_SelectCreatureType>
     <JDG_SelectCreatureTypeDesc>Change the type of creature that will be summoned when a justiciar interacts with this anchor next.</JDG_SelectCreatureTypeDesc>
+    <JDG_CurrentCreature>Current bound creature: {0}</JDG_CurrentCreature>
 
     <JDG_SeedReady>Seed ready</JDG_SeedReady>
     <JDG_ProgressToNextSeed>Seed creation progress: {0} / {1}</JDG_ProgressToNextSeed>

@@ -11,9 +11,9 @@ namespace ArtificialBeings
 
         public float currentFavor = 0;
 
-        public override void CompTickRare()
+        public override void CompTickLong()
         {
-            currentFavor += Props.favorPerDay * GenTicks.TickRareInterval / GenDate.TicksPerDay;
+            currentFavor += Props.favorPerDay * GenTicks.TickLongInterval / GenDate.TicksPerDay;
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

@@ -8,15 +8,14 @@
         <label>corrupted polux tree</label>
         <description>Leeching the very nutrients and minerals from the terrain around itself instead of pollution, this tree leaves naugth but barren black sand around itself. The elements stolen from this plane by these trees will never again give rise to new life, and thus bringing reality one step closer to the Dark God's embrace. Justiciars and acolytes may visit this tree to receive a boon of favor as the tree performs its grim task of accelerating the death of reality.</description>
         <graphicData>
-            <texPath>Things/Plant/TreePolux</texPath>
-            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Justiciars/Biotech/Things/Trees/CorruptedPoluxTree</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
             <shadowData>
                 <volume>(0.35, 0.3, 0.35)</volume>
                 <offset>(0,0,0.05)</offset>
             </shadowData>
-            <color>(0.2, 0.2, 0.2)</color>
         </graphicData>
-        <tickerType>Rare</tickerType>
+        <tickerType>Long</tickerType>
         <minifiedDef IsNull="True" />
         <statBases>
             <Beauty>6</Beauty>
@@ -34,6 +33,7 @@
             <sowMinSkill>0</sowMinSkill>
             <sowTags Inherit="False"/>
             <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+            <completelyIgnoreFertility>true</completelyIgnoreFertility>
             <fertilityMin>0</fertilityMin>
             <fertilitySensitivity>0</fertilitySensitivity>
             <wildClusterWeight>0</wildClusterWeight>
@@ -42,23 +42,26 @@
             <treeCategory>Super</treeCategory>
             <dieIfNoSunlight>false</dieIfNoSunlight>
             <growMinGlow>0</growMinGlow>
+            <growOptimalGlow>0</growOptimalGlow>
+            <minGrowthTemperature>-200</minGrowthTemperature>
+            <minOptimalGrowthTemperature>-200</minOptimalGrowthTemperature>
+            <maxGrowthTemperature>200</maxGrowthTemperature>
+            <maxOptimalGrowthTemperature>200</maxOptimalGrowthTemperature>
             <sowResearchPrerequisites Inherit="False" />
             <dieFromToxicFallout>False</dieFromToxicFallout>
             <showGrowthInInspectPane>false</showGrowthInInspectPane>
             <minSpacingBetweenSamePlant>6.9</minSpacingBetweenSamePlant>
             <warnIfMarkedForCut>true</warnIfMarkedForCut>
             <harvestWork>1000</harvestWork>
-            <choppedThingDef>ChoppedStump_Polux</choppedThingDef>
-            <smashedThingDef>SmashedStump_Polux</smashedThingDef>
-            <immatureGraphicPath>Things/Plant/TreePolux_Immature</immatureGraphicPath>
-            <snowOverlayGraphicPath>Things/Plant/TreePolux_Snowy</snowOverlayGraphicPath>
-            <immatureSnowOverlayGraphicPath>Things/Plant/TreePolux_ImmatureSnowy</immatureSnowOverlayGraphicPath>
+            <choppedThingDef>ABF_Thing_Justiciar_ChoppedStump_Corrupted_Polux</choppedThingDef>
+            <smashedThingDef>ABF_Thing_Justiciar_SmashedStump_Corrupted_Polux</smashedThingDef>
         </plant>
         <comps>
             <li Class="CompProperties_SelfhealHitpoints">
                 <ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
             </li>
             <li Class="CompProperties_Terraformer">
+                <compClass>ArtificialBeings.ThingComp_JusticiarTerraformer</compClass> <!-- Normal comp only works with Rare tick intervals -->
                 <radius>7.9</radius>
                 <secondsPerConvert>500</secondsPerConvert> <!-- Half a day -->
                 <convertTerrainDef>ABF_Terrain_Justiciar_BlackSand</convertTerrainDef>
@@ -67,10 +70,27 @@
                 <favorPerDay>0.5</favorPerDay>
             </li>
             <li Class="CompProperties_PlantPreventCutting"/>
-            <li Class="ArtificialBeings.ThingCompProperties_MaintainsDarkness">
-                <radius>0.9</radius>
-            </li>
         </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="StumpChoppedBase">
+        <defName>ABF_Thing_Justiciar_ChoppedStump_Corrupted_Polux</defName>
+        <label>chopped corrupted polux stump</label>
+        <description>A stump left behind after a corrupted polux tree has been felled. The stump can be extracted but yields very little usable wood. Left outdoors, the stump will deteriorate in time.</description>
+        <graphicData>
+            <texPath>Justiciars/Biotech/Things/Trees/CorruptedPoluxTree_ChoppedStump</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="StumpSmashedBase">
+        <defName>ABF_Thing_Justiciar_SmashedStump_Corrupted_Polux</defName>
+        <label>smashed corrupted polux stump</label>
+        <description>The remnants of a corrupted polux tree destroyed by damage. It's ugly. The stump can be extracted but yields very little usable wood. Left outdoors, the stump will deteriorate in time.</description>
+        <graphicData>
+            <texPath>Justiciars/Biotech/Things/Trees/CorruptedPoluxTree_SmashedStump</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
     </ThingDef>
 
     <ThingDef ParentName="ResourceBase">

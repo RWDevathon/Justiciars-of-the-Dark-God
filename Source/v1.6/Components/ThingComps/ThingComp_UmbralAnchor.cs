@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -85,14 +86,18 @@ namespace ArtificialBeings
             }
         }
 
-        public override void CompTickRare()
+        public override void CompTickLong()
         {
-            base.CompTickRare();
-            ticksToNextReady -= GenTicks.TickRareInterval;
+            base.CompTickLong();
+            ticksToNextReady -= GenTicks.TickLongInterval;
             if (ticksToNextReady <= 0 && ShouldNotify)
             {
                 Messages.Message("JDG_CreatureSpawnReady".Translate(), parent, MessageTypeDefOf.PositiveEvent);
                 notificationSent = true;
+            }
+            if (currentCreature != null && currentCreature.Dead)
+            {
+                currentCreature = null;
             }
         }
 
@@ -102,15 +107,25 @@ namespace ArtificialBeings
             Scribe_Defs.Look(ref nextToSpawn, "JDG_nextToSpawn");
             Scribe_Values.Look(ref ticksToNextReady, "JDG_ticksToNextReady");
             Scribe_Values.Look(ref notificationSent, "JDG_notificationSent", false);
+            Scribe_References.Look(ref currentCreature, "JDG_currentCreature", false);
         }
 
         public override string CompInspectStringExtra()
         {
+            StringBuilder stringBuilder = new StringBuilder();
+            if (currentCreature != null)
+            {
+                stringBuilder.AppendLine("JDG_CurrentCreature".Translate(currentCreature.NameShortColored));
+            }
             if (ticksToNextReady <= 0)
             {
-                return "JDG_SpawnReady".Translate();
+                stringBuilder.Append("JDG_SpawnReady".Translate());
             }
-            return "JDG_SpawnReadyIn".Translate(ticksToNextReady.ToStringTicksToPeriod());
+            else
+            {
+                stringBuilder.Append("JDG_SpawnReadyIn".Translate(ticksToNextReady.ToStringTicksToPeriod()));
+            }
+            return stringBuilder.ToString();
         }
 
         public void ResetTimer()

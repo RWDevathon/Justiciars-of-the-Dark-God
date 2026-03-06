@@ -21,7 +21,7 @@ namespace ArtificialBeings
             BlackVeil blackVeil = (BlackVeil)ThingMaker.MakeThing(JDG_ThingDefOf.ABF_Thing_BlackVeil);
             Hediff_Justiciar justiciarHediff = Caster.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
             blackVeil.Radius = 2.49f + Mathf.Clamp(justiciarHediff?.FavorCurrent ?? 3f / 100f, -2f, 4f);
-            blackVeil.ticksLeft = 60;
+            blackVeil.ticksLeft = justiciarHediff != null ? 60 : (GenDate.TicksPerHour * 2);
             justiciarHediff?.NotifyNewMaintainee(blackVeil);
             GenSpawn.Spawn(blackVeil, target.Cell, Caster.Map);
             if (Props.destClamorType != null)
