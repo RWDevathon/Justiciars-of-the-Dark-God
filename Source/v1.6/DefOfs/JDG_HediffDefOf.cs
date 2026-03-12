@@ -13,6 +13,9 @@ namespace ArtificialBeings
 
         public static HediffDef ABF_Hediff_Justiciar_Acolyte;
 
+        [MayRequireAnomaly]
+        public static HediffDef ABF_Hediff_Justiciar_BioferriteWeakness;
+
         [MayRequireOdyssey]
         public static HediffDef ABF_Hediff_Justiciar_ChokingDarkness;
 
@@ -23,6 +26,8 @@ namespace ArtificialBeings
         public static HediffDef ABF_Hediff_Justiciar_Inspiration_Bondbreaker;
 
         public static HediffDef ABF_Hediff_Justiciar_Inspiration_VowOfSilence;
+
+        public static HediffDef ABF_Hediff_Justiciar_MarkedOffering;
 
         public static HediffDef ABF_Hediff_Justiciar_ShadeSpirit;
 

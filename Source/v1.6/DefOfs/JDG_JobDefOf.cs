@@ -28,6 +28,9 @@ namespace ArtificialBeings
 
         public static JobDef ABF_Job_Justiciar_Induct;
 
+        [MayRequireAnomaly]
+        public static JobDef ABF_Job_Justiciar_InterrogateEntity;
+
         [MayRequireRoyalty]
         public static JobDef ABF_Job_Justiciar_PillagePsychicEnergy;
 
@@ -35,6 +38,8 @@ namespace ArtificialBeings
 
         [MayRequireBiotech]
         public static JobDef ABF_Job_Justiciar_ReapFavor;
+
+        public static JobDef ABF_Job_Justiciar_ShatterShard;
 
         [MayRequireRoyalty]
         public static JobDef ABF_Job_Justiciar_SiphonPsychicEnergy;

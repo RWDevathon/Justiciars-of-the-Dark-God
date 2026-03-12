@@ -2,5 +2,6 @@
 <LanguageData>
 
     <JDG_JusticiarsDispleased>The Dark God disapproves of your actions, and all justiciars suffer as a result. Each has lost {0} favor and are displeased.</JDG_JusticiarsDispleased>
+    <JDG_VoidProvocationFavor>The Dark God approves of provoking the pretender. All faithful have been awarded {0} favor.</JDG_VoidProvocationFavor>
 
 </LanguageData>

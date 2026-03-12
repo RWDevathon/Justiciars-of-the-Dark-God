@@ -51,6 +51,13 @@
     </JobDef>
 
     <JobDef>
+        <defName>ABF_Job_Justiciar_ShatterShard</defName>
+        <driverClass>ArtificialBeings.JobDriver_ShatterShard</driverClass>
+        <reportString>shattering TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
         <defName>ABF_Job_Justiciar_SiphonPsychicEnergy</defName>
         <driverClass>ArtificialBeings.JobDriver_SiphonPsychicEnergy</driverClass>
         <reportString>siphoning psychic energy from TargetA.</reportString>

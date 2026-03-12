@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_Justiciar_DarkWaveDiffusion</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.2</fadeInTime>
+        <fadeOutTime>0.3</fadeOutTime>
+        <solidTime>0.25</solidTime>
+        <growthRate>1.25</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/HeatDiffusion</texPath>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <color>(0.85, 0.3, 0.14, 1.0)</color>
+            <shaderType>MoteHeatDiffusion</shaderType>
+            <shaderParameters>
+                <_MultiplyTex>/Things/Mote/RadiationDistortion_A</_MultiplyTex>
+                <_texBScale>0.2</_texBScale>
+                <_texBScrollSpeed>-0.5</_texBScrollSpeed>
+                <_Intensity>13</_Intensity>
+                <_Clip>0</_Clip>
+            </shaderParameters>
+            <drawSize>(8, 8)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckGlowDistortBackground">
+        <defName>ABF_Fleck_Justiciar_DarkWaveDistortion</defName>
+        <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <graphicData>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderParameters>
+                <_distortionIntensity>0.03</_distortionIntensity>
+                <_brightnessMultiplier>1.0</_brightnessMultiplier>
+                <_DistortionTex>/Things/Mote/MoteHellfireCannon_HeatWaveDistortion</_DistortionTex>
+            </shaderParameters>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+        <fadeInTime>0.075</fadeInTime>
+        <solidTime>0.3</solidTime>
+        <fadeOutTime>0.35</fadeOutTime>
+        <growthRate>11</growthRate>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_Justiciar_DarkRadialSparks</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <fadeOutTime>0.1</fadeOutTime>
+        <solidTime>0.6</solidTime>
+        <growthRate>0.33</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/Sparks_Radial_A</texPath>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <shaderType>MoteCircularSparks</shaderType>
+            <shaderParameters>
+                <_ExtraTex>/Things/Mote/Sparks_Radial_B</_ExtraTex>
+                <_texScale>0.2</_texScale>
+                <_texAScrollSpeed>-0.75</_texAScrollSpeed>
+                <_texBScrollSpeed>1.25</_texBScrollSpeed>
+                <_Intensity>1</_Intensity>
+            </shaderParameters>
+            <drawSize>(7, 7)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_VaporizeGlow</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+        <fadeInTime>0.1</fadeInTime>
+        <fadeOutTime>0.55</fadeOutTime>
+        <solidTime>0.4</solidTime>
+        <growthRate>2</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/VaporizeExplosionGlow</texPath>
+            <shaderType>MoteGlow</shaderType>
+            <color>(0.2, 0.2, 0.2, 1.0)</color>
+            <drawSize>(5, 5)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <!-- The same, but smaller -->
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_Justiciar_DarkWaveDiffusion_Mini</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.2</fadeInTime>
+        <fadeOutTime>0.3</fadeOutTime>
+        <solidTime>0.25</solidTime>
+        <growthRate>1.25</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/HeatDiffusion</texPath>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <color>(0.85, 0.3, 0.14, 1.0)</color>
+            <shaderType>MoteHeatDiffusion</shaderType>
+            <shaderParameters>
+                <_MultiplyTex>/Things/Mote/RadiationDistortion_A</_MultiplyTex>
+                <_texBScale>0.2</_texBScale>
+                <_texBScrollSpeed>-0.5</_texBScrollSpeed>
+                <_Intensity>13</_Intensity>
+                <_Clip>0</_Clip>
+            </shaderParameters>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckGlowDistortBackground">
+        <defName>ABF_Fleck_Justiciar_DarkWaveDistortion_Mini</defName>
+        <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <graphicData>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderParameters>
+                <_distortionIntensity>0.03</_distortionIntensity>
+                <_brightnessMultiplier>1.0</_brightnessMultiplier>
+                <_DistortionTex>/Things/Mote/MoteHellfireCannon_HeatWaveDistortion</_DistortionTex>
+            </shaderParameters>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+        <fadeInTime>0.075</fadeInTime>
+        <solidTime>0.3</solidTime>
+        <fadeOutTime>0.35</fadeOutTime>
+        <growthRate>11</growthRate>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_Justiciar_DarkRadialSparks_Mini</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <fadeOutTime>0.1</fadeOutTime>
+        <solidTime>0.6</solidTime>
+        <growthRate>0.33</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/Sparks_Radial_A</texPath>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <shaderType>MoteCircularSparks</shaderType>
+            <shaderParameters>
+                <_ExtraTex>/Things/Mote/Sparks_Radial_B</_ExtraTex>
+                <_texScale>0.2</_texScale>
+                <_texAScrollSpeed>-0.75</_texAScrollSpeed>
+                <_texBScrollSpeed>1.25</_texBScrollSpeed>
+                <_Intensity>1</_Intensity>
+            </shaderParameters>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>ABF_Fleck_VaporizeGlow_Mini</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+        <fadeInTime>0.1</fadeInTime>
+        <fadeOutTime>0.55</fadeOutTime>
+        <solidTime>0.4</solidTime>
+        <growthRate>2</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/VaporizeExplosionGlow</texPath>
+            <shaderType>MoteGlow</shaderType>
+            <color>(0.2, 0.2, 0.2, 1.0)</color>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+</Defs>

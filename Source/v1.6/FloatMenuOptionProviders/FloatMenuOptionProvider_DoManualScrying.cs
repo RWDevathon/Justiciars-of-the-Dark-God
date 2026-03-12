@@ -29,6 +29,11 @@ namespace ArtificialBeings
             {
                 if (perceptorVision.ticksToNextManualScrying <= 0)
                 {
+                    if (!context.FirstSelectedPawn.CanReserveAndReach(clickedPawn, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
+                    {
+                        return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
+                    }
+
                     return new FloatMenuOption("JDG_DoManualScrying".Translate(clickedPawn.NameShortColored), delegate
                     {
                         Job job = JobMaker.MakeJob(JDG_JobDefOf.ABF_Job_Justiciar_DoManualScrying, new LocalTargetInfo(clickedPawn));

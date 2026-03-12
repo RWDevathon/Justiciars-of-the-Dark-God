@@ -52,4 +52,8 @@
     <JDG_MenagerieInvitation>Invitation: The Menagerie</JDG_MenagerieInvitation>
     <JDG_MenagerieInvitationDesc>{0} found a letter in perfect condition with no clear origin. Inside is a formal invitation to conduct business with fellow justiciars calling themselves "The Menagerie."\n\nThe Menagerie specializes in taming and training beasts of war. Taken from every biome, trained rigorously, imbued with shadespirits, and ready to serve loyally, the beasts sound impressive.\n\nThe Menagerie demands a high price for their service, and only accepts payment in silver. They invite you to contact them via a comms console if you wish to do business - they will only respond to justiciars.</JDG_MenagerieInvitationDesc>
 
+    <!-- Elements relating to somehow displeasing the Dark God enough to be smited. -->
+    <JDG_Smited>Divine Smite: {0}</JDG_Smited>
+    <JDG_SmitedDesc>{0} has committed blasphemy, and the Dark God will not stand for this. {0} is no more, leaving naught but blood, darkness, their pathethic belongings, and their shame behind.</JDG_SmitedDesc>
+
 </LanguageData>

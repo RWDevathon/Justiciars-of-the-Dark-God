@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <JDG_BioferriteWeakness>Exposure to bioferrite has made {0} ill.</JDG_BioferriteWeakness>
+    <JDG_BioferriteIgnition>Bioferrite apparel on {0} spontaneously ignited!</JDG_BioferriteIgnition>
+    <JDG_JusticiarNegativelyAffected>Ingesting bioferrite contents of {0} has harmed {1}</JDG_JusticiarNegativelyAffected>
+
+</LanguageData>

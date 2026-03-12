@@ -30,8 +30,13 @@ namespace ArtificialBeings
                 return null;
             }
 
+            if (!context.FirstSelectedPawn.CanReserveAndReach(clickedThing, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
+            {
+                return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
+            }
+
             // Favor can only be stolen if there is any to take.
-            float? toTake = (corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.FavorCurrent) ?? (corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Acolyte>()?.FavorCurrent);
+            float? toTake = corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Devotee>()?.FavorCurrent;
             if (!toTake.HasValue || toTake <= 0f)
             {
                 return null;

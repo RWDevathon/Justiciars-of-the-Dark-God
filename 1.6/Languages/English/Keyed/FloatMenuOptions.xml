@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-    <JDG_InsufficientFavorToRaise>Cannot raise: {0} and {1} do not have a combined total of 100 favor</JDG_InsufficientFavorToRaise>
+    <JDG_CannotPathToTarget>Cannot path to target</JDG_CannotPathToTarget>
     <JDG_RaiseJusticiar>Raise {0} to serve again</JDG_RaiseJusticiar>
+    <JDG_InsufficientFavorToRaise>Cannot raise: {0} and {1} do not have a combined total of 100 favor</JDG_InsufficientFavorToRaise>
     <JDG_Induct>Induct {0} to the faith ({1} favor)</JDG_Induct>
     <JDG_InsufficientFavorToInduct>Cannot induct: Need {0} favor</JDG_InsufficientFavorToInduct>
     <JDG_StealFavor>Steal {1} favor from {0}</JDG_StealFavor>
@@ -12,5 +13,6 @@
     <JDG_DominateAnimal>Dominate {0}: {1} favor</JDG_DominateAnimal>
     <JDG_CannotDominateAnimalTooMuchWildness>Cannot dominate: Above 95% wildness</JDG_CannotDominateAnimalTooMuchWildness>
     <JDG_CannotDominateAnimalInsufficientFavor>Cannot dominate: Need {0} favor</JDG_CannotDominateAnimalInsufficientFavor>
+    <JDG_ShatterShard>Shatter {0} for {1} favor</JDG_ShatterShard>
 
 </LanguageData>

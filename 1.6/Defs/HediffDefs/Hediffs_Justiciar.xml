@@ -219,4 +219,21 @@
         </stages>
     </HediffDef>
 
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_MarkedOffering</defName>
+        <hediffClass>ArtificialBeings.Hediff_Offering</hediffClass>
+        <label>marked as offering</label>
+        <description>This creature is marked for death. If they die before the mark expires, the conspirator(s) who marked this creature will receive favor.</description>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>30000</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+        </comps>
+        <isBad>false</isBad>
+        <stages>
+            <li/>
+        </stages>
+    </HediffDef>
+
 </Defs>

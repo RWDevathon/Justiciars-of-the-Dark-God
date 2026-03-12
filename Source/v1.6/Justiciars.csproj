@@ -176,12 +176,14 @@
     <Compile Include="Components\HediffComps\HediffComp_CloneTargeting.cs" />
     <Compile Include="Components\MapComponents\MapComponent_DarknessGrid.cs" />
     <Compile Include="Components\GameComponents\GameComponent_Justiciars.cs" />
+    <Compile Include="Components\ThingComps\ThingCompProperties_NegativelyAffectJusticiars.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_MaintainsDarkness.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_ProducesFavor.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_Corruptible.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_PerceptorVision.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_UmbralAnchor.cs" />
     <Compile Include="Components\ThingComps\ThingComp_Corruptible.cs" />
+    <Compile Include="Components\ThingComps\ThingComp_NegativelyAffectJusticiars.cs" />
     <Compile Include="Components\ThingComps\ThingComp_MaintainsDarkness.cs" />
     <Compile Include="Components\ThingComps\ThingComp_PerceptorVision.cs" />
     <Compile Include="Components\ThingComps\ThingComp_HeraldHarvest.cs" />
@@ -217,10 +219,14 @@
     <Compile Include="Extensions\JusticiarMentalBreakExtension.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_DominateAnimal.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_DoManualScrying.cs" />
+    <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_InterrogateEntity.cs" />
+    <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_ShatterShard.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_Induct.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_HarvestDead.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_StealFavor.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_RaiseJusticiar.cs" />
+    <Compile Include="Harmony\Pawn_MutantTracker_Patch.cs" />
+    <Compile Include="Harmony\PregnancyUtility_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_Revenant_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_SightstealerArrival_Patch.cs" />
     <Compile Include="Harmony\FleeUtility_Patches.cs" />
@@ -241,6 +247,7 @@
     <Compile Include="Harmony\MentalBreakWorker_Patch.cs" />
     <Compile Include="Harmony\GlowGrid_Patch.cs" />
     <Compile Include="Harmony\ShotReport_Patch.cs" />
+    <Compile Include="Hediffs\Hediff_Devotee.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_ContemplatingMurder.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_CleansingFury.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_Bloodletter.cs" />
@@ -252,6 +259,7 @@
     <Compile Include="Hediffs\Hediff_Inspiration_Bondbreaker.cs" />
     <Compile Include="Hediffs\Hediff_Inspiration_Kinslayer.cs" />
     <Compile Include="Hediffs\Hediff_Acolyte.cs" />
+    <Compile Include="Hediffs\Hediff_Offering.cs" />
     <Compile Include="Hediffs\Hediff_ShadeSpirit.cs" />
     <Compile Include="Hediffs\Hediff_UmbralStride.cs" />
     <Compile Include="Hediffs\Hediff_MentalTracker.cs" />
@@ -276,6 +284,8 @@
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_NoneInProgress.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar.cs" />
     <Compile Include="Interfaces\IJusticiarMaintainable.cs" />
+    <Compile Include="JobDrivers\JobDriver_InterrogateEntity.cs" />
+    <Compile Include="JobDrivers\JobDriver_ShatterShard.cs" />
     <Compile Include="JobDrivers\JobDriver_DoManualScrying.cs" />
     <Compile Include="JobDrivers\JobDriver_HarvestDead.cs" />
     <Compile Include="JobDrivers\JobDriver_DominateAnimal.cs" />
@@ -301,6 +311,7 @@
     <Compile Include="Utils\JDG_Utils.cs" />
     <Compile Include="Justiciars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\OfferingTargeting.cs" />
     <Compile Include="Utils\PerceptorTracker.cs" />
     <Compile Include="Utils\SmugglerNetwork.cs" />
   </ItemGroup>

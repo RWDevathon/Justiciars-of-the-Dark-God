@@ -91,9 +91,13 @@ namespace ArtificialBeings
                 source.story.Adulthood = justiciarKind.fixedAdultBackstories.RandomElement();
             }
             source.skills?.Notify_SkillDisablesChanged();
-            Hediff acolyteHediff = source.health.hediffSet.GetFirstHediff<Hediff_Acolyte>();
+            Hediff_Devotee acolyteHediff = source.health.hediffSet.GetFirstHediff<Hediff_Acolyte>();
             if (acolyteHediff != null)
             {
+                if (acolyteHediff.FavorCurrent > 100f && source.health.hediffSet.GetFirstHediff<Hediff_Justiciar>() is Hediff_Justiciar justiciarHediff)
+                {
+                    justiciarHediff.NotifyFavorGained(acolyteHediff.FavorCurrent - 100f);
+                }
                 source.health.RemoveHediff(acolyteHediff);
             }
         }
@@ -106,6 +110,11 @@ namespace ArtificialBeings
         public static bool IsAcolyte(Pawn pawn)
         {
             return Acolytes.Contains(pawn);
+        }
+
+        public static bool IsDevotee(Pawn pawn)
+        {
+            return IsJusticiar(pawn) || IsAcolyte(pawn);
         }
 
         public static bool IsShadeSpirit(Pawn pawn)
@@ -159,19 +168,38 @@ namespace ArtificialBeings
         // Humanlike colonists can be inducted as acolytes. Player animals/mechanoids can be inducted as shadespirits. Returns 0 if the cost is unknown.
         public static float FavorCostToInduct(Pawn pawn)
         {
+            float result;
             if (pawn.RaceProps.Humanlike)
             {
-                return 10f;
+                result = 10f;
             }
             else if (pawn.IsColonyAnimal)
             {
-                return 10f * pawn.BodySize;
+                result = 10f * pawn.BodySize;
             }
             else if (pawn.IsColonyMechPlayerControlled)
             {
-                return 10f * pawn.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks:GenTicks.TicksPerRealSecond);
+                result = 10f * pawn.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks: GenTicks.TicksPerRealSecond);
             }
-            return 0f;
+            else
+            {
+                result = 0f;
+            }
+            if (result <= 0f)
+            {
+                return result;
+            }
+
+            // Adjust by development stage
+            if (pawn.DevelopmentalStage == DevelopmentalStage.Newborn)
+            {
+                result /= 10f;
+            }
+            else if (pawn.DevelopmentalStage == DevelopmentalStage.Child)
+            {
+                result /= 5f;
+            }
+            return result;
         }
 
         // Wild animals that are not aggressive can be dominated and instantly tamed. The cost is given by the following curve, depending on the target's wildness.

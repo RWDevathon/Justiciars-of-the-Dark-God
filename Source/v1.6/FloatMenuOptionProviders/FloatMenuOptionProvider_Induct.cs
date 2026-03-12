@@ -16,8 +16,8 @@ namespace ArtificialBeings
 
         public override bool TargetPawnValid(Pawn pawn, FloatMenuContext context)
         {
-            if (JDG_Utils.IsJusticiar(pawn) || JDG_Utils.IsAcolyte(pawn) || JDG_Utils.IsShadeSpirit(pawn) || !JDG_Utils.IsJusticiar(context.FirstSelectedPawn)
-                || pawn.Faction != context.FirstSelectedPawn.Faction)
+            if (!JDG_Utils.IsJusticiar(context.FirstSelectedPawn) || JDG_Utils.IsDevotee(pawn) || JDG_Utils.IsShadeSpirit(pawn)
+                || pawn.Faction != context.FirstSelectedPawn.Faction || pawn.IsMutant)
             {
                 return false;
             }
@@ -26,6 +26,11 @@ namespace ArtificialBeings
 
         protected override FloatMenuOption GetSingleOptionFor(Pawn clickedPawn, FloatMenuContext context)
         {
+            if (!context.FirstSelectedPawn.CanReserveAndReach(clickedPawn, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
+            {
+                return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
+            }
+
             Pawn justiciar = context.FirstSelectedPawn;
             float favorCostToInduct = JDG_Utils.FavorCostToInduct(clickedPawn);
 

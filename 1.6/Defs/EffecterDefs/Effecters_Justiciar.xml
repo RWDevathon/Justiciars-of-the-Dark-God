@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <EffecterDef>
+        <defName>ABF_Effecter_Justiciar_DarkAnnihilation</defName>
+        <children>
+            <!-- Outermost shockwave-like effect. Should be colorless. -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_Justiciar_DarkWaveDistortion</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Wololo spreading heat wave effect. Should be colored. -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_Justiciar_DarkWaveDiffusion</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Spinny sparky ring effect. Should be colored. -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_Justiciar_DarkRadialSparks</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Spready light effect outward. Should be colored or not exist? -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_VaporizeGlow</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Central flash effect. Should be colored or not exist? -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>Fleck_VaporizeCenterFlash</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <EffecterDef>
+        <defName>ABF_Effecter_Justiciar_DarkAnnihilation_Mini</defName>
+        <children>
+            <!-- Outermost shockwave-like effect. Should be colorless. -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_Justiciar_DarkWaveDistortion_Mini</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Wololo spreading heat wave effect. Should be colored. -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_Justiciar_DarkWaveDiffusion_Mini</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Spinny sparky ring effect. Should be colored. -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_Justiciar_DarkRadialSparks_Mini</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Spready light effect outward. Should be colored or not exist? -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>ABF_Fleck_VaporizeGlow_Mini</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <!-- Central flash effect. Should be colored or not exist? -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>Fleck_VaporizeCenterFlash</fleckDef>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+        </children>
+    </EffecterDef>
+
+</Defs>

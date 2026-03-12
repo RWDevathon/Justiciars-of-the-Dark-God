@@ -16,6 +16,7 @@ namespace ArtificialBeings
         private readonly int[] angles = new int[4];
         private readonly int[] rotationRates = new int[4];
 
+        public FloatRange opacityRange = new FloatRange(0.9f, 1.15f);
         public int ticksLeft = 2400;
 
         // Not all veils have maintainers, but those which were casted by an ability do. Maintainers can keep this veil around longer than ticksLeft would imply.

@@ -51,7 +51,7 @@
             <sowResearchPrerequisites Inherit="False" />
             <dieFromToxicFallout>False</dieFromToxicFallout>
             <showGrowthInInspectPane>false</showGrowthInInspectPane>
-            <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+            <minSpacingBetweenSamePlant>1.9</minSpacingBetweenSamePlant>
             <warnIfMarkedForCut>true</warnIfMarkedForCut>
             <choppedThingDef>ABF_Thing_Justiciar_ChoppedStump_UmbralAnchor</choppedThingDef>
             <smashedThingDef>ABF_Thing_Justiciar_SmashedStump_UmbralAnchor</smashedThingDef>

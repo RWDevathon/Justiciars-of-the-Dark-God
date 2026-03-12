@@ -137,7 +137,7 @@
 				<capacities>
 					<li>Scratch</li>
 				</capacities>
-				<power>12</power>
+				<power>8</power>
                 <armorPenetration>0</armorPenetration>
 				<cooldownTime>0.5</cooldownTime>
 				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
@@ -147,7 +147,7 @@
 				<capacities>
 					<li>Scratch</li>
 				</capacities>
-				<power>12</power>
+				<power>8</power>
                 <armorPenetration>0</armorPenetration>
 				<cooldownTime>0.5</cooldownTime>
 				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
@@ -189,7 +189,7 @@
 				<capacities>
 					<li>Scratch</li>
 				</capacities>
-				<power>16</power>
+				<power>10</power>
 				<cooldownTime>0.75</cooldownTime>
 				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
 			</li>
@@ -198,7 +198,7 @@
 				<capacities>
 					<li>Scratch</li>
 				</capacities>
-				<power>16</power>
+				<power>10</power>
 				<cooldownTime>0.75</cooldownTime>
 				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
 			</li>
@@ -207,7 +207,7 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>16</power>
+				<power>14</power>
 				<cooldownTime>1</cooldownTime>
 				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
 				<chanceFactor>0.2</chanceFactor>

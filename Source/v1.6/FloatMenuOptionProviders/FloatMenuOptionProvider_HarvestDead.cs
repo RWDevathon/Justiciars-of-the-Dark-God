@@ -24,6 +24,11 @@ namespace ArtificialBeings
 
         protected override FloatMenuOption GetSingleOptionFor(Thing clickedThing, FloatMenuContext context)
         {
+            if (!context.FirstSelectedPawn.CanReserveAndReach(clickedThing, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
+            {
+                return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
+            }
+
             Corpse corpse = clickedThing as Corpse;
 
             return new FloatMenuOption("JDG_HarvestDead".Translate(corpse?.InnerPawn.NameShortColored ?? clickedThing.Label), delegate

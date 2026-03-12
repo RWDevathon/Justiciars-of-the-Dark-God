@@ -12,9 +12,9 @@
 
     <BackstoryDef>
 		<defName>ABF_Backstory_Justiciar_Adulthood_Risen</defName>
-		<title>dark justiciar</title>
+		<title>justiciar</title>
 		<titleShort>justiciar</titleShort>
-		<baseDesc>{PAWN_nameDef} is a dark justiciar. The Dark God blessed {PAWN_objective} with power and demands unflinching loyalty in return. Nothing is beneath {PAWN_nameDef} if the Dark God commands it.</baseDesc>
+		<baseDesc>{PAWN_nameDef} is a justiciar. The Dark God blessed {PAWN_objective} with power and demands unflinching loyalty in return. Nothing is beneath {PAWN_nameDef} if the Dark God commands it.</baseDesc>
 		<slot>Adulthood</slot>
         <bodyTypeMale>Male</bodyTypeMale>
 		<bodyTypeFemale>Female</bodyTypeFemale>

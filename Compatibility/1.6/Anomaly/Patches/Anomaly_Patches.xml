@@ -20,4 +20,16 @@
         </value>
     </Operation>
 
+    <!-- Anomaly serums deal damage to and make justiciars feel ill. -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="SerumBase"]/comps</xpath>
+        <value>
+            <li Class="ArtificialBeings.ThingCompProperties_NegativelyAffectJusticiars">
+                <damageDef>Psychic</damageDef>
+                <damageAmountRange>5~10</damageAmountRange>
+                <addsHediff>ABF_Hediff_Justiciar_BioferritePoisoning</addsHediff>
+            </li>
+        </value>
+    </Operation>
+
 </Patch>

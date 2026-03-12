@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System;
 using System.Text;
 using Verse;
 
@@ -7,7 +8,7 @@ namespace ArtificialBeings
     // Cleansing fury means killing a certain number of heretics. It succeeds when that number of kills is met. It fails if the ambition expires.
     public class Hediff_Ambition_CleansingFury : Hediff_Ambition
     {
-        public const int targetKills = 10;
+        public int targetKills = 10;
 
         public float killTotal = 0;
 
@@ -40,6 +41,13 @@ namespace ArtificialBeings
             }
         }
 
+        // When this hediff is generated, the number of heretics to kill will be chosen. The target number depends on the player's own number of pawns, up to 10.
+        public override void PostMake()
+        {
+            base.PostMake();
+            targetKills = Math.Min(10, 1 + PawnsFinder.AllMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists.Count);
+        }
+
         // On failure, the justiciar goes into a berserking rage.
         public override void NotifyFailed()
         {
@@ -65,6 +73,7 @@ namespace ArtificialBeings
         {
             base.ExposeData();
             Scribe_Values.Look(ref killTotal, "ABF_killTotal", 0);
+            Scribe_Values.Look(ref targetKills, "JDG_targetKills", 4);
         }
 
         // Players should be able to tell easily how many kills have been scored.
@@ -75,7 +84,7 @@ namespace ArtificialBeings
                 if (!complete)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.AppendLine("JDG_CurrentKillTotal".Translate(killTotal.ToString()));
+                    stringBuilder.AppendLine("JDG_CurrentKillTotal".Translate(killTotal.ToString(), targetKills.ToString()));
                     stringBuilder.Append(base.TipStringExtra);
                     return stringBuilder.ToString();
                 }

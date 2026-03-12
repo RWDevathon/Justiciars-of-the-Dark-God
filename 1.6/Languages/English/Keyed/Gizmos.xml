@@ -16,4 +16,8 @@
     <JDG_CorruptThing>Corrupt {0}</JDG_CorruptThing>
     <JDG_CorruptThingDesc>Order a justiciar to corrupt {0} to produce {1}</JDG_CorruptThingDesc>
 
+    <JDG_MarkOffering>Mark offering</JDG_MarkOffering>
+    <JDG_MarkOfferingDesc>Select a colonist or guest as an offering. If they die within 12 hours, this pawn will gain favor.</JDG_MarkOfferingDesc>
+    <JDG_CannotMarkOfferingOnCooldown>Can mark new target in {0}</JDG_CannotMarkOfferingOnCooldown>
+
 </LanguageData>

@@ -32,6 +32,11 @@ namespace ArtificialBeings
 
             if (context.FirstSelectedPawn?.health.hediffSet.GetFirstHediff<Hediff_Justiciar>() is Hediff_Justiciar justiciarHediff)
             {
+                if (!context.FirstSelectedPawn.CanReserveAndReach(clickedPawn, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
+                {
+                    return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
+                }
+
                 float favorToDominate = JDG_Utils.FavorCostToDominate(clickedPawn);
                 if (justiciarHediff.FavorCurrent >= favorToDominate)
                 {

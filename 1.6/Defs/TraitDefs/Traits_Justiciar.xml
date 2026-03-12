@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
-    <!-- This trait currently does little, but will be responsible for more in later updates. -->
     <TraitDef>
         <defName>ABF_Trait_Justiciar_Adherent</defName>
         <commonality>0.0</commonality>
+        <disabledWorkTypes>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">DarkStudy</li>
+        </disabledWorkTypes>
         <degreeDatas>
             <!-- Catch-all case and for unspecialized. -->
             <li>

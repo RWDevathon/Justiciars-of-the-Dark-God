@@ -16,5 +16,8 @@ namespace ArtificialBeings
         public static MentalStateDef MurderousRage;
 
         public static MentalStateDef Binging_DrugExtreme;
+
+        [MayRequireAnomaly]
+        public static MentalStateDef InsaneRamblings;
     }
 }

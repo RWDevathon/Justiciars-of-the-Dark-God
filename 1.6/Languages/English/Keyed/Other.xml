@@ -4,9 +4,16 @@
     <!-- Used as a Title for Pawns -->
     <JDG_Justiciar_Title>Justiciar</JDG_Justiciar_Title>
 
-    <!-- Used for an tooltip to display favor -->
+    <!-- Used for a tooltips to display favor -->
     <JDG_JusticiarFavor>Current / Lifetime favor: {0} / {1}</JDG_JusticiarFavor>
     <JDG_AcolyteFavor>Current favor: {0}</JDG_AcolyteFavor>
+
+    <!-- Used for the offering of sacrifices of devotees' lives -->
+    <JDG_OfferingFavorSingleConspirator>{0} will receive {1} favor</JDG_OfferingFavorSingleConspirator>
+    <JDG_OfferingFavorMultipleConspirators>{0} favor will be split between:</JDG_OfferingFavorMultipleConspirators>
+    <JDG_OfferingMade>Offering Made</JDG_OfferingMade>
+    <JDG_OfferingMadeDesc>An offering has been made and the following devotees have evenly split {0} favor between them:</JDG_OfferingMadeDesc>
+    <JDG_OfferingFavorConspiratorListItem>- {0}</JDG_OfferingFavorConspiratorListItem>
 
     <!-- Used in GUI elements -->
     <JDG_FavorRequirement>Requires {0} favor</JDG_FavorRequirement>

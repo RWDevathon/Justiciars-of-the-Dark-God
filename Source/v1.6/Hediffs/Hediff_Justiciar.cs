@@ -7,29 +7,15 @@ using Verse;
 namespace ArtificialBeings
 {
     // Justiciars have specific behaviors that need to happen only for them. They should ALWAYS have a Hediff with this class.
-    public class Hediff_Justiciar : HediffWithComps
+    public class Hediff_Justiciar : Hediff_Devotee
     {
-        // Favor is a measurement of how pious the justiciar is. Favor is a resource that can be acquired and spent, but total gained over a lifespan also unlocks certain features.
-        private float favorCurrent = 0f;
-
         // Favor accrued over the lifespan of the justiciar should never be manually manipulated by external code. It should never decrement.
         private float favorLifespan = 0f;
 
-        // Tracker for when the Justiciar was last in pain. Used for various calculations.
-        public int tickLastInPain = 0;
-
-        // This should not remove itself from a pawn under any circumstances.
-        public override bool ShouldRemove => false;
+        // Exposure to bioferrite causes illness. High ranking justiciars can even spontaneously ignite while wearing it.
+        public int nextBioferriteCheck = 0;
 
         public IJusticiarMaintainable maintainee;
-
-        public float FavorCurrent
-        {
-            get
-            {
-                return favorCurrent;
-            }
-        }
 
         public float FavorTotalAccrued
         {
@@ -59,31 +45,95 @@ namespace ArtificialBeings
             maintainee?.Terminate();
         }
 
-        // In the event of resurrection, the last tick in pain should be reset as a grace period.
-        public override void Notify_Resurrected()
-        {
-            base.Notify_Resurrected();
-            tickLastInPain = GenTicks.TicksGame;
-        }
-
         public override void TickInterval(int delta)
         {
+            // The bonus/malus from being in darkness/light needs to be checked consistently.
             if (pawn.Spawned)
             {
                 Severity = pawn.Map.glowGrid.GroundGlowAt(pawn.Position);
-            }
-            // Justiciars that are in pain gain favor. Those that have not been in pain for too long lose favor.
-            if (!pawn.Dead)
-            {
-                float painTotal = pawn.health.hediffSet.PainTotal;
-                if (painTotal > 0.1f)
+                // Justiciars are weak to bioferrite. Make sure it applies correctly.
+                if (GenTicks.TicksGame >= nextBioferriteCheck)
                 {
-                    tickLastInPain = GenTicks.TicksGame;
-                    NotifyFavorGained(25f / GenDate.TicksPerYear * painTotal * delta);
-                }
-                else if (GenTicks.TicksGame - tickLastInPain > GenDate.TicksPerQuadrum)
-                {
-                    NotifyFavorLost(50f / GenDate.TicksPerYear * delta);
+                    if (!ModsConfig.AnomalyActive)
+                    {
+                        nextBioferriteCheck = GenTicks.TicksGame + GenDate.TicksPerQuadrum;
+                    }
+
+                    nextBioferriteCheck = GenTicks.TicksGame;
+                    bool foundBioferrite = false;
+
+                    if (pawn.apparel?.WornApparel is List<Apparel> apparelList)
+                    {
+                        foreach (Apparel apparel in apparelList)
+                        {
+                            if (apparel.Stuff == ThingDefOf.Bioferrite)
+                            {
+                                foundBioferrite = true;
+                                if (FavorTotalAccrued > 400f && Rand.Bool)
+                                {
+                                    // Fifty fifty chance for spontaneous ignition or for cancer.
+                                    if (Rand.Bool)
+                                    {
+
+                                    }
+                                    pawn.TryAttachFire(Rand.Range(0.8f, 1.4f), apparel);
+                                    GenExplosion.DoExplosion(pawn.Position, pawn.Map, 2.9f, DamageDefOf.Flame, pawn, 5);
+                                    if (PawnUtility.ShouldSendNotificationAbout(pawn))
+                                    {
+                                        Messages.Message("JDG_BioferriteIgnition".Translate(pawn.NameShortColored), pawn, MessageTypeDefOf.NegativeEvent, false);
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    if (pawn.equipment != null)
+                    {
+                        foreach (ThingWithComps equipment in pawn.equipment.AllEquipmentListForReading)
+                        {
+                            if (equipment.Stuff == ThingDefOf.Bioferrite)
+                            {
+                                foundBioferrite = true;
+                                if (FavorTotalAccrued > 400f && Rand.Bool)
+                                {
+                                    pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.InsaneRamblings, "JDG_BreakBecauseBioferriteEquipment".Translate(), true, true);
+                                }
+                            }
+                        }
+                    }
+                    foreach (Thing item in pawn.Map.listerThings.ThingsOfDef(ThingDefOf.BioferriteGenerator))
+                    {
+                        CompNoiseSource compNoiseSource = item.TryGetComp<CompNoiseSource>();
+                        if (compNoiseSource.Active && pawn.Position.InHorDistOf(item.Position, compNoiseSource.Props.radius))
+                        {
+                            foundBioferrite = true;
+                            if (FavorTotalAccrued > 400f && Rand.Bool)
+                            {
+                                pawn.mindState.mentalStateHandler.TryStartMentalState(JDG_MentalStateDefOf.InsaneRamblings, "JDG_BreakBecauseBioferriteEquipment".Translate(), true, true);
+                            }
+                        }
+                    }
+
+                    if (foundBioferrite)
+                    {
+                        if (pawn.health.hediffSet.GetFirstHediffOfDef(JDG_HediffDefOf.ABF_Hediff_Justiciar_BioferriteWeakness) == null)
+                        {
+                            pawn.health.AddHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_BioferriteWeakness);
+                            if (PawnUtility.ShouldSendNotificationAbout(pawn))
+                            {
+                                Messages.Message("JDG_BioferriteWeakness".Translate(pawn.NameShortColored), pawn, MessageTypeDefOf.NegativeEvent, false);
+                            }
+                        }
+                        nextBioferriteCheck = GenTicks.TicksGame + Rand.Range(GenDate.TicksPerHour * 6, GenDate.TicksPerDay);
+                    }
+                    else
+                    {
+                        if (pawn.health.hediffSet.GetFirstHediffOfDef(JDG_HediffDefOf.ABF_Hediff_Justiciar_BioferriteWeakness) is Hediff hediff)
+                        {
+                            pawn.health.RemoveHediff(hediff);
+                        }
+                        nextBioferriteCheck = GenTicks.TicksGame + Rand.Range(GenDate.TicksPerTwelfth, GenDate.TicksPerQuadrum);
+                    }
                 }
             }
             base.TickInterval(delta);
@@ -93,7 +143,6 @@ namespace ArtificialBeings
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
-            tickLastInPain = GenTicks.TicksGame;
             JDG_Utils.Justiciars.Add(pawn);
 
             // If the player has not yet learned about justiciars, they will also receive a learning helper tip about how favor and justiciars work.
@@ -105,33 +154,11 @@ namespace ArtificialBeings
             }
         }
 
-        // Killing a fellow faction member, a guest, or an entity provides favor.
-        public override void Notify_KilledPawn(Pawn victim, DamageInfo? dinfo)
-        {
-            base.Notify_KilledPawn(victim, dinfo);
-            if (pawn.Faction != null)
-            {
-                if (victim.IsFreeColonist)
-                {
-                    NotifyFavorGained(50f);
-                }
-                else if (victim.HostFaction == pawn.Faction && !victim.IsPrisoner)
-                {
-                    NotifyFavorGained(25f);
-                }
-            }
-            if (victim.IsEntity)
-            {
-                NotifyFavorGained(2.5f * victim.BodySize);
-            }
-        }
-
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref favorCurrent, "JDG_favorCurrent", 0f);
             Scribe_Values.Look(ref favorLifespan, "JDG_favorLifespan", 0f);
-            Scribe_Values.Look(ref tickLastInPain, "JDG_tickLastInPain", 0);
+            Scribe_Values.Look(ref nextBioferriteCheck, "JDG_nextBioferriteCheck", 0);
             Scribe_References.Look(ref maintainee, "JDG_maintainee");
             // This hediff identifies justiciars, and they should be re-added to the cache of all known justiciars on loading saves.
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
@@ -164,6 +191,11 @@ namespace ArtificialBeings
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+
             if (FavorTotalAccrued >= 100f)
             {
                 if (ModLister.CheckRoyaltyOrAnomaly("Invisibility hediff") && !pawn.health.hediffSet.HasHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_UmbralStride))
@@ -223,44 +255,31 @@ namespace ArtificialBeings
 
             if (DebugSettings.ShowDevGizmos)
             {
-                Command_Action addFavor = new Command_Action
+                Command_Action addTotalFavor = new Command_Action
                 {
-                    defaultLabel = "DEV: Add 10 favor",
+                    defaultLabel = "DEV: Add 10 favor to total accrued",
                     action = delegate
                     {
-                        NotifyFavorGained(10f);
+                        favorLifespan += 10f;
                     }
                 };
-                yield return addFavor;
+                yield return addTotalFavor;
 
-                Command_Action loseFavor = new Command_Action
+                Command_Action resetBioferriteTimer = new Command_Action
                 {
-                    defaultLabel = "DEV: Lose 10 favor",
+                    defaultLabel = "DEV: Reset Bioferrite timer",
                     action = delegate
                     {
-                        NotifyFavorLost(10f);
+                        nextBioferriteCheck = 0;
                     }
                 };
-                yield return loseFavor;
-
-                Command_Action resetFavor = new Command_Action
-                {
-                    defaultLabel = "DEV: Reset favor",
-                    action = delegate
-                    {
-                        favorCurrent = 0f;
-                        favorLifespan = 0f;
-                    }
-                };
-                yield return resetFavor;
-
-
+                yield return resetBioferriteTimer;
             }
             yield break;
         }
 
         // This should be used when accruing favor, so that both the current and lifespan values are updated and thresholds are checked.
-        public void NotifyFavorGained(float toGain)
+        public override void NotifyFavorGained(float toGain)
         {
             toGain *= pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorGainRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
 
@@ -272,12 +291,6 @@ namespace ArtificialBeings
             {
                 LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_FirstTierUnlocks, OpportunityType.Critical);
             }
-        }
-
-        // This should be used when losing favor. It does *not* update the lifespan value.
-        public void NotifyFavorLost(float toLose)
-        {
-            favorCurrent -= toLose * pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorLossRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
         }
 
         public void NotifyNewMaintainee(IJusticiarMaintainable newMaintainee)

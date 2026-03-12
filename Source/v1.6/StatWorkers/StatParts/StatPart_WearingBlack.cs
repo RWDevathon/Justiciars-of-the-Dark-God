@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -34,9 +35,10 @@ namespace ArtificialBeings
                 Color black = new Color(0.2f, 0.2f, 0.2f);
                 int numberBlack = 0;
                 int numberTotal = 0;
-                foreach (Apparel item in pawn.apparel.WornApparel)
+                List<Apparel> wornApparel = pawn.apparel.WornApparel;
+                for (int i = wornApparel.Count - 1; i >= 0; i--)
                 {
-                    CompColorable compColorable = item.TryGetComp<CompColorable>();
+                    CompColorable compColorable = wornApparel[i].TryGetComp<CompColorable>();
                     if (compColorable != null)
                     {
                         if (compColorable.Color.IndistinguishableFrom(black))
@@ -50,7 +52,7 @@ namespace ArtificialBeings
                 {
                     return false;
                 }
-                return numberBlack / numberTotal > requiredPercentage;
+                return (float)numberBlack / numberTotal > requiredPercentage;
             }
             return false;
         }

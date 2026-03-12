@@ -108,10 +108,9 @@
             <MarketValue>1200</MarketValue>
         </statBases>
         <graphicData>
-            <texPath>Things/Item/PoluxSeed</texPath>
+            <texPath>Justiciars/Biotech/Things/CorruptedSeeds</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
             <drawSize>(0.6, 0.6)</drawSize>
-            <color>(0.2, 0.2, 0.2)</color>
         </graphicData>
         <thingCategories>
             <li>ItemsMisc</li>

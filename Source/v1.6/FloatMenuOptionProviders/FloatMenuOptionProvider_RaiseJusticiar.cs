@@ -30,6 +30,11 @@ namespace ArtificialBeings
                 return null;
             }
 
+            if (!context.FirstSelectedPawn.CanReserveAndReach(clickedThing, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
+            {
+                return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
+            }
+
             Hediff_Justiciar corpseHediff = corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
             Hediff_Justiciar casterHediff = context.FirstSelectedPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
             if (corpseHediff.FavorCurrent + casterHediff.FavorCurrent < 100f)

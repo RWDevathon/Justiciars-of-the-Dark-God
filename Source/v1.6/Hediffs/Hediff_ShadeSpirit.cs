@@ -10,14 +10,15 @@ namespace ArtificialBeings
         // This should not remove itself from a pawn under any circumstances.
         public override bool ShouldRemove => false;
 
-        // Shadespirits will spawn a single tile of darkness where they died.
         public override void Notify_PawnKilled()
         {
             base.Notify_PawnKilled();
-            BlackVeil veil = (BlackVeil)ThingMaker.MakeThing(JDG_ThingDefOf.ABF_Thing_BlackVeil);
-            veil.Radius = 0.9f;
-            veil.ticksLeft = 600;
-            GenSpawn.Spawn(veil, pawn.PositionHeld, pawn.MapHeld);
+            if (pawn.MapHeld != null)
+            {
+                JDG_EffecterDefOf.ABF_Effecter_Justiciar_DarkAnnihilation_Mini.Spawn(pawn.PositionHeld, pawn.MapHeld).Cleanup();
+            }
+            JDG_Utils.ShadeSpirits.Remove(pawn);
+            pawn.health.RemoveHediff(this);
         }
 
         public override void TickInterval(int delta)

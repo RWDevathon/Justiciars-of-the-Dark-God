@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- Results of interrogating an entity -->
+    <JDG_InterrogationResearch>Insight gained: {0}</JDG_InterrogationResearch>
+    <JDG_InterrogationResearchDesc>{0} has completed the interrogation of the foul Horaxian abomination and gleaned {1} research points of {2} nature. {0} is exhausted, but confident that this will aid the war effort.</JDG_InterrogationResearchDesc>
+    <JDG_InterrogationFavor>Favor gained: {0}</JDG_InterrogationFavor>
+    <JDG_InterrogationFavorDesc>{0} has completed the interrogation of the foul Horaxian abomination. While no insights into anomalous entities were gained, {1} favor has been earned for brutally annihilating the abomination.</JDG_InterrogationFavorDesc>
+
+    <!-- Mental break due to bioferrite equipment -->
+    <JDG_BreakBecauseBioferriteEquipment>Bioferrite equipment drove them to this.</JDG_BreakBecauseBioferriteEquipment>
+
+</LanguageData>
