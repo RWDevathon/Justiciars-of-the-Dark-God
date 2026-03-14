@@ -154,6 +154,18 @@ namespace ArtificialBeings
                 // Colony animals may be cloned for 10 favor per body size.
                 if (pawn.IsColonyAnimal)
                 {
+                    // Dryads may not be cloned, as they're intrinsically tied to Gauranlen tree mechanics. Dark creatures can still be cloned, but are more expensive.
+                    if (pawn.RaceProps.Dryad)
+                    {
+                        if (darkCreatureKinds.Contains(pawn.kindDef))
+                        {
+                            return 40f * pawn.BodySize;
+                        }
+                        else
+                        {
+                            return 0f;
+                        }
+                    }
                     return 10f * pawn.BodySize;
                 }
                 // Colony mechanoids (that are currently controlled) may be cloned for 25 favor per bandwith cost. If it has no cost, it cannot be cloned.

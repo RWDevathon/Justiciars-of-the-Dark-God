@@ -2,6 +2,14 @@
 <Defs>
 
     <JobDef>
+        <defName>ABF_Job_Justiciar_AdmireSkull</defName>
+        <driverClass>ArtificialBeings.JobDriver_AdmireSkull</driverClass>
+        <reportString>admiring skull.</reportString>
+        <joyDuration>4000</joyDuration>
+        <joyKind>Meditative</joyKind>
+    </JobDef>
+
+    <JobDef>
         <defName>ABF_Job_Justiciar_Clone</defName>
         <driverClass>ArtificialBeings.JobDriver_Clone</driverClass>
         <reportString>creating umbral clone of TargetA.</reportString>
@@ -26,6 +34,13 @@
         <defName>ABF_Job_Justiciar_Induct</defName>
         <driverClass>ArtificialBeings.JobDriver_Induct</driverClass>
         <reportString>inducting TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>ABF_Job_Justiciar_InfluenceBiocoding</defName>
+        <driverClass>ArtificialBeings.JobDriver_InfluenceBiocoding</driverClass>
+        <reportString>influencing the biocoding of TargetA.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
 

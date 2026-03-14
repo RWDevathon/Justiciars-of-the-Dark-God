@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Text;
 using Verse;
 
 namespace ArtificialBeings
@@ -7,7 +8,7 @@ namespace ArtificialBeings
     // The raise justiciar job notifies this hediff directly of success when completed.
     public class Hediff_Ambition_RecruitmentMotivation : Hediff_Ambition
     {
-
+        public const float favorOnSuccess = 10f;
         public override void TickInterval(int delta)
         {
             base.TickInterval(delta);
@@ -39,11 +40,27 @@ namespace ArtificialBeings
             base.NotifySucceeded();
             complete = true;
             Severity = 1f;
-            expirationTick = Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_RecruitmentMotivation".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            expirationTick = GenTicks.TicksGame + Extension.expirationTicks.RandomInRange;
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_RecruitmentMotivation".Translate(pawn.LabelShort, pawn.Named("PAWN"), favorOnSuccess.ToString("F0")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
 
             // Completing this ambition grants favor.
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(10f);
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(favorOnSuccess);
+        }
+
+        // Players should be able to tell easily how much favor will be awarded on completion.
+        public override string TipStringExtra
+        {
+            get
+            {
+                if (!complete)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.AppendLine("JDG_FavorOnSuccess".Translate(favorOnSuccess.ToString("F0")));
+                    stringBuilder.Append(base.TipStringExtra);
+                    return stringBuilder.ToString();
+                }
+                return base.TipStringExtra;
+            }
         }
     }
 }

@@ -28,6 +28,8 @@ namespace ArtificialBeings
 
         public static JobDef ABF_Job_Justiciar_Induct;
 
+        public static JobDef ABF_Job_Justiciar_InfluenceBiocoding;
+
         [MayRequireAnomaly]
         public static JobDef ABF_Job_Justiciar_InterrogateEntity;
 

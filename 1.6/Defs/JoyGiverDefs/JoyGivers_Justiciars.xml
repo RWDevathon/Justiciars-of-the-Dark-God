@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <JoyGiverDef>
+        <defName>ABF_JoyGiver_Justiciar_AdmireSkull</defName>
+        <giverClass>ArtificialBeings.JoyGiver_AdmireSkull</giverClass>
+        <baseChance>2</baseChance>
+        <jobDef>ABF_Job_Justiciar_AdmireSkull</jobDef>
+        <joyKind>Meditative</joyKind>
+        <requiredCapacities>
+            <li>Sight</li>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </JoyGiverDef>
+
+</Defs>

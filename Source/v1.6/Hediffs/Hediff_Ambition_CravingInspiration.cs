@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Text;
 using Verse;
 
 namespace ArtificialBeings
@@ -6,6 +7,8 @@ namespace ArtificialBeings
     // Craving inspiration means the justiciar wants to acquire an inspiration. It fails if the ambition expires before they have a chance to do so.
     public class Hediff_Ambition_CravingInspiration : Hediff_Ambition
     {
+        public const float favorOnSuccess = 80f;
+
         public override void TickInterval(int delta)
         {
             base.TickInterval(delta);
@@ -46,11 +49,27 @@ namespace ArtificialBeings
             // This does not notify the parent class on completion to avoid notifying ambitions/inspirations about something which is mutually exclusive with them.
             complete = true;
             Severity = 1f;
-            expirationTick = Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_CravingInspiration".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            expirationTick = GenTicks.TicksGame + Extension.expirationTicks.RandomInRange;
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_CravingInspiration".Translate(pawn.LabelShort, pawn.Named("PAWN"), favorOnSuccess.ToString("F0")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
 
             // Completing this ambition grants favor.
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(40f);
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(favorOnSuccess);
+        }
+
+        // Players should be able to tell easily how much favor will be awarded on completion.
+        public override string TipStringExtra
+        {
+            get
+            {
+                if (!complete)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.AppendLine("JDG_FavorOnSuccess".Translate(favorOnSuccess.ToString("F0")));
+                    stringBuilder.Append(base.TipStringExtra);
+                    return stringBuilder.ToString();
+                }
+                return base.TipStringExtra;
+            }
         }
     }
 }

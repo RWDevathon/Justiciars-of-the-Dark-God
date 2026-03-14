@@ -17,7 +17,7 @@ namespace ArtificialBeings
             // Reward handling
             if (Interrogee.TryGetComp<CompStudiable>() is CompStudiable studyComp && Find.ResearchManager.GetProject(studyComp.KnowledgeCategory) != null)
             {
-                float researchToAward = studyComp.AnomalyKnowledge * GenDate.DaysPerTwelfth * 2;
+                float researchToAward = studyComp.AnomalyKnowledge * GenDate.DaysPerTwelfth * 1.5f;
                 KnowledgeCategoryDef researchCategory = studyComp.KnowledgeCategory;
                 if (researchToAward > 0 && researchCategory != null)
                 {
@@ -27,7 +27,7 @@ namespace ArtificialBeings
             }
             else
             {
-                float favorToAward = 15f * Interrogee.BodySize;
+                float favorToAward = 10f * Interrogee.BodySize;
                 pawn.health.hediffSet.GetFirstHediff<Hediff_Devotee>()?.NotifyFavorGained(favorToAward);
                 Find.LetterStack.ReceiveLetter("JDG_InterrogationFavor".Translate(pawn.LabelShortCap), "JDG_InterrogationFavorDesc".Translate(pawn.LabelShortCap, favorToAward), LetterDefOf.PositiveEvent);
 

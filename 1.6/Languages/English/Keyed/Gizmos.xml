@@ -4,7 +4,7 @@
     <JDG_PositionTooBright>Position is too bright</JDG_PositionTooBright>
 
     <JDG_BeginUmbralStride>Begin umbral stride</JDG_BeginUmbralStride>
-    <JDG_BeginUmbralStrideDesc>Cloak oneself in shadow to become completely invisible for a time, or until leaving the Dark God's shadows.</JDG_BeginUmbralStrideDesc>
+    <JDG_BeginUmbralStrideDesc>Spend 10 favor to cloak oneself in shadow to become completely invisible for two hours, or until leaving the Dark God's shadows.</JDG_BeginUmbralStrideDesc>
     <JDG_CannotUmbralStrideNotInDarkness>Cannot begin umbral striding while outside conjured darkness - it would immediately end.</JDG_CannotUmbralStrideNotInDarkness>
     <JDG_EndUmbralStride>End umbral stride</JDG_EndUmbralStride>
     <JDG_EndUmbralStrideDesc>Cast off the cloak of shadows and immediately reveal oneself.</JDG_EndUmbralStrideDesc>

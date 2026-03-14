@@ -78,21 +78,10 @@ namespace ArtificialBeings
             tickLastInPain = GenTicks.TicksGame;
         }
 
-        // Killing a fellow faction member, a guest, or an entity provides favor.
+        // Killing entities provides favor.
         public override void Notify_KilledPawn(Pawn victim, DamageInfo? dinfo)
         {
             base.Notify_KilledPawn(victim, dinfo);
-            if (pawn.Faction != null)
-            {
-                if (victim.IsFreeColonist)
-                {
-                    NotifyFavorGained(50f);
-                }
-                else if (victim.HostFaction == pawn.Faction && !victim.IsPrisoner)
-                {
-                    NotifyFavorGained(25f);
-                }
-            }
             if (victim.IsEntity)
             {
                 NotifyFavorGained(2.5f * victim.BodySize);

@@ -7,8 +7,8 @@
         <defName>ABF_Hediff_Justiciar_Ambition_ContemplatingMurder</defName>
         <hediffClass>ArtificialBeings.Hediff_Ambition_ContemplatingMurder</hediffClass>
         <label>contemplating murder</label>
-        <description>An ambition to commit a murder of true meaning. This justiciar has come to the conclusion that they must end the life of someone of value - or perhaps of multiple of slightly less value.\n\nThis ambition will succeed after personally killing a colonist, a couple of slaves, or a handful of colony animals. Guests, outsiders, and anyone else will not count.\n\nShould the ambition expire before the deed is done, the justiciar will fall into a murderous rage.</description>
-        <descriptionShort>An ambition to commit a murder of true meaning.</descriptionShort>
+        <description>An ambition to commit a meaningful murder. This justiciar has come to the conclusion that they must end the life of someone of value - or perhaps numerous of those with slightly less value.\n\nThis ambition will succeed after personally killing a colonist, a couple of slaves, or a handful of colony animals. Guests, outsiders, and anyone else will not count.\n\nShould the ambition expire before the deed is done, the justiciar will fall into a murderous rage.</description>
+        <descriptionShort>An ambition to commit a meaningful murder.</descriptionShort>
         <isBad>false</isBad>
         <stages>
             <!-- Default state while ambition is not complete-->
@@ -41,7 +41,7 @@
     <HediffDef>
         <defName>ABF_Hediff_Justiciar_Ambition_EndureSuffering</defName>
         <hediffClass>ArtificialBeings.Hediff_Ambition_EndureSuffering</hediffClass>
-        <label>contemplating murder</label>
+        <label>fascinated by suffering</label>
         <description>An ambition to withstand agonizing pain. This justiciar understands that pain fuels the one true god just as well as any other form of service, and feels compelled to offer up pain as tribute.\n\nThis ambition will succeed once the ambition expires if the justiciar has had at least 50% pain for 50% of the duration.\n\nShould the ambition expire without the justiciar having suffered sufficient pain, the justiciar will fall into a berserk rage.</description>
         <descriptionShort>An ambition to withstand agonizing pain.</descriptionShort>
         <isBad>false</isBad>

@@ -10,6 +10,7 @@ namespace ArtificialBeings
     {
         public int ticksWithPoorMood = 0;
         public int ticksTotal = 0;
+        public const float favorOnSuccess = 10f;
 
         public float TimeWithPoorMoodAsPercentage => ticksWithPoorMood / Mathf.Max(ticksTotal, 1f);
 
@@ -59,11 +60,11 @@ namespace ArtificialBeings
             base.NotifySucceeded();
             complete = true;
             Severity = 1f;
-            expirationTick = Extension.expirationTicks.RandomInRange;
-            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_DepressiveFixation".Translate(pawn.LabelShort, pawn.Named("PAWN")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
+            expirationTick = GenTicks.TicksGame + Extension.expirationTicks.RandomInRange;
+            Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_DepressiveFixation".Translate(pawn.LabelShort, pawn.Named("PAWN"), favorOnSuccess.ToString("F0")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
 
             // Completing this ambition grants favor.
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(10f);
+            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(favorOnSuccess);
         }
 
         public override void ExposeData()
@@ -82,6 +83,7 @@ namespace ArtificialBeings
                 {
                     StringBuilder stringBuilder = new StringBuilder();
                     stringBuilder.AppendLine("JDG_PoorMoodPercentage".Translate(TimeWithPoorMoodAsPercentage.ToStringPercent()));
+                    stringBuilder.AppendLine("JDG_FavorOnSuccess".Translate(favorOnSuccess.ToString("F0")));
                     stringBuilder.Append(base.TipStringExtra);
                     return stringBuilder.ToString();
                 }

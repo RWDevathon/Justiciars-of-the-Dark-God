@@ -10,6 +10,8 @@
     <JDG_RecruitAcolyte>Summon an acolyte (60 favor)</JDG_RecruitAcolyte>
     <JDG_InsufficientFavorToRecruit>Cannot recruit: Need 60 favor</JDG_InsufficientFavorToRecruit>
     <JDG_InsufficientFavorToClone>Cannot clone: Need {0} favor</JDG_InsufficientFavorToClone>
+    <JDG_InfluenceBiocoding>Biocode {0} to self: {1} favor</JDG_InfluenceBiocoding>
+    <JDG_InsufficientFavorToInfluenceBiocode>Cannot biocode: Need {0} favor</JDG_InsufficientFavorToInfluenceBiocode>
     <JDG_DominateAnimal>Dominate {0}: {1} favor</JDG_DominateAnimal>
     <JDG_CannotDominateAnimalTooMuchWildness>Cannot dominate: Above 95% wildness</JDG_CannotDominateAnimalTooMuchWildness>
     <JDG_CannotDominateAnimalInsufficientFavor>Cannot dominate: Need {0} favor</JDG_CannotDominateAnimalInsufficientFavor>

@@ -223,6 +223,7 @@
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_ShatterShard.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_Induct.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_HarvestDead.cs" />
+    <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_InfluenceBiocoding.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_StealFavor.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_RaiseJusticiar.cs" />
     <Compile Include="Harmony\Pawn_MutantTracker_Patch.cs" />
@@ -284,6 +285,8 @@
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_NoneInProgress.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar.cs" />
     <Compile Include="Interfaces\IJusticiarMaintainable.cs" />
+    <Compile Include="JobDrivers\JobDriver_AdmireSkull.cs" />
+    <Compile Include="JobDrivers\JobDriver_InfluenceBiocoding.cs" />
     <Compile Include="JobDrivers\JobDriver_InterrogateEntity.cs" />
     <Compile Include="JobDrivers\JobDriver_ShatterShard.cs" />
     <Compile Include="JobDrivers\JobDriver_DoManualScrying.cs" />
@@ -301,6 +304,7 @@
     <Compile Include="JobDrivers\JobDriver_Induct.cs" />
     <Compile Include="JobDrivers\JobDriver_StealFavor.cs" />
     <Compile Include="JobDrivers\JobDriver_RaiseJusticiar.cs" />
+    <Compile Include="JoyGivers\JoyGiver_AdmireSkull.cs" />
     <Compile Include="MentalBreakWorkers\MentalBreakWorker_RecruitmentMotivation.cs" />
     <Compile Include="MentalBreakWorkers\MentalBreakWorker_JusticiarAmbition_NoneInProgress.cs" />
     <Compile Include="MentalBreakWorkers\MentalBreakWorker_JusticiarAmbition.cs" />
