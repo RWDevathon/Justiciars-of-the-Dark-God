@@ -9,8 +9,10 @@
     <JDG_InShadowsPercentage>Time spent in darkness: {0}</JDG_InShadowsPercentage>
     <JDG_PoorMoodPercentage>Time with poor mood: {0}</JDG_PoorMoodPercentage>
     <JDG_CurrentKillTotal>Total kills: {0} / {1}</JDG_CurrentKillTotal>
-    <JDG_CurrentDamageTotal>Total damage: {0}</JDG_CurrentDamageTotal>
+    <JDG_CurrentDamageTotal>Total damage: {0} / {1}</JDG_CurrentDamageTotal>
     <JDG_CurrentKillLevel>Murder progress: {0}</JDG_CurrentKillLevel>
     <JDG_PainPercentage>Time spent over 50% pain: {0}</JDG_PainPercentage>
+
+    <JDG_DaysSinceLastInPain>Time since last in pain: {0}</JDG_DaysSinceLastInPain>
 
 </LanguageData>

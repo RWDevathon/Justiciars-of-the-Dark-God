@@ -197,11 +197,15 @@
                     <MeleeDamageFactor>1.5</MeleeDamageFactor>
                     <MeleeDodgeChance>2</MeleeDodgeChance>
                     <StaggerDurationFactor>0.5</StaggerDurationFactor>
+                    <Wildness>0</Wildness>
                 </statFactors>
             </li>
             <li>
                 <label>normal</label>
                 <overrideTooltip>Comfortable conditions</overrideTooltip>
+                <statFactors>
+                    <Wildness>0</Wildness>
+                </statFactors>
                 <minSeverity>0.3</minSeverity>
             </li>
             <li>
@@ -214,6 +218,7 @@
                     <IncomingDamageFactor>1.5</IncomingDamageFactor>
                     <MeleeDodgeChance>0.5</MeleeDodgeChance>
                     <StaggerDurationFactor>1.5</StaggerDurationFactor>
+                    <Wildness>0</Wildness>
                 </statFactors>
             </li>
         </stages>

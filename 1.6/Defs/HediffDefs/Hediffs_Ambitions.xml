@@ -107,7 +107,7 @@
         <defName>ABF_Hediff_Justiciar_Ambition_CleansingFury</defName>
         <hediffClass>ArtificialBeings.Hediff_Ambition_CleansingFury</hediffClass>
         <label>demanding holy slaughter</label>
-        <description>An ambition to slaughter heretics in the name of the one true god. This justiciar is outraged by the continued existence of the vile heresies of those who live in the light and demands their destruction.\n\nThis ambition will succeed after personally killing ten heretics. It matters not whether these heretics are colonists or outsiders - it matters only that they are not justiciars. Only humanlike individuals count.\n\nShould the ambition expire before enough heretics are slain, the justiciar will fall into a berserking rage.</description>
+        <description>An ambition to slaughter heretics in the name of the one true god. This justiciar is outraged by the continued existence of the vile heresies of those who live in the light and demands their destruction.\n\nThis ambition will succeed after personally killing a certain number of heretics. It matters not whether these heretics are colonists or outsiders - it matters only that they are not justiciars. Only humanlike individuals count.\n\nShould the ambition expire before enough heretics are slain, the justiciar will fall into a berserking rage.</description>
         <descriptionShort>An ambition to slaughter heretics in the name of the one true god.</descriptionShort>
         <isBad>false</isBad>
         <stages>
@@ -131,7 +131,7 @@
         </stages>
         <modExtensions>
             <li Class="ArtificialBeings.JusticiarMentalTimerExtension">
-                <expirationTicks>600000</expirationTicks> <!-- 10 days -->
+                <expirationTicks>1200000</expirationTicks> <!-- 20 days -->
             </li>
         </modExtensions>
     </HediffDef>
@@ -140,7 +140,7 @@
         <defName>ABF_Hediff_Justiciar_Ambition_Bloodletter</defName>
         <hediffClass>ArtificialBeings.Hediff_Ambition_Bloodletter</hediffClass>
         <label>lusting for bloodshed</label>
-        <description>An ambition to spill blood - whether that of others or of oneself. This justiciar has become enthralled by the beauty and simplicity of violence, seeing it as a divine gift.\n\nThis ambition will succeed after dealing or receiving a total of 500 damage. Damage against objects does not count - but this justiciar cares not who or what kind of person or animal is being harmed.\n\nShould the ambition expire before sufficient damage is dealt or taken, the justiciar will fall into a berserking rage.</description>
+        <description>An ambition to spill blood - whether that of others or of oneself. This justiciar has become enthralled by the beauty and simplicity of violence, seeing it as a divine gift.\n\nThis ambition will succeed after dealing or receiving a certain amount of damage. Damage against objects does not count - but this justiciar cares not who or what kind of person or animal is being harmed.\n\nShould the ambition expire before sufficient damage is dealt or taken, the justiciar will fall into a berserking rage.</description>
         <descriptionShort>An ambition to spill blood - whether that of others or of oneself.</descriptionShort>
         <isBad>false</isBad>
         <stages>

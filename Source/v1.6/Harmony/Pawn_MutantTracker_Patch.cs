@@ -7,14 +7,26 @@ namespace ArtificialBeings
     public class Pawn_MutantTracker_Patch
     {
         // Justiciars that turn into mutants are instantly destroyed in a visceral explosion of gore and shadow. The Dark God does not tolerate heresy or traitors.
+        // An exception is the Awoken corpse, as that is merely a profane copy of a Justiciar rather than a Justiciar itself.
         [HarmonyPatch(typeof(Pawn_MutantTracker), nameof(Pawn_MutantTracker.Turn))]
         public class Pawn_MutantTracker_Turn_Patch
         {
             [HarmonyPostfix]
-            public static void Listener(Pawn ___pawn)
+            public static void Listener(Pawn ___pawn, MutantDef ___def)
             {
                 if (JDG_Utils.IsJusticiar(___pawn))
                 {
+                    if (___def == MutantDefOf.AwokenCorpse)
+                    {
+                        Hediff_Justiciar justiciarHediff = ___pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+                        if (justiciarHediff != null)
+                        {
+                            JDG_Utils.Justiciars.Remove(___pawn);
+                            ___pawn.health.RemoveHediff(justiciarHediff);
+                            return;
+                        }
+                    }
+
                     IntVec3 position = ___pawn.Position;
                     Map map = ___pawn.Map;
                     JDG_EffecterDefOf.ABF_Effecter_Justiciar_DarkAnnihilation.Spawn(position, map).Cleanup();

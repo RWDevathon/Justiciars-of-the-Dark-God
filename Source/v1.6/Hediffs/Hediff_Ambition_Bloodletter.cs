@@ -71,7 +71,7 @@ namespace ArtificialBeings
             base.NotifySucceeded();
             complete = true;
             Severity = 1f;
-            expirationTick += GenTicks.TicksGame + Extension.expirationTicks.RandomInRange;
+            expirationTick = GenTicks.TicksGame + Extension.expirationTicks.RandomInRange;
             Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_Bloodletter".Translate(pawn.LabelShort, pawn.Named("PAWN"), favorOnSuccess.ToString("F0")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
 
             // Completing this ambition grants favor.
@@ -92,7 +92,7 @@ namespace ArtificialBeings
                 if (!complete)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.AppendLine("JDG_CurrentDamageTotal".Translate(damageTotal.ToString()));
+                    stringBuilder.AppendLine("JDG_CurrentDamageTotal".Translate(damageTotal.ToString(), targetDamage.ToString("F0")));
                     stringBuilder.AppendLine("JDG_FavorOnSuccess".Translate(favorOnSuccess.ToString("F0")));
                     stringBuilder.Append(base.TipStringExtra);
                     return stringBuilder.ToString();

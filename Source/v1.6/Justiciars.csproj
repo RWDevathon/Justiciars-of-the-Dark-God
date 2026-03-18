@@ -227,6 +227,7 @@
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_StealFavor.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_RaiseJusticiar.cs" />
     <Compile Include="Harmony\Pawn_MutantTracker_Patch.cs" />
+    <Compile Include="Harmony\Pawn_TrainableUtility_Patch.cs" />
     <Compile Include="Harmony\PregnancyUtility_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_Revenant_Patch.cs" />
     <Compile Include="Harmony\IncidentWorker_SightstealerArrival_Patch.cs" />
@@ -239,6 +240,7 @@
     <Compile Include="Harmony\LordToil_PsychicRitual_Patch.cs" />
     <Compile Include="Harmony\Pawn_Patch.cs" />
     <Compile Include="Harmony\MentalStateWorker_Roaming_Patch.cs" />
+    <Compile Include="Harmony\SchoolUtility_Patch.cs" />
     <Compile Include="Harmony\RitualOutcomeEffectWorker_Consumable_Patch.cs" />
     <Compile Include="Harmony\Quest_Patch.cs" />
     <Compile Include="Harmony\MemoryUtility_Patch.cs" />

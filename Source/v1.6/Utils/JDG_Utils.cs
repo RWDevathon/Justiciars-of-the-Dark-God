@@ -166,7 +166,7 @@ namespace ArtificialBeings
                             return 0f;
                         }
                     }
-                    return 10f * pawn.BodySize;
+                    return 10f * pawn.RaceProps.baseBodySize;
                 }
                 // Colony mechanoids (that are currently controlled) may be cloned for 25 favor per bandwith cost. If it has no cost, it cannot be cloned.
                 else if (pawn.IsColonyMechPlayerControlled)

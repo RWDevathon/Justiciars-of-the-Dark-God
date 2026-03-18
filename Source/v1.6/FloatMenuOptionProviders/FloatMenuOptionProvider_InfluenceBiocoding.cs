@@ -38,7 +38,7 @@ namespace ArtificialBeings
             int favorCost = (compBiocodable.CodedPawn != null) ? 10 : 5;
             if (context.FirstSelectedPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().FavorCurrent < favorCost)
             {
-                return new FloatMenuOption("JDG_InsufficientFavorToBiocode".Translate(favorCost.ToString()), null);
+                return new FloatMenuOption("JDG_InsufficientFavorToInfluenceBiocode".Translate(favorCost.ToString()), null);
             }
 
             return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("JDG_InfluenceBiocoding".Translate(clickedThing.Label, favorCost.ToString()), delegate

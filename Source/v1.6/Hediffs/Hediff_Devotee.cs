@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using Verse;
 
@@ -15,8 +16,10 @@ namespace ArtificialBeings
         public int tickLastInPain = 0;
 
         // Tracker for how much favor to provide when next allocating. Doing so too frequently is unnecessary and could impact performance.
+        public int nextPainUpdateTick = 0;
         public float painBaseFavorToProvide = 0f;
         public int nextPainFavorUpdateTick = 0;
+        public bool alertedToFavorLossFromPain = false;
 
         // Tracker for when it's possible to pick a new offering target for sacrifice.
         public int tickToNextMark = 0;
@@ -37,28 +40,40 @@ namespace ArtificialBeings
             // Acolytes that are in pain gain favor. Those that have not been in pain for too long lose favor.
             if (!pawn.Dead)
             {
-                float painTotal = pawn.health.hediffSet.PainTotal;
                 int ticksGame = GenTicks.TicksGame;
-                if (painTotal > 0.1f)
+                if (nextPainUpdateTick <= ticksGame)
                 {
-                    tickLastInPain = ticksGame;
-                    painBaseFavorToProvide += 25f / GenDate.TicksPerYear * painTotal * delta;
+                    int totalDelta = ticksGame + GenTicks.TickLongInterval - nextPainUpdateTick; // Will catch the case where this is not being run every tick.
+                    float painTotal = pawn.health.hediffSet.PainTotal;
+                    if (painTotal > 0.1f)
+                    {
+                        tickLastInPain = ticksGame;
+                        alertedToFavorLossFromPain = false;
+                        painBaseFavorToProvide += 25f / GenDate.TicksPerYear * painTotal * totalDelta;
+                    }
+                    else if (ticksGame - tickLastInPain > GenDate.TicksPerQuadrum)
+                    {
+                        painBaseFavorToProvide -= 50f / GenDate.TicksPerYear * totalDelta;
+                        if (!alertedToFavorLossFromPain)
+                        {
+                            Messages.Message("JDG_LosingFavorDueToPainlessness".Translate(pawn), pawn, MessageTypeDefOf.NegativeEvent);
+                            alertedToFavorLossFromPain = true;
+                        }
+                    }
+                    nextPainUpdateTick = ticksGame + GenTicks.TickLongInterval;
                 }
-                else if (ticksGame - tickLastInPain > GenDate.TicksPerQuadrum)
-                {
-                    painBaseFavorToProvide -= 50f / GenDate.TicksPerYear * delta;
-                }
-                if (nextPainFavorUpdateTick < ticksGame)
+                if (nextPainFavorUpdateTick <= ticksGame)
                 {
                     if (painBaseFavorToProvide < 0)
                     {
-                        NotifyFavorLost(painBaseFavorToProvide);
+                        NotifyFavorLost(-painBaseFavorToProvide);
                     }
                     else if (painBaseFavorToProvide > 0)
                     {
                         NotifyFavorGained(painBaseFavorToProvide);
                     }
                     nextPainFavorUpdateTick = ticksGame + (GenDate.TicksPerHour * 12);
+                    painBaseFavorToProvide = 0;
                 }
             }
             base.TickInterval(delta);
@@ -94,7 +109,9 @@ namespace ArtificialBeings
             Scribe_Values.Look(ref favorCurrent, "JDG_favorCurrent", 0f);
             Scribe_Values.Look(ref tickLastInPain, "JDG_tickLastInPain", 0);
             Scribe_Values.Look(ref painBaseFavorToProvide, "JDG_painBaseFavorToProvide", 0f);
-            Scribe_Values.Look(ref nextPainFavorUpdateTick, "JDG_nextPainFavorUpdateTick", 0);
+            Scribe_Values.Look(ref nextPainUpdateTick, "JDG_nextPainUpdateTick", 0);
+            Scribe_Values.Look(ref nextPainFavorUpdateTick, "JDG_nextPainFavorUpdateTick", GenTicks.TicksGame);
+            Scribe_Values.Look(ref alertedToFavorLossFromPain, "JDG_alertedToFavorLossFromPain", false);
             Scribe_Values.Look(ref tickToNextMark, "JDG_tickToNextMark", 0);
         }
 
@@ -147,13 +164,32 @@ namespace ArtificialBeings
                         favorCurrent = 0f;
                         tickLastInPain = 0;
                         painBaseFavorToProvide = 0f;
-                        nextPainFavorUpdateTick = 0;
+                        nextPainUpdateTick = 0;
+                        nextPainFavorUpdateTick = GenTicks.TicksGame + 1;
+                        alertedToFavorLossFromPain = false;
                         tickToNextMark = 0;
                     }
                 };
                 yield return resetFavor;
             }
             yield break;
+        }
+
+        public override string GetTooltip(Pawn pawn, bool showHediffsDebugInfo)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(base.GetTooltip(pawn, showHediffsDebugInfo));
+            stringBuilder.AppendLine("\n");
+            string painLine = "JDG_DaysSinceLastInPain".Translate((GenTicks.TicksGame - tickLastInPain).ToStringTicksToPeriod());
+            if (GenTicks.TicksGame - tickLastInPain > GenDate.TicksPerQuadrum)
+            {
+                stringBuilder.Append(painLine.Colorize(ColorLibrary.RedReadable));
+            }
+            else
+            {
+                stringBuilder.Append(painLine);
+            }
+            return stringBuilder.ToString();
         }
 
         // This should be used when accruing favor so that the gain rate modifier is applied.

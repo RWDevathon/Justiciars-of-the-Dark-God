@@ -7,7 +7,7 @@ using Verse;
 namespace ArtificialBeings
 {
     // A smuggler network should exist only once per game, never disappears, and has no faction or map.
-    public class SmugglerNetwork : IExposable, ICommunicable, ITrader, IThingHolder
+    public class SmugglerNetwork : IExposable, ICommunicable, ITrader, IThingHolder, ILoadReferenceable
     {
         private ThingOwner<Thing> stock;
 
@@ -57,6 +57,10 @@ namespace ArtificialBeings
             return "JDG_MenagerieInfoText".Translate();
         }
 
+        public string GetUniqueLoadID()
+        {
+            return "SmugglerNetwork";
+        }
 
         public IEnumerable<Thing> Goods
         {

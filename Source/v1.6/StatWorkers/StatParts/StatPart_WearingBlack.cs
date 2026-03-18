@@ -7,7 +7,7 @@ namespace ArtificialBeings
 {
     public class StatPart_WearingBlack : StatPart
     {
-        public float requiredPercentage = 0.6f;
+        public float requiredPercentage = 0.4f;
 
         public float factor = 1.0f;
 

@@ -6,7 +6,7 @@ namespace ArtificialBeings
 {
     public class Quest_Patch
     {
-        // The Dark God may pass judgement on how certains quests are ended.
+        // The Dark God may pass judgement on how certain quests are ended.
         [HarmonyPatch(typeof(Quest), "End")]
         public static class Quest_End_Patch
         {

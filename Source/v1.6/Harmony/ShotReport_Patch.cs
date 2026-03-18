@@ -20,14 +20,19 @@ namespace ArtificialBeings
                 List<CodeInstruction> instructions = new List<CodeInstruction>(insts);
                 MethodInfo targetIndicatorProperty = AccessTools.PropertyGetter(typeof(CompUniqueWeapon), nameof(CompUniqueWeapon.IgnoreAccuracyMaluses));
 
+                CodeInstruction loadInstruction = new CodeInstruction(OpCodes.Ldarg_0); // Grab a copy of the caster Thing
+                CodeInstruction callInstruction = new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ShotReport_HitReportFor_Patch), nameof(IgnoresAccuracyMaluses)));
+
                 for (int i = 0; i < instructions.Count; i++)
                 {
                     // If we have found our indicator, then the next assignment to this local variable will be consumed and replaced.
                     if (indicatorLocated && instructions[i].opcode == OpCodes.Stloc_2)
                     {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0); // Grab a copy of the caster Thing
-                        yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ShotReport_HitReportFor_Patch), nameof(IgnoresAccuracyMaluses)));
+                        yield return loadInstruction;
+                        yield return callInstruction;
+                        instructions[i].MoveLabelsTo(loadInstruction);
                     }
+                    // Ensure that any direct branch to this instruction ends up at our start instruction instead.
                     yield return instructions[i];
                     // The indicator denotes a location where we want to consume a boolean value prior to it being stored.
                     if (instructions[i].Calls(targetIndicatorProperty))
@@ -40,7 +45,7 @@ namespace ArtificialBeings
             // Returns true if the caster was already immune to maluses or if they are a Justiciar.
             private static bool IgnoresAccuracyMaluses(bool alreadyImmune, Thing caster)
             {
-                return alreadyImmune || (caster is Pawn pawn && JDG_Utils.IsJusticiar(pawn));
+                return alreadyImmune || (caster is Pawn pawn && (JDG_Utils.IsJusticiar(pawn) || JDG_Utils.IsShadeSpirit(pawn)));
             }
         }
     }
