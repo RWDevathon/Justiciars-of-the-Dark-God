@@ -117,22 +117,25 @@ namespace ArtificialBeings
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            Command_Action markOffering = new Command_Action
+            if (pawn.IsFreeColonist)
             {
-                defaultLabel = "JDG_MarkOffering".Translate(),
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/AssignOwner"),
-                defaultDesc = "JDG_MarkOfferingDesc".Translate(),
-                action = delegate
+                Command_Action markOffering = new Command_Action
                 {
-                    Find.Targeter.BeginTargeting(new OfferingTargeting(pawn));
+                    defaultLabel = "JDG_MarkOffering".Translate(),
+                    icon = ContentFinder<Texture2D>.Get("UI/Commands/AssignOwner"),
+                    defaultDesc = "JDG_MarkOfferingDesc".Translate(),
+                    action = delegate
+                    {
+                        Find.Targeter.BeginTargeting(new OfferingTargeting(pawn));
+                    }
+                };
+                if (tickToNextMark > GenTicks.TicksGame)
+                {
+                    markOffering.Disabled = true;
+                    markOffering.disabledReason = "JDG_CannotMarkOfferingOnCooldown".Translate((tickToNextMark - GenTicks.TicksGame).ToStringTicksToPeriod());
                 }
-            };
-            if (tickToNextMark > GenTicks.TicksGame)
-            {
-                markOffering.Disabled = true;
-                markOffering.disabledReason = "JDG_CannotMarkOfferingOnCooldown".Translate((tickToNextMark - GenTicks.TicksGame).ToStringTicksToPeriod());
+                yield return markOffering;
             }
-            yield return markOffering;
 
             if (DebugSettings.ShowDevGizmos)
             {
@@ -202,6 +205,12 @@ namespace ArtificialBeings
         public virtual void NotifyFavorLost(float toLose)
         {
             favorCurrent -= toLose * pawn.GetStatValue(JDG_StatDefOf.ABF_Stat_Justiciar_FavorLossRate, cacheStaleAfterTicks: GenDate.TicksPerHour);
+        }
+
+        // This should be used when transfering favor 1-1 to or from another source. It ignores gain/loss rate modifiers. It assumes loss is negative.
+        public virtual void NotifyFavorTransferred(float toTransfer)
+        {
+            favorCurrent += toTransfer;
         }
     }
 }

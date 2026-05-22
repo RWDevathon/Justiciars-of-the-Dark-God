@@ -75,7 +75,7 @@ namespace ArtificialBeings
             Find.LetterStack.ReceiveLetter("JDG_AmbitionSucceeded".Translate(), "JDG_AmbitionSucceeded_Bloodletter".Translate(pawn.LabelShort, pawn.Named("PAWN"), favorOnSuccess.ToString("F0")).CapitalizeFirst(), LetterDefOf.PositiveEvent);
 
             // Completing this ambition grants favor.
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.NotifyFavorGained(favorOnSuccess);
+            JDG_Utils.GetJusticiarHediff(pawn)?.NotifyFavorGained(favorOnSuccess);
         }
 
         public override void ExposeData()

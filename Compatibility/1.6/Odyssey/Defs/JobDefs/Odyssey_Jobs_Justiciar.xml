@@ -8,4 +8,11 @@
         <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
     </JobDef>
 
+    <JobDef>
+        <defName>ABF_Job_Justiciar_ContemplateOrb</defName>
+        <driverClass>ArtificialBeings.JobDriver_ContemplateOrb</driverClass>
+        <reportString>contemplating TargetA.</reportString>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
 </Defs>

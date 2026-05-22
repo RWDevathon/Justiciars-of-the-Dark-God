@@ -32,7 +32,7 @@ namespace ArtificialBeings
             inductee.relations.AddDirectRelation(JDG_PawnRelationDefOf.ABF_PawnRelation_Justiciar_Arbiter, pawn);
             pawn.relations.AddDirectRelation(JDG_PawnRelationDefOf.ABF_PawnRelation_Justiciar_Neophyte, inductee);
             // This costs the justiciar an amount of favor. A colonist is worth 50 favor, and making them an acolyte is 10, so it breaks even.
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().NotifyFavorLost(60f);
+            JDG_Utils.GetJusticiarHediff(pawn).NotifyFavorLost(60f);
         }
     }
 }

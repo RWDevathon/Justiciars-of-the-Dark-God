@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>ABF_Thing_Justiciar_Orb</defName>
+        <label>obsidian orb</label>
+        <description>An orb made of obsidian with a mesmerizing depth. Peering into its darkness seems to draw one deeper and deeper, luring them to a place that is difficult to return from. These fragile obsidian objects are exceedingly dangerous, for those who contemplate the orb for too long are never the same again.\n\nGrief stricken widows and widowers, raving lunatics, and desperate addicts make easy prey for the orb, for it deprives those who plunge into its depths of their memories, their relationships, their addictions and obsessions, and much of what made them who they were. Those who emerge from its depths are born anew, with a mind ready to face the world as if for the first time, and eager to learn.</description>
+        <graphicData>
+            <texPath>Justiciars/Odyssey/Things/Orb/ObsidianOrb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <thingCategories>
+            <li>Artifacts</li>
+        </thingCategories>
+        <tradeability>None</tradeability>
+        <stackLimit>1</stackLimit>
+        <statBases>
+            <MaxHitPoints>10</MaxHitPoints>
+            <MarketValue>5</MarketValue>
+            <WorkToMake>20000</WorkToMake>
+            <Mass>0.14</Mass>
+            <Flammability>0</Flammability>
+            <Beauty>20</Beauty>
+        </statBases>
+        <generateCommonality>0</generateCommonality>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="ArtificialBeings.ThingCompProperties_ObsidianOrb">
+                <forgetAllRelationships>false</forgetAllRelationships>
+                <forgetNonBiologicalRelationships>true</forgetNonBiologicalRelationships>
+                <forgetMemories>true</forgetMemories>
+                <skillsLostPercentageRange>0.25~0.75</skillsLostPercentageRange>
+                <chancePassionsReallocated>0.3</chancePassionsReallocated>
+                <forgetCurableAddictions>true</forgetCurableAddictions>
+                <forgetObsessions>true</forgetObsessions>
+                <forgetIdeoCertainty>true</forgetIdeoCertainty>
+                <forgetInspirations>true</forgetInspirations>
+                <forgetForeignAllegiances>true</forgetForeignAllegiances>
+                <favorOnUse>25</favorOnUse>
+                <postContemplationHediff>ABF_Hediff_Justiciar_ContemplatedOrb</postContemplationHediff>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>

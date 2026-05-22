@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
+    <!-- Result of abjuring a Harbinger Tree -->
+    <JDG_ProtectedAgainstHarbingerSpawns>Harbinger Abjured</JDG_ProtectedAgainstHarbingerSpawns>
+    <JDG_ProtectedAgainstHarbingerSpawnsDesc>{0} has successfully called upon the Dark God to smite a foul abomination of the pretender. {0} is confident that no more of these abominations will appear for the next {1}.</JDG_ProtectedAgainstHarbingerSpawnsDesc>
+
     <!-- Results of interrogating an entity -->
     <JDG_InterrogationResearch>Insight gained: {0}</JDG_InterrogationResearch>
     <JDG_InterrogationResearchDesc>{0} has completed the interrogation of the foul Horaxian abomination and gleaned {1} research points of {2} nature. {0} is exhausted, but confident that this will aid the war effort.</JDG_InterrogationResearchDesc>

@@ -8,6 +8,9 @@
     <JDG_JusticiarFavor>Current / Lifetime favor: {0} / {1}</JDG_JusticiarFavor>
     <JDG_AcolyteFavor>Current favor: {0}</JDG_AcolyteFavor>
 
+    <!-- Used for various purposes when a more specific text is not required/desired -->
+    <JDG_FavorGained>Favor gained: {0}</JDG_FavorGained>
+
     <!-- Used for the offering of sacrifices of devotees' lives -->
     <JDG_OfferingFavorSingleConspirator>{0} will receive {1} favor</JDG_OfferingFavorSingleConspirator>
     <JDG_OfferingFavorMultipleConspirators>{0} favor will be split between:</JDG_OfferingFavorMultipleConspirators>

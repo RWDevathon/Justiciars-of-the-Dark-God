@@ -5,10 +5,10 @@ namespace ArtificialBeings
 {
     public class IncidentWorker_AcolyteWhispers : IncidentWorker
     {
-        // Only fire if the player has no justiciars and acolytes.
+        // Only fire if the player has no living justiciars and acolytes.
         protected override bool CanFireNowSub(IncidentParms parms)
         {
-            foreach (Pawn justiciar in JDG_Utils.Justiciars)
+            foreach (Pawn justiciar in JDG_Utils.Justiciars.Keys)
             {
                 if (!justiciar.Dead && justiciar.IsPlayerControlled)
                 {
@@ -16,7 +16,7 @@ namespace ArtificialBeings
                 }
             }
 
-            foreach (Pawn acolyte in JDG_Utils.Acolytes)
+            foreach (Pawn acolyte in JDG_Utils.Acolytes.Keys)
             {
                 if (!acolyte.Dead && acolyte.IsPlayerControlled)
                 {

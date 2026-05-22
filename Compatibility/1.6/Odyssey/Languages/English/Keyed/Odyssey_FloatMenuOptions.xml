@@ -3,4 +3,16 @@
 
     <JDG_AwakenMaliciousSpirit>Awaken malicious shadespirit</JDG_AwakenMaliciousSpirit>
 
+    <!-- Mirror Necklace -->
+    <JDG_SetPainLevel>Set pain level</JDG_SetPainLevel>
+    <JDG_SetPainLevelDesc>Set the amount of pain this necklace gives the justiciar.</JDG_SetPainLevelDesc>
+    <JDG_SetPainLevelPercent>Set pain level: {0}%</JDG_SetPainLevelPercent>
+    <JDG_BeginPainTransmutation>Begin pain transfer</JDG_BeginPainTransmutation>
+    <JDG_BeginPainTransmutationDesc>Sacrifice the mirror necklace and {0} favor to gain pain immunity for {1} hours.</JDG_BeginPainTransmutationDesc>
+    <JDG_CannotBeginTransmutationInsufficientFavor>Need {0} favor.</JDG_CannotBeginTransmutationInsufficientFavor>
+
+    <!-- Obsidian Orb -->
+    <JDG_ContemplateOrb>Contemplate the orb</JDG_ContemplateOrb>
+    <JDG_CannotContemplateNow>Cannot contemplate the orb now</JDG_CannotContemplateNow>
+
 </LanguageData>

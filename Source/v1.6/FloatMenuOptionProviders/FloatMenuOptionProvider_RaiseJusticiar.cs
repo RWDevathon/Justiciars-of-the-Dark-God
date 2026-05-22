@@ -35,8 +35,8 @@ namespace ArtificialBeings
                 return new FloatMenuOption("JDG_CannotPathToTarget".Translate(), null);
             }
 
-            Hediff_Justiciar corpseHediff = corpse.InnerPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
-            Hediff_Justiciar casterHediff = context.FirstSelectedPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+            Hediff_Justiciar corpseHediff = JDG_Utils.GetJusticiarHediff(corpse.InnerPawn);
+            Hediff_Justiciar casterHediff = JDG_Utils.GetJusticiarHediff(context.FirstSelectedPawn);
             if (corpseHediff.FavorCurrent + casterHediff.FavorCurrent < 100f)
             {
                 return new FloatMenuOption("JDG_InsufficientFavorToRaise".Translate(corpse.InnerPawn.NameShortColored, context.FirstSelectedPawn.NameShortColored), null);

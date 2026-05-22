@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- Used when contemplating the orb. -->
+    <JDG_OrbContemplated>Orb contemplated: {0}</JDG_OrbContemplated>
+    <JDG_BaseForgotten>{0} has finished contemplating the orb, and roused from the hourlong vigil with a smile - an almost childlike and wonderously innocent smile.\n\nMuch has been forgotten:</JDG_BaseForgotten>
+    <JDG_AllRelationsForgotten>All relationships, including kin</JDG_AllRelationsForgotten>
+    <JDG_NonBiologicalRelationsForgotten>All relationships, except for blood-related kin</JDG_NonBiologicalRelationsForgotten>
+    <JDG_MemoriesForgotten>All memories, both good and bad</JDG_MemoriesForgotten>
+    <JDG_SkillsForgotten>{0} to {1} percent of experience in each skill</JDG_SkillsForgotten>
+    <JDG_PassionsForgotten>Passions, with new ones taking their place</JDG_PassionsForgotten>
+    <JDG_AddictionsForgotten>Addictions</JDG_AddictionsForgotten>
+    <JDG_CubeForgotten>All about some dumb cube</JDG_CubeForgotten>
+    <JDG_IdeologyForgotten>Ideological beliefs</JDG_IdeologyForgotten>
+    <JDG_InspirationForgotten>Inspirations</JDG_InspirationForgotten>
+    <JDG_AmbitionForgotten>Ambitions</JDG_AmbitionForgotten>
+    <JDG_AllegianceForgotten>Allegiance to foreign factions</JDG_AllegianceForgotten>
+    <JDG_ContemplationHediffGained>{0} now has a tidy mind and cannot contemplate the orb again for some time.</JDG_ContemplationHediffGained>
+
+</LanguageData>

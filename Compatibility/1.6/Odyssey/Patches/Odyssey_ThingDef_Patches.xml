@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
-    <!-- Sentience catalysts are clonable -->
+    <!-- Sentience catalysts and obsidian are clonable -->
 
     <Operation Class="PatchOperationAddModExtension">
         <xpath>Defs/ThingDef[defName="SentienceCatalyst"]</xpath>
         <value>
             <li Class="ArtificialBeings.UmbralClonableExtension">
                 <favorCost>20</favorCost>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="Obsidian"]</xpath>
+        <value>
+            <li Class="ArtificialBeings.UmbralClonableExtension">
+                <favorCost>1</favorCost>
+                <useStackCount>true</useStackCount>
             </li>
         </value>
     </Operation>

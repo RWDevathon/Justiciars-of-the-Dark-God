@@ -12,7 +12,7 @@ namespace ArtificialBeings
         {
             if (JDG_Utils.IsJusticiar(selPawn))
             {
-                Hediff_Justiciar justiciarHediff = selPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+                Hediff_Justiciar justiciarHediff = JDG_Utils.GetJusticiarHediff(selPawn);
                 if (justiciarHediff.FavorTotalAccrued >= 100f)
                 {
                     if (justiciarHediff.FavorCurrent < 60f)

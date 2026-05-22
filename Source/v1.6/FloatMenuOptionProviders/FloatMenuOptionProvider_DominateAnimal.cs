@@ -30,7 +30,7 @@ namespace ArtificialBeings
                 return new FloatMenuOption("JDG_CannotDominateAnimalTooMuchWildness".Translate(), null);
             }
 
-            if (context.FirstSelectedPawn?.health.hediffSet.GetFirstHediff<Hediff_Justiciar>() is Hediff_Justiciar justiciarHediff)
+            if (JDG_Utils.GetJusticiarHediff(context.FirstSelectedPawn) is Hediff_Justiciar justiciarHediff)
             {
                 if (!context.FirstSelectedPawn.CanReserveAndReach(clickedPawn, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, ignoreOtherReservations: true))
                 {

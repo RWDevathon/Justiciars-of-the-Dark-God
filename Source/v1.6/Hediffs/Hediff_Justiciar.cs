@@ -143,7 +143,7 @@ namespace ArtificialBeings
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
-            JDG_Utils.Justiciars.Add(pawn);
+            JDG_Utils.Justiciars[pawn] = this;
 
             // If the player has not yet learned about justiciars, they will also receive a learning helper tip about how favor and justiciars work.
             LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Characteristics, OpportunityType.Critical);
@@ -163,7 +163,7 @@ namespace ArtificialBeings
             // This hediff identifies justiciars, and they should be re-added to the cache of all known justiciars on loading saves.
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
-                JDG_Utils.Justiciars.Add(pawn);
+                JDG_Utils.Justiciars[pawn] = this;
 
                 // If the player has not yet learned about justiciars, they will also receive a learning helper tip about how favor and justiciars work.
                 LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Characteristics, OpportunityType.Critical);
@@ -290,6 +290,26 @@ namespace ArtificialBeings
             if (favorLifespan >= 100f)
             {
                 LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_FirstTierUnlocks, OpportunityType.Critical);
+            }
+        }
+
+        // Transferring favor to a justiciar should update both of the appropriate values and potentially trigger letters. Transferring favor away from a justiciar only affects current favor.
+        public override void NotifyFavorTransferred(float toTransfer)
+        {
+            if (toTransfer > 0)
+            {
+                favorLifespan += toTransfer;
+                favorCurrent += toTransfer;
+
+                // If the player has not yet learned about new mechanics from each threshold, they will also receive a learning helper tip about how they work.
+                if (favorLifespan >= 100f)
+                {
+                    LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_FirstTierUnlocks, OpportunityType.Critical);
+                }
+            }
+            else
+            {
+                favorCurrent += toTransfer;
             }
         }
 

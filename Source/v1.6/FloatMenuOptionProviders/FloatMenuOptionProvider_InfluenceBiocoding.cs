@@ -36,7 +36,7 @@ namespace ArtificialBeings
 
             // Costs twice as much if stripping the coding away from another pawn.
             int favorCost = (compBiocodable.CodedPawn != null) ? 10 : 5;
-            if (context.FirstSelectedPawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().FavorCurrent < favorCost)
+            if (JDG_Utils.GetJusticiarHediff(context.FirstSelectedPawn).FavorCurrent < favorCost)
             {
                 return new FloatMenuOption("JDG_InsufficientFavorToInfluenceBiocode".Translate(favorCost.ToString()), null);
             }

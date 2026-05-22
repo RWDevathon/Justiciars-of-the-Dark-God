@@ -19,22 +19,22 @@
                 <vomitMtbDays>0.8</vomitMtbDays>
                 <painOffset>0.1</painOffset>
                 <capMods>
-                <li>
-                    <capacity>Consciousness</capacity>
-                    <postFactor>0.9</postFactor>
-                </li>
-                <li>
-                    <capacity>Breathing</capacity>
-                    <postFactor>0.75</postFactor>
-                </li>
-                <li>
-                    <capacity>Talking</capacity>
-                    <postFactor>0.4</postFactor>
-                </li>
-                <li>
-                    <capacity>Eating</capacity>
-                    <postFactor>0.4</postFactor>
-                </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>0.9</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <postFactor>0.75</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Eating</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
                 </capMods>
             </li>
             <li>
@@ -60,6 +60,49 @@
                         <postFactor>0.1</postFactor>
                     </li>
                 </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <!-- Severity/pain offset controlled via gizmo. -->
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_MirrorNecklace</defName>
+        <label>mirror necklace</label>
+        <description>A beautiful necklace that acts as a mental focus can cause this justiciar pain if they so choose.</description>
+        <hediffClass>ArtificialBeings.Hediff_MirrorNecklace</hediffClass>
+        <stages IsNull="true"/>
+        <initialSeverity>0</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <isBad>false</isBad>
+    </HediffDef>
+
+    <!-- Applied by contemplating the obsidian orb. -->
+    <HediffDef>
+        <defName>ABF_Hediff_Justiciar_ContemplatedOrb</defName>
+        <label>tidy mind</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>An overwhelming sensation of blissful ignorance and wonder induced by loss of critical memories. An empty mind is a tidy mind. A tidy mind is ready to face the world with reckless vigor and enthusiasm. Curiously, a tidy mind is unable to remain focused on small dark orbs... ones that have an eerie familiarity to them, even...</description>
+        <descriptionShort>A deepset sensation of innocent wonder.</descriptionShort>
+        <initialSeverity>1</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>1800000</disappearsAfterTicks> <!-- 30 days; half a year -->
+                <showRemainingTime>true</showRemainingTime>
+                <messageOnDisappear>A tidy mind no longer, {PAWN_nameDef} has become used to life as it is.</messageOnDisappear>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+        <stages>
+            <li>
+                <statOffsets>
+                    <GlobalLearningFactor>0.5</GlobalLearningFactor>
+                </statOffsets>
+                <statFactors>
+                    <GlobalLearningFactor>2</GlobalLearningFactor>
+                    <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2</CertaintyLossFactor>
+                </statFactors>
+                <blocksInspirations>true</blocksInspirations>
             </li>
         </stages>
     </HediffDef>

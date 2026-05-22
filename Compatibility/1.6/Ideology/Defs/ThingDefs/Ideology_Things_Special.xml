@@ -17,7 +17,7 @@
         <descriptionHyperlinks>
             <ThingDef>ABF_Thing_Justiciar_CorruptedGauranlenSeed</ThingDef>
         </descriptionHyperlinks>
-        <minifiedDef IsNull="True" />
+        <minifiedDef IsNull="true" />
         <statBases>
             <Beauty>6</Beauty>
             <BeautyOutdoors>6</BeautyOutdoors>

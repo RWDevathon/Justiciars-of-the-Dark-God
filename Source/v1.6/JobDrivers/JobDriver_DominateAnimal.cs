@@ -19,7 +19,7 @@ namespace ArtificialBeings
         {
             float costToDominate = JDG_Utils.FavorCostToDominate(Subject);
             InteractionWorker_RecruitAttempt.DoRecruit(pawn, Subject);
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().NotifyFavorLost(costToDominate);
+            JDG_Utils.GetJusticiarHediff(pawn).NotifyFavorLost(costToDominate);
         }
     }
 }

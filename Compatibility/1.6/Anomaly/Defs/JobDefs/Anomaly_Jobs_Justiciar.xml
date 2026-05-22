@@ -2,6 +2,13 @@
 <Defs>
 
     <JobDef>
+        <defName>ABF_Job_Justiciar_AbjureHarbinger</defName>
+        <driverClass>ArtificialBeings.JobDriver_AbjureHarbinger</driverClass>
+        <reportString>Abjuring TargetA.</reportString>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
         <defName>ABF_Job_Justiciar_InterrogateEntity</defName>
         <driverClass>ArtificialBeings.JobDriver_InterrogateEntity</driverClass>
         <reportString>interrogating TargetA.</reportString>

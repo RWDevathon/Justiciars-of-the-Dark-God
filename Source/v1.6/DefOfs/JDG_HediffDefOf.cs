@@ -19,6 +19,9 @@ namespace ArtificialBeings
         [MayRequireOdyssey]
         public static HediffDef ABF_Hediff_Justiciar_ChokingDarkness;
 
+        [MayRequireOdyssey]
+        public static HediffDef ABF_Hediff_Justiciar_ContemplatedOrb;
+
         public static HediffDef ABF_Hediff_Justiciar_CrushingDespair;
 
         public static HediffDef ABF_Hediff_Justiciar_Inspiration_Kinslayer;

@@ -16,7 +16,7 @@
             </shadowData>
         </graphicData>
         <tickerType>Long</tickerType>
-        <minifiedDef IsNull="True" />
+        <minifiedDef IsNull="true" />
         <statBases>
             <Beauty>6</Beauty>
             <BeautyOutdoors>6</BeautyOutdoors>

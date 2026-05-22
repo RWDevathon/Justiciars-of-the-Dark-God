@@ -12,7 +12,7 @@ namespace ArtificialBeings
             ThingComp_ProducesFavor favorComp = TargetThing.TryGetComp<ThingComp_ProducesFavor>();
             if (JDG_Utils.IsJusticiar(pawn))
             {
-                pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().NotifyFavorGained(favorComp.currentFavor);
+                JDG_Utils.GetJusticiarHediff(pawn).NotifyFavorGained(favorComp.currentFavor);
             }
             else if (JDG_Utils.IsAcolyte(pawn))
             {

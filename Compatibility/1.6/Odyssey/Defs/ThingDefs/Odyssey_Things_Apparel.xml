@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="ApparelBase">
+        <defName>ABF_Thing_Justiciar_MirrorNecklace</defName>
+        <label>mirror necklace</label>
+        <description>A strikingly beautiful necklace made from obsidian. Pretty, precious, and fragile, it makes for a very fine gift or trade good - and conceals a much more insidious purpose.\n\nWhile utterly harmless to most wearers, a justiciar wearing it can use it as a focus. By channeling attention on it, the necklace induces a sensation of sharp pain in the skull. The more focus given, the more pain received. While most would find this insane, justiciars find the pain cleansing.\n\nIn an emergency, a justiciar may channel favor into the necklace so that it absorbs all pain they would normally feel for a time. This shatters the necklace, but it can aid a justiciar in overcoming a dangerous trial.</description>
+        <graphicData>
+            <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.6</drawSize>
+        </graphicData>
+        <thingCategories>
+            <li>Headgear</li>
+        </thingCategories>
+        <smeltable>false</smeltable>
+        <statBases>
+            <MaxHitPoints>40</MaxHitPoints>
+            <MarketValue>150</MarketValue>
+            <WorkToMake>12000</WorkToMake>
+            <Mass>0.14</Mass>
+            <Flammability>0</Flammability>
+            <Beauty>16</Beauty>
+            <EquipDelay>0.5</EquipDelay>
+            <SellPriceFactor>1.1</SellPriceFactor>
+        </statBases>
+        <generateCommonality>0</generateCommonality>
+        <apparel>
+            <parentTagDef>ApparelHead</parentTagDef>
+            <countsAsClothingForNudity>false</countsAsClothingForNudity>
+            <careIfWornByCorpse>false</careIfWornByCorpse>
+            <careIfDamaged>false</careIfDamaged>
+            <bodyPartGroups>
+                <li>Neck</li>
+            </bodyPartGroups>
+            <layers>
+                <li>Overhead</li>
+            </layers>
+            <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+            <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+            <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+        </apparel>
+        <comps>
+            <li Class="ArtificialBeings.ThingCompProperties_MirrorNecklace">
+                <hediff>ABF_Hediff_Justiciar_MirrorNecklace</hediff>
+                <bodyPartGroup>Neck</bodyPartGroup>
+            </li>
+        </comps>
+        <colorGenerator Class="ColorGenerator_Options">
+            <options>
+                <li>
+                    <only>(20, 20, 20)</only>
+                </li>
+            </options>
+        </colorGenerator>
+        <tradeTags>
+            <li>Clothing</li>
+            <li>Art</li>
+        </tradeTags>
+    </ThingDef>
+
+</Defs>

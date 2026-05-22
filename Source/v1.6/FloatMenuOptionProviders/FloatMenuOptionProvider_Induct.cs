@@ -39,7 +39,7 @@ namespace ArtificialBeings
                 return null;
             }
 
-            if (justiciar.health.hediffSet.GetFirstHediff<Hediff_Justiciar>()?.FavorCurrent < favorCostToInduct)
+            if (JDG_Utils.GetJusticiarHediff(justiciar)?.FavorCurrent < favorCostToInduct)
             {
                 return new FloatMenuOption("JDG_InsufficientFavorToInduct".Translate(favorCostToInduct.ToString("F2")), null);
             }

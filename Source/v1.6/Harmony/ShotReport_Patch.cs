@@ -13,6 +13,7 @@ namespace ArtificialBeings
         [HarmonyPatch(typeof(ShotReport), "HitReportFor")]
         public class ShotReport_HitReportFor_Patch
         {
+            // For debugging, enable [HarmonyDebug]
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> insts, ILGenerator generator)
             {

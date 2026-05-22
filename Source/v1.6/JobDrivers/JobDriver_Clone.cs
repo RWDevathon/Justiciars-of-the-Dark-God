@@ -65,7 +65,7 @@ namespace ArtificialBeings
                 GenPlace.TryPlaceThing(thing, TargetThing.Position, TargetThing.Map, ThingPlaceMode.Near);
             }
             // This costs the justiciar who carried out the cloning process an amount of favor. The cost is expected to be a non-zero, positive number.
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().NotifyFavorLost(JDG_Utils.FavorCostToClone(TargetThing));
+            JDG_Utils.GetJusticiarHediff(pawn).NotifyFavorLost(JDG_Utils.FavorCostToClone(TargetThing));
         }
     }
 }

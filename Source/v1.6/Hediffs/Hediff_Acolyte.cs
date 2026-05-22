@@ -44,7 +44,7 @@ namespace ArtificialBeings
         {
             base.PostAdd(dinfo);
             Find.LetterStack.ReceiveLetter("JDG_AcolyteRecruited".Translate(pawn.LabelShort, pawn.Named("PAWN")), "JDG_AcolyteRecruitedDesc".Translate(pawn.LabelShort, pawn.Named("PAWN")), LetterDefOf.PositiveEvent, lookTargets: pawn);
-            JDG_Utils.Acolytes.Add(pawn);
+            JDG_Utils.Acolytes[pawn] = this;
 
             // If the player has not yet learned about acolytes, they will also receive a learning helper tip about how favor and acolytes work.
             LessonAutoActivator.TeachOpportunity(JDG_ConceptDefOf.ABF_Concept_Justiciar_Attainment, OpportunityType.Critical);
@@ -64,7 +64,7 @@ namespace ArtificialBeings
             // This hediff identifies acolytes, and they should be re-added to the cache of all known acolytes on loading saves.
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
-                JDG_Utils.Acolytes.Add(pawn);
+                JDG_Utils.Acolytes[pawn] = this;
             }
         }
 

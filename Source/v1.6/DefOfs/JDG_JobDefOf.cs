@@ -11,10 +11,16 @@ namespace ArtificialBeings
             DefOfHelper.EnsureInitializedInCtor(typeof(JDG_JobDefOf));
         }
 
+        [MayRequireAnomaly]
+        public static JobDef ABF_Job_Justiciar_AbjureHarbinger;
+
         [MayRequireOdyssey]
         public static JobDef ABF_Job_Justiciar_AwakenMaliciousSpirit;
 
         public static JobDef ABF_Job_Justiciar_Clone;
+
+        [MayRequireOdyssey]
+        public static JobDef ABF_Job_Justiciar_ContemplateOrb;
 
         public static JobDef ABF_Job_Justiciar_CorruptThing;
 

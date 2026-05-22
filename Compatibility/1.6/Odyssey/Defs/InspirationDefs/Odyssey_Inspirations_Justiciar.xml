@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <InspirationDef>
+        <defName>ABF_Inspiration_Justiciar_ContemplateOrb</defName>
+        <label>contemplative</label>
+        <inspirationClass>ArtificialBeings.Inspiration_Justiciar_ContemplateOrb</inspirationClass>
+        <workerClass>ArtificialBeings.InspirationWorker_Justiciar_ContemplateOrb</workerClass>
+        <baseDurationDays>15</baseDurationDays>
+        <beginLetter>{0} has glimpsed the Dark God and received a commandment! In pitch blackness, incessant whispers crowded in. Although indecipherable, the whispers all came from a source - an orb. It was patient, but demanding. It was plain, yet dominating. It was perfect. It commanded {0} to behold it.\n\nBlissfully enlightened, [PAWN_pronoun] is obsessed with finding deeper truths in the orb. [PAWN_pronoun] is so enthralled by it that [PAWN_pronoun] would rather die than go without the opportunity to delve into the secrets the orb offers.</beginLetter>
+        <beginLetterLabel>Commandment: Contemplate the Orb</beginLetterLabel>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Inspired: Contemplate the orb</baseInspectLine>
+    </InspirationDef>
+
+</Defs>

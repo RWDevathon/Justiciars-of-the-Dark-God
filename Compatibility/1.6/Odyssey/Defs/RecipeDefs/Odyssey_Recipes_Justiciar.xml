@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <RecipeDef>
+        <defName>ABF_Recipe_Justiciar_MakeMirrorNecklace</defName>
+        <label>make mirror necklace</label>
+        <description>Carve a mirror necklace from obsidian glass.</description>
+        <jobString>Carving mirror necklace.</jobString>
+        <effectWorking>Sculpt</effectWorking>
+        <soundWorking>Recipe_Sculpt</soundWorking>
+        <workAmount>12000</workAmount>
+        <workSkill>Artistic</workSkill>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <unfinishedThingDef>UnfinishedSculpture</unfinishedThingDef>
+        <useIngredientsForColor>false</useIngredientsForColor>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Obsidian</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Obsidian</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <recipeUsers>
+            <li>JDG_Thing_Justiciar_Altar</li>
+        </recipeUsers>
+        <products>
+            <ABF_Thing_Justiciar_MirrorNecklace>1</ABF_Thing_Justiciar_MirrorNecklace>
+        </products>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>ABF_Recipe_Justiciar_MakeObsidianOrb</defName>
+        <label>make orb</label>
+        <description>Carve an orb from obsidian glass.</description>
+        <jobString>Carving orb.</jobString>
+        <effectWorking>Sculpt</effectWorking>
+        <soundWorking>Recipe_Sculpt</soundWorking>
+        <workAmount>30000</workAmount>
+        <workSkill>Artistic</workSkill>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <unfinishedThingDef>UnfinishedSculpture</unfinishedThingDef>
+        <useIngredientsForColor>false</useIngredientsForColor>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Obsidian</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Obsidian</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <recipeUsers>
+            <li>JDG_Thing_Justiciar_Altar</li>
+        </recipeUsers>
+        <products>
+            <ABF_Thing_Justiciar_Orb>1</ABF_Thing_Justiciar_Orb>
+        </products>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>ABF_Recipe_Justiciar_RefineObsidianFromGranite</defName>
+        <label>smelt granite for obsidian shards</label>
+        <description>Obsidian is a volcanic glass, but with sufficient heat, pressure, and power, a granite chunk - made of igneous rock like obsidian - can be melted down for a few precious shards of the beautiful material.</description>
+        <jobString>Melting granite.</jobString>
+        <effectWorking>Smelt</effectWorking>
+        <soundWorking>Recipe_Smelt</soundWorking>
+        <workAmount>1600</workAmount>
+        <workSkill>Crafting</workSkill>
+        <workSpeedStat>SmeltingSpeed</workSpeedStat>
+        <workSkillLearnFactor>0</workSkillLearnFactor>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ChunkGranite</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>ChunkGranite</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <recipeUsers>
+            <li>ElectricSmelter</li>
+        </recipeUsers>
+        <products>
+            <Obsidian>3</Obsidian>
+        </products>
+    </RecipeDef>
+
+</Defs>

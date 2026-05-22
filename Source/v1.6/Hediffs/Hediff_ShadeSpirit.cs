@@ -7,7 +7,7 @@ namespace ArtificialBeings
     // Shadespirits are animals/mechanoids of the player that have been granted a justiciar-like ability. They are treated like justiciars in some ways.
     public class Hediff_ShadeSpirit : HediffWithComps
     {
-        // This should not remove itself from a pawn under any circumstances.
+        // This should not remove itself from a pawn automatically.
         public override bool ShouldRemove => false;
 
         public override void Notify_PawnKilled()
@@ -56,7 +56,7 @@ namespace ArtificialBeings
         public override void PostAdd(DamageInfo? dinfo)
         {
             base.PostAdd(dinfo);
-            JDG_Utils.ShadeSpirits.Add(pawn);
+            JDG_Utils.ShadeSpirits[pawn] = this;
         }
 
         public override void ExposeData()
@@ -65,7 +65,7 @@ namespace ArtificialBeings
             // This hediff identifies shadespirits, and they should be re-added to the cache of all known shadespirits on loading saves.
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
-                JDG_Utils.ShadeSpirits.Add(pawn);
+                JDG_Utils.ShadeSpirits[pawn] = this;
             }
         }
     }

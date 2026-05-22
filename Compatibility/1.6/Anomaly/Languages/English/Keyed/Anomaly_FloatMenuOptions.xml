@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
+    <JDG_AbjureHarbinger>Abjure Harbinger: {0} favor</JDG_AbjureHarbinger>
+    <JDG_InsufficientFavorToAbjureHarbinger>Cannot abjure: Need {0} favor</JDG_InsufficientFavorToAbjureHarbinger>
+
     <JDG_InterrogateEntity>Brutally interrogate {0}</JDG_InterrogateEntity>
 
 </LanguageData>

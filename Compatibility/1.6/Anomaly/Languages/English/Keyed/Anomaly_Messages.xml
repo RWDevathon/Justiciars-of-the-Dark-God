@@ -5,4 +5,8 @@
     <JDG_BioferriteIgnition>Bioferrite apparel on {0} spontaneously ignited!</JDG_BioferriteIgnition>
     <JDG_JusticiarNegativelyAffected>Ingesting bioferrite contents of {0} has harmed {1}</JDG_JusticiarNegativelyAffected>
 
+    <!-- Used for JDG_JusticiarsDispleased -->
+    <JDG_HarbingersPermitted>harbingers being cultivated</JDG_HarbingersPermitted>
+    <JDG_PerformingPsychicRituals>performing psychic rituals</JDG_PerformingPsychicRituals>
+
 </LanguageData>

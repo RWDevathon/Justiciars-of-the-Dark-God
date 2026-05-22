@@ -23,7 +23,10 @@ namespace ArtificialBeings
             JDG_PawnKindDefOf.ABF_PawnKind_Justiciar_Player_CreatureHerald,
         };
 
-    public static GameComponent_Justiciars GameComponent_Justiciars
+        // Constants. This may one day be put into xml somewhere.
+        public const float favorCostToAbjure = 10f;
+
+        public static GameComponent_Justiciars GameComponent_Justiciars
         {
             get
             {
@@ -35,7 +38,7 @@ namespace ArtificialBeings
             }
         }
 
-        public static HashSet<Pawn> Justiciars
+        public static Dictionary<Pawn, Hediff_Justiciar> Justiciars
         {
             get
             {
@@ -43,7 +46,7 @@ namespace ArtificialBeings
             }
         }
 
-        public static HashSet<Pawn> Acolytes
+        public static Dictionary<Pawn, Hediff_Acolyte> Acolytes
         {
             get
             {
@@ -51,7 +54,7 @@ namespace ArtificialBeings
             }
         }
 
-        public static HashSet<Pawn> ShadeSpirits
+        public static Dictionary<Pawn, Hediff_ShadeSpirit> ShadeSpirits
         {
             get
             {
@@ -94,7 +97,7 @@ namespace ArtificialBeings
             Hediff_Devotee acolyteHediff = source.health.hediffSet.GetFirstHediff<Hediff_Acolyte>();
             if (acolyteHediff != null)
             {
-                if (acolyteHediff.FavorCurrent > 100f && source.health.hediffSet.GetFirstHediff<Hediff_Justiciar>() is Hediff_Justiciar justiciarHediff)
+                if (acolyteHediff.FavorCurrent > 100f && GetJusticiarHediff(source) is Hediff_Justiciar justiciarHediff)
                 {
                     justiciarHediff.NotifyFavorGained(acolyteHediff.FavorCurrent - 100f);
                 }
@@ -104,12 +107,22 @@ namespace ArtificialBeings
 
         public static bool IsJusticiar(Pawn pawn)
         {
-            return Justiciars.Contains(pawn);
+            return Justiciars.ContainsKey(pawn);
+        }
+
+        public static Hediff_Justiciar GetJusticiarHediff(Pawn pawn)
+        {
+            return Justiciars.GetWithFallback(pawn, null);
         }
 
         public static bool IsAcolyte(Pawn pawn)
         {
-            return Acolytes.Contains(pawn);
+            return Acolytes.ContainsKey(pawn);
+        }
+
+        public static Hediff_Acolyte GetAcolyteHediff(Pawn pawn)
+        {
+            return Acolytes.GetWithFallback(pawn, null);
         }
 
         public static bool IsDevotee(Pawn pawn)
@@ -117,9 +130,18 @@ namespace ArtificialBeings
             return IsJusticiar(pawn) || IsAcolyte(pawn);
         }
 
+        public static Hediff_Devotee GetDevoteeHediff(Pawn pawn)
+        {
+            if (IsJusticiar(pawn))
+            {
+                return GetJusticiarHediff(pawn);
+            }
+            return GetAcolyteHediff(pawn);
+        }
+
         public static bool IsShadeSpirit(Pawn pawn)
         {
-            return ShadeSpirits.Contains(pawn);
+            return ShadeSpirits.ContainsKey(pawn);
         }
 
         public static bool IsDark(IntVec3 cell, Map map)
@@ -147,6 +169,10 @@ namespace ArtificialBeings
             // Anything which has an extension specifying its cost should use that (including animals and mechanoids).
             else if (target.def.GetModExtension<UmbralClonableExtension>() is UmbralClonableExtension extension)
             {
+                if (extension.useStackCount)
+                {
+                    return extension.favorCost * target.stackCount;
+                }
                 return extension.favorCost;
             }
             else if (target is Pawn pawn)
@@ -245,6 +271,39 @@ namespace ArtificialBeings
         public static PerceptorTracker GetPerceptorTracker(this Pawn pawn)
         {
             return perceptorCheckedPawns.TryGetValue(pawn.thingIDNumber, null);
+        }
+
+        public static void DispleaseJusticiars(string displeasureReason, float favorToLose = 1f, bool applyDispleasureThought = true, bool applyCrushingDespair = true)
+        {
+            bool anyJusticiarsAffected = false;
+            foreach (Pawn justiciar in Justiciars.Keys)
+            {
+                if (justiciar.Faction == Faction.OfPlayer && !justiciar.Dead)
+                {
+                    if (applyDispleasureThought)
+                    {
+                        justiciar.needs?.mood?.thoughts?.memories?.TryGainMemory(JDG_ThoughtDefOf.ABF_Thought_Justiciar_Displeased);
+                    }
+                    if (applyCrushingDespair)
+                    {
+                        Hediff crushingDespair = HediffMaker.MakeHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_CrushingDespair, justiciar);
+                        if (crushingDespair.TryGetComp<HediffComp_Disappears>() is HediffComp_Disappears comp)
+                        {
+                            comp.SetDuration(GenDate.TicksPerDay);
+                        }
+                        justiciar.health.AddHediff(crushingDespair);
+                    }
+                    if (favorToLose > 0)
+                    {
+                        GetJusticiarHediff(justiciar)?.NotifyFavorLost(favorToLose);
+                    }
+                    anyJusticiarsAffected = true;
+                }
+            }
+            if (anyJusticiarsAffected)
+            {
+                Messages.Message("JDG_JusticiarsDispleased".Translate(displeasureReason.Translate(), favorToLose.ToString("F0")), MessageTypeDefOf.NegativeEvent, false);
+            }
         }
     }
 }

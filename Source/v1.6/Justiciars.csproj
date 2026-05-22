@@ -176,12 +176,17 @@
     <Compile Include="Components\HediffComps\HediffComp_CloneTargeting.cs" />
     <Compile Include="Components\MapComponents\MapComponent_DarknessGrid.cs" />
     <Compile Include="Components\GameComponents\GameComponent_Justiciars.cs" />
+    <Compile Include="Components\ThingComps\ThingCompProperties_ObsidianOrb.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_NegativelyAffectJusticiars.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_MaintainsDarkness.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_ProducesFavor.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_Corruptible.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_PerceptorVision.cs" />
+    <Compile Include="Components\ThingComps\ThingCompProperties_MirrorNecklace.cs" />
     <Compile Include="Components\ThingComps\ThingCompProperties_UmbralAnchor.cs" />
+    <Compile Include="Components\ThingComps\ThingComp_HarbingerTreeBanisher.cs" />
+    <Compile Include="Components\ThingComps\ThingComp_ObsidianOrb.cs" />
+    <Compile Include="Components\ThingComps\ThingComp_MirrorNecklace.cs" />
     <Compile Include="Components\ThingComps\ThingComp_Corruptible.cs" />
     <Compile Include="Components\ThingComps\ThingComp_NegativelyAffectJusticiars.cs" />
     <Compile Include="Components\ThingComps\ThingComp_MaintainsDarkness.cs" />
@@ -226,6 +231,8 @@
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_InfluenceBiocoding.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_StealFavor.cs" />
     <Compile Include="FloatMenuOptionProviders\FloatMenuOptionProvider_RaiseJusticiar.cs" />
+    <Compile Include="Harmony\CompGoldenCube_Patch.cs" />
+    <Compile Include="Harmony\IncidentWorker_SpecialTreeSpawn_Patch.cs" />
     <Compile Include="Harmony\Pawn_MutantTracker_Patch.cs" />
     <Compile Include="Harmony\Pawn_TrainableUtility_Patch.cs" />
     <Compile Include="Harmony\PregnancyUtility_Patch.cs" />
@@ -249,7 +256,9 @@
     <Compile Include="Harmony\InspirationWorker_Patch.cs" />
     <Compile Include="Harmony\MentalBreakWorker_Patch.cs" />
     <Compile Include="Harmony\GlowGrid_Patch.cs" />
+    <Compile Include="Harmony\CompDrug_Patch.cs" />
     <Compile Include="Harmony\ShotReport_Patch.cs" />
+    <Compile Include="Hediffs\Hediff_MirrorNecklace.cs" />
     <Compile Include="Hediffs\Hediff_Devotee.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_ContemplatingMurder.cs" />
     <Compile Include="Hediffs\Hediff_Ambition_CleansingFury.cs" />
@@ -273,6 +282,7 @@
     <Compile Include="Harmony\Pawn_TrainingTracker_Patches.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_AcolyteWhispers.cs" />
     <Compile Include="Inspirations\Inspiration_Justiciar_CommuneWithDarkness.cs" />
+    <Compile Include="Inspirations\Inspiration_Justiciar_ContemplateOrb.cs" />
     <Compile Include="Inspirations\Inspiration_Justiciar_SeekRepentance.cs" />
     <Compile Include="Inspirations\Inspiration_Justiciar_EmbraceScarcity.cs" />
     <Compile Include="Inspirations\Inspiration_Justiciar_BurnInLight.cs" />
@@ -282,12 +292,15 @@
     <Compile Include="Inspirations\Inspiration_Justiciar_InduceWithdrawal.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_Bondbreaker.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_EmbraceScarcity.cs" />
+    <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_ContemplateOrb.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_Kinslayer.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_InduceWithdrawal.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar_NoneInProgress.cs" />
     <Compile Include="InspirationWorkers\InspirationWorker_Justiciar.cs" />
     <Compile Include="Interfaces\IJusticiarMaintainable.cs" />
+    <Compile Include="JobDrivers\JobDriver_ContemplateOrb.cs" />
     <Compile Include="JobDrivers\JobDriver_AdmireSkull.cs" />
+    <Compile Include="JobDrivers\JobDriver_AbjureHarbinger.cs" />
     <Compile Include="JobDrivers\JobDriver_InfluenceBiocoding.cs" />
     <Compile Include="JobDrivers\JobDriver_InterrogateEntity.cs" />
     <Compile Include="JobDrivers\JobDriver_ShatterShard.cs" />
@@ -313,6 +326,7 @@
     <Compile Include="StatWorkers\StatParts\StatPart_WearingBlack.cs" />
     <Compile Include="StatWorkers\StatWorker_Justiciar.cs" />
     <Compile Include="Things\BlackVeil.cs" />
+    <Compile Include="Things\Building_JusticiarAltar.cs" />
     <Compile Include="ThoughtWorkers\ThoughtWorker_WearingColor_Black.cs" />
     <Compile Include="Utils\JDG_Utils.cs" />
     <Compile Include="Justiciars.cs" />
@@ -320,6 +334,7 @@
     <Compile Include="Utils\OfferingTargeting.cs" />
     <Compile Include="Utils\PerceptorTracker.cs" />
     <Compile Include="Utils\SmugglerNetwork.cs" />
+    <Compile Include="WorkGivers\WorkGiver_DoBill_Justiciar.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

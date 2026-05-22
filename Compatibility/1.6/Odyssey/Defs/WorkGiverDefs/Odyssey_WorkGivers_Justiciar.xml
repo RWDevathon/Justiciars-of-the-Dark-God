@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <WorkGiverDef>
+        <defName>JDG_WorkGiver_Justiciar_DoBills_Altar</defName>
+        <label>perform rites at justiciar altar</label>
+        <giverClass>ArtificialBeings.WorkGiver_DoBill_Justiciar</giverClass>
+        <workType>Art</workType>
+        <priorityInType>300</priorityInType>
+        <fixedBillGiverDefs>
+            <li>JDG_Thing_Justiciar_Altar</li>
+        </fixedBillGiverDefs>
+        <verb>perform rite at</verb>
+        <gerund>performing rite at</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+</Defs>

@@ -18,7 +18,7 @@ namespace ArtificialBeings
                 {
                     if (___def == MutantDefOf.AwokenCorpse)
                     {
-                        Hediff_Justiciar justiciarHediff = ___pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>();
+                        Hediff_Justiciar justiciarHediff = JDG_Utils.GetJusticiarHediff(___pawn);
                         if (justiciarHediff != null)
                         {
                             JDG_Utils.Justiciars.Remove(___pawn);

@@ -15,5 +15,8 @@ namespace ArtificialBeings
 
         [MayRequireIdeology]
         public static ThingDef ABF_Thing_Justiciar_CorruptedGauranlenSeed;
+
+        [MayRequireOdyssey]
+        public static ThingDef ABF_Thing_Justiciar_Orb;
     }
 }

@@ -32,4 +32,14 @@
         </value>
     </Operation>
 
+    <!-- The Harbinger tree needs to be able to be abjured -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Plant_TreeHarbinger"]/comps</xpath>
+        <value>
+            <li>
+                <compClass>ArtificialBeings.ThingComp_HarbingerTreeBanisher</compClass>
+            </li>
+        </value>
+    </Operation>
+
 </Patch>

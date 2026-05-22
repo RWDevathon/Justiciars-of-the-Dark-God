@@ -47,7 +47,7 @@ namespace ArtificialBeings
 
         public ITargetingSource DestinationSelector => null;
 
-        public bool HidePawnTooltips => false;
+        public bool HidePawnTooltips => true;
 
         // This one is responsible for whether the target is legal ever.
         public bool CanHitTarget(LocalTargetInfo target)
@@ -81,9 +81,36 @@ namespace ArtificialBeings
         public void OnGUI(LocalTargetInfo target)
         {
             Texture2D icon;
-            if (ValidateTarget(target))
+            if (ValidateTarget(target) && target.Thing is Pawn pawn)
             {
                 icon = TexCommand.Attack;
+                float favorToAward = 25f;
+                if (pawn.IsFreeNonSlaveColonist)
+                {
+                    favorToAward = 50f;
+                }
+
+                // Youths are worth vastly less as a base. They are too young and innocent to understand the depths of pain.
+                switch (pawn.DevelopmentalStage)
+                {
+                    case DevelopmentalStage.Newborn:
+                        favorToAward *= 0.05f;
+                        break;
+                    case DevelopmentalStage.Baby:
+                        favorToAward *= 0.1f;
+                        break;
+                    case DevelopmentalStage.Child:
+                        favorToAward *= 0.2f;
+                        break;
+                }
+
+                if (pawn.health.hediffSet.GetFirstHediff<Hediff_Devotee>() is Hediff_Devotee devoteeHediff)
+                {
+                    favorToAward += devoteeHediff.FavorCurrent;
+                }
+
+                string text = "JDG_OfferingFavorSingleConspirator".Translate(CasterPawn, favorToAward.ToString("F2"));
+                Widgets.MouseAttachedLabel(text);
             }
             else
             {

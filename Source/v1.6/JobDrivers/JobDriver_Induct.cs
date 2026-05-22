@@ -31,7 +31,7 @@ namespace ArtificialBeings
             {
                 Inductee.health.AddHediff(JDG_HediffDefOf.ABF_Hediff_Justiciar_ShadeSpirit);
             }
-            pawn.health.hediffSet.GetFirstHediff<Hediff_Justiciar>().NotifyFavorLost(costToInduct);
+            JDG_Utils.GetJusticiarHediff(pawn).NotifyFavorLost(costToInduct);
         }
     }
 }

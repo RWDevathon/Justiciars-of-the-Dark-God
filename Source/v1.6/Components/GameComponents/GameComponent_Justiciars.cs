@@ -6,19 +6,22 @@ namespace ArtificialBeings
 {
     public class GameComponent_Justiciars : GameComponent
     {
-        // HashSet of all known justiciars to be used for various lookups.
-        public HashSet<Pawn> allJusticiars = new HashSet<Pawn>();
+        // Dictionary of all known justiciars and their tracker hediff to be used for various lookups.
+        public Dictionary<Pawn, Hediff_Justiciar> allJusticiars = new Dictionary<Pawn, Hediff_Justiciar>();
 
-        // HashSet of all known acolytes to be used for various lookups.
-        public HashSet<Pawn> allAcolytes = new HashSet<Pawn>();
+        // Dictionary of all known acolytes and their tracker hediff to be used for various lookups.
+        public Dictionary<Pawn, Hediff_Acolyte> allAcolytes = new Dictionary<Pawn, Hediff_Acolyte>();
 
-        // HashSet of all known shadespirits to be used for various lookups.
-        public HashSet<Pawn> allShadeSpirits = new HashSet<Pawn>();
+        // Dictionary of all known shadespirits and their tracker hediff to be used for various lookups.
+        public Dictionary<Pawn, Hediff_ShadeSpirit> allShadeSpirits = new Dictionary<Pawn, Hediff_ShadeSpirit>();
 
         // This is the Menagerie Smuggler Network. It is only saved and referenced here - generated as needed and then saved from there.
         private SmugglerNetwork menagerieNetwork;
 
         public bool everSentMenagerieNotification = false;
+
+        // Int storing a tick. If the current game tick is less than this value, Anomaly Harbinger trees may not spawn via their normal incident.
+        public int tickProtectedAgainstHarbingerTreeSpawnsUntil = 0;
 
         public SmugglerNetwork MenagerieNetwork
         {
@@ -51,6 +54,7 @@ namespace ArtificialBeings
             base.ExposeData();
             Scribe_Deep.Look(ref menagerieNetwork, "JDG_menagerieNetwork");
             Scribe_Values.Look(ref everSentMenagerieNotification, "JDG_everSentMenagerieNotification");
+            Scribe_Values.Look(ref tickProtectedAgainstHarbingerTreeSpawnsUntil, "JDG_tickProtectedAgainstHarbingerTreeSpawnsUntil", 0);
         }
     }
 }
