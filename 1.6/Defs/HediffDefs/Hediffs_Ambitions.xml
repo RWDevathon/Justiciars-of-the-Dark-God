@@ -259,7 +259,7 @@
             <!-- Success state -->
             <li>
                 <minSeverity>0.6</minSeverity>
-                <overrideLabel>enlightened</overrideLabel>
+                <overrideLabel>euphoric</overrideLabel>
                 <overrideTooltip>Suffering so exquisitely can sharpen the mind, give one a sense of purpose, and harden the spirit.</overrideTooltip>
                 <statOffsets>
                     <GlobalLearningFactor>0.25</GlobalLearningFactor>
